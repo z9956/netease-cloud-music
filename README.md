@@ -4,8 +4,6 @@ https://binaryify.github.io/NeteaseCloudMusicApi/#/
 
 #目标
 先把pc端完成<br/>
-React + Typescript 
-先把pc端<br/>
 
 #技术栈
 webpack + React + Typescript<br/>
