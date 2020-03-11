@@ -20,7 +20,8 @@ module.exports = {
   devServer: {
     contentBase: './public', //开发服务器内容的基本路径
     hot: true, //模块热更新 HotModuleReplacementPlugin,
-    inline: true
+    inline: true,
+    historyApiFallback:true
   },
   resolve: {
     alias: {

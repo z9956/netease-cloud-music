@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 
-import Demo from "@/pages/index";
+
+import App from '@/pages/App';
+
 
 ReactDOM.render(
-    <Demo/>,
-    document.getElementById('root')
+    <App/>,
+    document.getElementById( 'root' )
 );
 serviceWorker.unregister();
