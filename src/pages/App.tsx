@@ -1,14 +1,14 @@
 import { HashRouter, Redirect, Route, Switch } from "react-router-dom";
 import React, { lazy } from "react";
 
-import Home from "@/pages/index";
+import Home from "@/pages/Home";
 
 const App = () => {
   return (
       <HashRouter>
         <Switch>
-          <Route path={ '/home' } component={ Home }></Route>
-          <Route path={ '/' } component={ Home }></Route>
+          <Route path={ '/Home' } component={ Home }></Route>
+          <Route path={ '/' }  exact component={ Home }></Route>
           <Redirect to={ '/' }/>
         </Switch>
       </HashRouter>

@@ -12,7 +12,7 @@ module.exports = {
   mode: 'development', //production环境自动压缩代码
   //入口
   entry: {
-    app: './src/index.tsx'
+    app: './src/Home.tsx'
   },
   //启用源映射
   devtool: 'source-map',
@@ -62,14 +62,14 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: './css/[name][hash:7]index.css',
+      filename: './css/[name][hash:7]Home.css',
       chunkFilename: '[id].css'
     }),
     new webpack.HotModuleReplacementPlugin(),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: '网易云音乐',
-      template: './public/index.html'
+      template: './public/Home.html'
     })
   ],
   //输出
