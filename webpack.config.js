@@ -3,7 +3,6 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin'); //生成html模板
 const CleanWebpackPlugin = require('clean-webpack-plugin').CleanWebpackPlugin; //清除打包文件
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); //提取生产css
-// const UglifyJsPlugin = require('uglifyjs-webpack-plugin'); //压缩代码
 
 const devMode = process.env.NODE_ENV !== 'production';
 
@@ -32,16 +31,16 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(png|jpg|gif)$/,
+        test: /\.(png|jpg|gif|eot|svg|ttf|woff|woff2|json)$/,
         use: {
           loader: 'file-loader',
           options: {
-            outputPath: 'images/'
+            outputPath: 'assets/'
           }
         }
       },
       {
-        test: /\.s[ac]ss$/,
+        test: /\.s?css$/,
         //生产环境抽离css
         use: [
           devMode ? 'style-loader' : MiniCssExtractPlugin.loader,

@@ -1,0 +1,10 @@
+@mixin flex($align-items: center, $justify-content: space-between) {
+  display: flex;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+@mixin ellipsis() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

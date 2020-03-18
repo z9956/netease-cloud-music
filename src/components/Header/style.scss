@@ -1,0 +1,38 @@
+@import '../../static/css/mixins.scss';
+.topbar {
+  color: white;
+  .wrap {
+    width: 100%;
+    background-color: #242424;
+  }
+  .wrap:last-child{
+    background-color: #C20C0C;
+  }
+  .nav-top {
+    width: 1100px;
+    @include flex();
+    .logo {
+      width: 176px;
+      height: 69px;
+      background: url('../../static/images/topbar.png') no-repeat;
+    }
+    .nav {
+      @include flex();
+      >li {
+        width: 94px;
+        height: 70px;
+      }
+    }
+    .search {
+      width: 158px;
+      height: 32px;
+      border-radius: 32px;
+    }
+  }
+  .sub-nav {
+    width: 1100px;
+    >.nav-list {
+      @include flex();
+    }
+  }
+}
