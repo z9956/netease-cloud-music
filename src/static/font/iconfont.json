@@ -6,6 +6,62 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "669333",
+      "name": "等级",
+      "font_class": "dengji",
+      "unicode": "e6cf",
+      "unicode_decimal": 59087
+    },
+    {
+      "icon_id": "1647088",
+      "name": "个人设置",
+      "font_class": "shezhi",
+      "unicode": "e652",
+      "unicode_decimal": 58962
+    },
+    {
+      "icon_id": "3057431",
+      "name": "邮件",
+      "font_class": "youjian",
+      "unicode": "e64f",
+      "unicode_decimal": 58959
+    },
+    {
+      "icon_id": "7575633",
+      "name": "退出",
+      "font_class": "tuichu",
+      "unicode": "e74d",
+      "unicode_decimal": 59213
+    },
+    {
+      "icon_id": "8372350",
+      "name": "实名认证",
+      "font_class": "shimingrenzheng",
+      "unicode": "e718",
+      "unicode_decimal": 59160
+    },
+    {
+      "icon_id": "12202971",
+      "name": "会员",
+      "font_class": "333333-copy",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    },
+    {
+      "icon_id": "13057892",
+      "name": "用户",
+      "font_class": "min7",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "11586861",
+      "name": "搜索--1",
+      "font_class": "xingtaiduICON_sousuo---copy",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
       "icon_id": "644485",
       "name": "专辑",
       "font_class": "zhuanji",

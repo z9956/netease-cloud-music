@@ -1,20 +1,9 @@
 import React, { Component } from 'react';
-import { HashRouter, Router, Route, Switch, Link } from 'react-router-dom';
-
-
-import './style.scss';
-import a from '@/static/images/galsang.png';
 
 import Header from '@/components/Header';
+import './style.scss';
 
 
-type HomeComponentStateType = {
-  navList: Array<{
-    name: string,
-    path?: string
-  }>,
-  subNav: object[]
-};
 
 class Home extends Component<any, any> {
   constructor(props: any) {
@@ -32,6 +21,18 @@ class Home extends Component<any, any> {
         {
           name: '朋友',
           path: '/friend'
+        },
+        {
+          name: '商城',
+          path: 'https://music.163.com/store/product'
+        },
+        {
+          name: '音乐人',
+          path: 'https://music.163.com/nmusician/web/index#/'
+        },
+        {
+          name: '下载客户端',
+          path: 'https://music.163.com/#/download'
         }
       ],
       subNav: [
@@ -46,35 +47,11 @@ class Home extends Component<any, any> {
   }
 
   render() {
-    const { history } = this.props;
     const { navList, subNav } = this.state;
     return (
         <div>
           <Header navList={ navList } subNav={ subNav }></Header>
         </div>
-        // <div className='list'>
-        //   测试123
-        //   <img width='40' height='40' src={ a } alt=""/>
-        //   <Router history={ history }>
-        //     <ul>
-        //       <li>
-        //         <Link to={ '/a' }>a</Link>
-        //       </li>
-        //       <li>
-        //         <Link to={ '/b' }>b</Link>
-        //       </li>
-        //     </ul>
-        //   </Router>
-        //
-        //
-        //   <HashRouter>
-        //     <Switch>
-        //       <Route path={ '/a' } component={ PageA }></Route>
-        //       <Route path={ '/b' } component={ PageB }></Route>
-        //       {/*<Redirect to={'/'}/>*/ }
-        //     </Switch>
-        //   </HashRouter>
-        // </div>
     );
   }
 }

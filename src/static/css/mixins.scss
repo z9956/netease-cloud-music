@@ -1,4 +1,4 @@
-@mixin flex($align-items: center, $justify-content: space-between) {
+@mixin flex($justify-content: space-between, $align-items: center ) {
   display: flex;
   justify-content: $justify-content;
   align-items: $align-items;
@@ -7,4 +7,15 @@
 @mixin ellipsis() {
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+@mixin text-center($line-height: 34px, $text-align: center) {
+  text-align: center;
+  line-height: $line-height;
+}
+
+@mixin position($position: relative, $top: 0, $left: 0){
+  position: $position;
+  top: $top;
+  left: $left;
 }

@@ -1,9 +1,8 @@
 import React, { ChangeEvent, FC, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-
+import { getKeywords } from '@/apis/home';
 import './style.scss';
-import Logo from '../../static/images/topbar.png';
 
 
 type HeaderComponentPropType = {
@@ -17,13 +16,17 @@ type HeaderComponentPropType = {
   }>
 };
 
-
 const Header: FC<HeaderComponentPropType> = (props) => {
   const { navList, subNav } = props;
-  const [ searchVal, setSearchVal ] = useState( '' );
+  const [ keywords, setKeywords ] = useState( '' );
+  const [ results, setSesults ] = useState( '' );
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
-    console.log( e );
+    const { value } = e.target;
+    setKeywords( value );
+    getKeywords( keywords ).then( res => {
+      console.log( res );
+    } );
   };
 
   return (
@@ -35,18 +38,18 @@ const Header: FC<HeaderComponentPropType> = (props) => {
               {
                 navList && navList.map( (item) => {
 
-                  return <li className='a' key={ item.name }>{ item.name }</li>
-                      ;
+                  return <li className='a' key={ item.name }>{ item.name }</li>;
                 } )
               }
             </ul>
             <div className='search'>
               <div className="search-input">
-                <input type="text" placeholder={ '音乐/视频/电台/用户' } onChange={ handleSearch }/>
+                <i className={ 'iconfont icon-xingtaiduICON_sousuo---copy' }></i>
+                <input type="text" placeholder={ '音乐/视频/电台/用户' } onChange={ handleSearch } defaultValue={ keywords }/>
               </div>
-              <div className="result">
+              <div className="result" style={ { display: keywords.length ? 'block' : 'none' } }>
                 <p>
-                  <Link to={'/search/?s=赵雷'}>搜"赵雷"相关用户 ></Link>
+                  <Link to={ '/search/?s=赵雷' }>搜"赵雷"相关用户 ></Link>
                 </p>
                 <div className="item-wrap">
                   <div className="item">
@@ -61,40 +64,44 @@ const Header: FC<HeaderComponentPropType> = (props) => {
                 </div>
               </div>
             </div>
-            <p>创作者中心</p>
+            <p className="creator">创作者中心</p>
             <div className='user-info'>
               <div className="photos">
                 <img src="http://p4.music.126.net/NWbMq8btqZAlEG9SMT4uGA==/1376588559261305.jpg?param=30y30" alt=""/>
               </div>
-              <div className="user-list">
+              <ul className="user-list">
                 <li>
-                  <i></i>
+                  <i className='iconfont icon-min7'></i>
                   <em>我的主页</em>
                 </li>
                 <li>
-                  <i></i>
-                  <em>我的主页</em>
+                  <i className='iconfont icon-youjian'></i>
+                  <em>我的消息</em>
                 </li>
                 <li>
-                  <i></i>
-                  <em>我的主页</em>
+                  <i className='iconfont icon-dengji'></i>
+                  <em>我的等级</em>
                 </li>
                 <li>
-                  <i></i>
-                  <em>我的主页</em>
+                  <i className='iconfont icon-333333-copy'></i>
+                  <em>VIP会员</em>
                 </li>
                 <li>
-                  <i></i>
-                  <em>我的主页</em>
+                  <i className='iconfont icon-shimingrenzheng'></i>
+                  <em>实名认证</em>
                 </li>
-              </div>
+                <li>
+                  <i className='iconfont icon-tuichu'></i>
+                  <em>退出</em>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
         <div className="wrap">
           <div className="sub-nav margin">
             <div className="nav">
-              <ul className="nav-list">
+              <ul className="nav-list margin">
                 { subNav && subNav.map( item => {
                   return <li key={ item.name }>{ item.name }</li>;
                 } ) }
