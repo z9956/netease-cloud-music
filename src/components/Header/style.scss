@@ -55,6 +55,11 @@
         >p a {
           color: #666;
         }
+        .item-wrap {
+          .item {
+            @include flex(space-between);
+          }
+        }
       }
     }
     .creator {

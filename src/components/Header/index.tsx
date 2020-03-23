@@ -2,6 +2,7 @@ import React, { ChangeEvent, FC, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { getKeywords } from '@/apis/home';
+import { resultsType } from '@/types/home';
 import './style.scss';
 
 
@@ -16,18 +17,36 @@ type HeaderComponentPropType = {
   }>
 };
 
+
 const Header: FC<HeaderComponentPropType> = (props) => {
   const { navList, subNav } = props;
-  const [ keywords, setKeywords ] = useState( '' );
-  const [ results, setSesults ] = useState( '' );
+  const [ keywords, setKeywords ] = useState<string>( '' );
+  const [ results, setResults ] = useState<resultsType>( {
+    albums: [], artists: [], mvs: [], songs: [], order: []
+  } );
 
-  const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleSearch = async(e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
-    setKeywords( value );
+    setKeywords( value.replace( /(^\s+)|(\s+$)/g, '' ) );
+
+    if ( !keywords.length ) return;
+
     getKeywords( keywords ).then( res => {
-      console.log( res );
+      if ( res.data.code === 200 ) {
+        setResults( res.data.result );
+        console.log( results );
+      }
     } );
   };
+  const getIcon = (key: string) => (
+      // let icons = [];
+      // let icons = [];
+
+      <>
+        <i className='iconfont icon-geshou'></i>
+        <em>{ key }</em>
+      </>
+  );
 
   return (
       <div className='topbar'>
@@ -52,15 +71,25 @@ const Header: FC<HeaderComponentPropType> = (props) => {
                   <Link to={ '/search/?s=赵雷' }>搜"赵雷"相关用户 ></Link>
                 </p>
                 <div className="item-wrap">
-                  <div className="item">
-                    <div className="item-left">
-                      <i className='iconfont icon-geshou'></i>
-                      <em>歌手</em>
-                    </div>
-                    <ul className="item-right">
-                      <li>赵雷</li>
-                    </ul>
-                  </div>
+                  {
+                    results && results.order.map( key => {
+                      // @ts-ignore
+                      return <div className="item" key={ key }>
+                        <div className="item-left">
+                          <i className='iconfont icon-geshou'></i>
+                          <em>{ key }</em>
+                        </div>
+                        <ul className="item-right">
+                          {
+                            // @ts-ignore
+                            results[key].map( (item, index) => {
+                              return <li key={ item.id }>{ item.name }</li>;
+                            } )
+                          }
+                        </ul>
+                      </div>;
+                    } )
+                  }
                 </div>
               </div>
             </div>
