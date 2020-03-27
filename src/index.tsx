@@ -8,7 +8,7 @@ import App from '@/pages/App';
 
 
 ReactDOM.render(
-    <App/>,
-    document.getElementById( 'root' )
+  <App />,
+  document.getElementById('root'),
 );
 serviceWorker.unregister();
