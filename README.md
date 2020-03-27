@@ -8,4 +8,4 @@ https://binaryify.github.io/NeteaseCloudMusicApi/#/
 #技术栈
 webpack + React + Typescript<br/>
 
-项目用webpack搭建，因为就练习用，只配置了开发环境的设置<br/> 
+项目用webpack搭建，只配置了开发环境的设置<br/> 
