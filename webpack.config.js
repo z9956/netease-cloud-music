@@ -37,17 +37,17 @@ module.exports = {
           loader: 'babel-loader',
         },
       },
-      {
-        enforce: 'pre',
-        test: /\.(js|jsx|ts|tsx)$/,
-        exclude: /node_modules/,
-        loader: 'eslint-loader',
-        options: {
-          emitWarning: true,
-          emitError: true,
-          fix: true,
-        },
-      },
+      // {
+      //   enforce: 'pre',
+      //   test: /\.(js|jsx|ts|tsx)$/,
+      //   exclude: /node_modules/,
+      //   loader: 'eslint-loader',
+      //   options: {
+      //     emitWarning: true,
+      //     emitError: true,
+      //     fix: true,
+      //   },
+      // },
       {
         test: /\.(png|jpg|gif|eot|svg|ttf|woff|woff2|json)$/,
         use: {
