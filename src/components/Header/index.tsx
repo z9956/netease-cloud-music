@@ -20,30 +20,30 @@ type HeaderComponentPropType = {
 
 const Header: FC<HeaderComponentPropType> = (props) => {
   const { navList, subNav } = props;
-  const [ keywords, setKeywords ] = useState<string>( '' );
-  const [ results, setResults ] = useState<resultsType>( {
+  const [ keywords, setKeywords ] = useState<string>('');
+  const [ results, setResults ] = useState<resultsType>({
     albums: [], artists: [], mvs: [], songs: [], order: []
-  } );
+  });
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
-    setKeywords( value.replace( /(^\s+)|(\s+$)/g, '' ) );
+    setKeywords(value.replace(/(^\s+)|(\s+$)/g, ''));
 
-    if ( !keywords.length ) return;
+    if(!keywords.length) return;
 
-    getKeywords( keywords ).then( (res) => {
-      if ( res.data.code === 200 ) {
-        setResults( res.data.result );
-        console.log( results );
+    getKeywords(keywords).then((res) => {
+      if(res.data.code === 200) {
+        setResults(res.data.result);
       }
-    } );
+    });
   };
   const getIcon = (key: string) => {
     let icons: { [key: string]: any } = {
-      artists: ['icon-geshou', '歌手'],
-      songs: ['icon-yinle', '单曲'],
-      albums: ['icon-zhuanji', '专辑'],
-      mvs: ['icon-shipin', '视频']
+      artists: [ 'icon-geshou', '歌手' ],
+      songs: [ 'icon-yinle', '单曲' ],
+      albums: [ 'icon-zhuanji', '专辑' ],
+      mvs: [ 'icon-shipin', '视频' ],
+      playlists: [ 'icon-gedan', '歌单' ],
     };
 
     if(!icons[key]) return;
@@ -53,7 +53,33 @@ const Header: FC<HeaderComponentPropType> = (props) => {
           <i className={ `iconfont ${ icons[key][0] }` }/>
           <em>{ icons[key][1] }</em>
         </>
-    )
+    );
+  };
+
+  const liElent = (item: { [key: string]: any }, key: string) => {
+    if(!item) return;
+    let  artist  = item?.artists || item?.artist;
+    switch(key) {
+      case 'artists':
+        return <li key={ item.id } className='ellipsis'><span className='name'>{ item.name } </span></li>;
+      case 'mvs':
+        return <li key={ item.id } className='ellipsis'>
+                 <span>{ `MV:${ item.name }-` } </span>
+                 <span className='name'>{ item.artistName } </span>
+              </li>;
+      case 'songs':
+        return <li key={ item.id }  className='ellipsis'>
+                  <span>{ `${ item.name }-` } </span>
+                  <span className='name'>{ artist[0].name } </span>
+                </li>;
+      case 'albums':
+        return <li key={ item.id }  className='ellipsis'>
+                <span>{ `${ item.name }-` } </span>
+                <span className='name'>{ artist.name } </span>
+              </li>;
+      default:
+        return <li key={ item.id } className='ellipsis'><span className='name'>{ item.name } </span></li>;
+    }
   };
 
   return (
@@ -63,7 +89,7 @@ const Header: FC<HeaderComponentPropType> = (props) => {
             <h1 className="logo"/>
             <ul className="nav">
               {
-                navList && navList.map( (item) => <li className="a" key={ item.name }>{ item.name }</li> )
+                navList && navList.map((item) => <li className="a" key={ item.name }>{ item.name }</li>)
               }
             </ul>
             <div className="search">
@@ -78,7 +104,7 @@ const Header: FC<HeaderComponentPropType> = (props) => {
                 <div className="item-wrap">
                   {
                     // @ts-ignore
-                    results && results.order.map( key => {
+                    results && results.order?.map(key => {
                       return <div className="item" key={ key }>
                         <div className="item-left">
                           { getIcon(key) }
@@ -86,13 +112,13 @@ const Header: FC<HeaderComponentPropType> = (props) => {
                         <ul className="item-right">
                           {
                             // @ts-ignore
-                            results[key].map( (item, index) => {
-                            return <li key={ item.id }>{ item.name }</li>;
-                          })
+                            results[key].map(item => {
+                              return liElent(item, key);
+                            })
                           }
                         </ul>
                       </div>;
-                    } )
+                    })
                   }
                 </div>
               </div>
@@ -135,7 +161,7 @@ const Header: FC<HeaderComponentPropType> = (props) => {
           <div className="sub-nav margin">
             <div className="nav">
               <ul className="nav-list margin">
-                { subNav && subNav.map( (item) => <li key={ item.name }>{ item.name }</li> ) }
+                { subNav && subNav.map((item) => <li key={ item.name }>{ item.name }</li>) }
               </ul>
             </div>
           </div>
