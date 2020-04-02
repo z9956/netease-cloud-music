@@ -1,3 +1,4 @@
+//Header
 export type artistType = {
   id: number,
   name: string,
@@ -118,5 +119,36 @@ export type resultsType = {
         check: boolean
       }>
     }
+  }>
+};
+
+//Banner
+export type bannersType = {
+  banners: Array<{
+    imageUrl: string,
+    targetId: number,
+    adid: string | null,
+    targetType: number,
+    titleColor: string,
+    typeTitle: string,
+    url: string | null,
+    exclusive: boolean,
+    monitorImpress: string | null,
+    monitorClick: string | null,
+    monitorType: string | null,
+    monitorImpressList: string | null,
+    monitorClickList: string | null,
+    monitorBlackList: string | null,
+    extMonitor: string | null,
+    extMonitorInfo: string | null,
+    adSource: string | null,
+    adLocation: string | null,
+    adDispatchJson: string | null,
+    encodeId: string,
+    program: string | null,
+    event: string | null,
+    video: string | null,
+    song: string | null,
+    scm: string
   }>
 };

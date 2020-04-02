@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
 import Header from '@/components/Header';
+import Banner from '@/components/Banner';
+import { getBanner } from '@/apis/home';
 import './style.scss';
 
 
@@ -42,14 +44,23 @@ class Home extends Component<any, any> {
         { name: '歌手', path: '/discover/artist' },
         { name: '新碟上架', path: '/discover/album' },
       ],
+      banners: {}
     };
+  }
+  componentDidMount(): void {
+    getBanner().then(res => {
+      if(res.status === 200 && res.data.code === 200) {
+        this.setState({ banners: res.data.banners });
+      }
+    });
   }
 
   render() {
-    const { navList, subNav } = this.state;
+    const { navList, subNav, banners } = this.state;
     return (
       <div>
-        <Header navList={navList} subNav={subNav} />
+        <Header navList={ navList } subNav={ subNav } />
+        <Banner banners={ banners }></Banner>
       </div>
     );
   }

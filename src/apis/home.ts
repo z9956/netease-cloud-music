@@ -20,7 +20,7 @@ export const getArtistSongs = (id: string) => http.get(`/artist/top/song?id=${ i
  * 2: iphone
  * 3: ipad
  * */
-export const getBanner = (type?: number) => http.get(`/artist/top/song?id=${ type }`);
+export const getBanner = (type: number = 0) => http.get(`/banner?type=${ type }`);
 
 /**
  * 推荐歌单
