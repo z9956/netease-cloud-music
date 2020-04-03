@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 
 import Header from '@/components/Header';
 import Banner from '@/components/Banner';
-import { getBanner } from '@/apis/home';
+import Hot from '@/components/Hot';
+import { HomeComponentStateType } from '@/types/home';
+import { getBanner, getRecommendPlaylists } from '@/apis/home';
 import './style.scss';
 
 
-class Home extends Component<any, any> {
+
+class Home extends Component<{}, HomeComponentStateType> {
   constructor(props: any) {
     super(props);
     this.state = {
@@ -44,23 +47,30 @@ class Home extends Component<any, any> {
         { name: '歌手', path: '/discover/artist' },
         { name: '新碟上架', path: '/discover/album' },
       ],
-      banners: {}
+      banners: [],
+      result: []
     };
   }
   componentDidMount(): void {
     getBanner().then(res => {
-      if(res.status === 200 && res.data.code === 200) {
+      if(res.data.code === 200) {
         this.setState({ banners: res.data.banners });
+      }
+    });
+    getRecommendPlaylists().then(res => {
+      if(res.data.code === 200) {
+        this.setState({result: res.data.result});
       }
     });
   }
 
   render() {
-    const { navList, subNav, banners } = this.state;
+    const { navList, subNav, banners, result } = this.state;
     return (
       <div>
         <Header navList={ navList } subNav={ subNav } />
         <Banner banners={ banners }></Banner>
+        <Hot result={ result }></Hot>
       </div>
     );
   }

@@ -2,23 +2,10 @@ import React, { ChangeEvent, FC, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { getKeywords } from '@/apis/home';
-import { resultsType } from '@/types/home';
+import { resultsType, navListType } from '@/types/home';
 import './style.scss';
 
-
-type HeaderComponentPropType = {
-  navList: Array<{
-    name: string,
-    path: string
-  }>,
-  subNav: Array<{
-    name: string,
-    path: string
-  }>
-};
-
-
-const Header: FC<HeaderComponentPropType> = (props) => {
+const Header: FC<navListType> = (props) => {
   const { navList, subNav } = props;
   const [ keywords, setKeywords ] = useState<string>('');
   const [ results, setResults ] = useState<resultsType>({

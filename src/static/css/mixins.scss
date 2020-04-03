@@ -14,8 +14,10 @@
   line-height: $line-height;
 }
 
-@mixin position($position: relative, $top: 0, $left: 0){
+@mixin position($position: relative, $top: 0, $left: 0, $bottom: none, $right: none){
   position: $position;
   top: $top;
   left: $left;
+  bottom: $bottom;
+  right: $right;
 }

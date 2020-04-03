@@ -6,6 +6,27 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "4931652",
+      "name": "向右",
+      "font_class": "xiangyou",
+      "unicode": "e629",
+      "unicode_decimal": 58921
+    },
+    {
+      "icon_id": "5203322",
+      "name": "圆圈",
+      "font_class": "yuanquan",
+      "unicode": "e63e",
+      "unicode_decimal": 58942
+    },
+    {
+      "icon_id": "7315895",
+      "name": "播放",
+      "font_class": "bofang",
+      "unicode": "e634",
+      "unicode_decimal": 58932
+    },
+    {
       "icon_id": "7404575",
       "name": "左",
       "font_class": "zuo",

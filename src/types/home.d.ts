@@ -122,6 +122,35 @@ export type resultsType = {
   }>
 };
 
+export type navListType = {
+  navList: Array<{
+    name: string,
+    path: string
+  }>,
+  subNav: Array<{
+    name: string,
+    path: string
+  }>
+};
+
+export type hotResultType = {
+  result: Array<{
+    id: number,
+    type: number,
+    name: string,
+    copywriter: string,
+    picUrl: string,
+    canDislike: boolean,
+    trackNumberUpdateTime: number,
+    playCount: number,
+    trackCount: number,
+    highQuality: boolean,
+    alg: string
+  }>
+};
+
+export type HomeComponentStateType = navListType & bannersType & hotResultType;
+
 //Banner
 export type bannersType = {
   banners: Array<{

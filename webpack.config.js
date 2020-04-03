@@ -87,6 +87,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: '网易云音乐',
       template: './public/index.html',
+      favicon: './src/static/images/favicon.ico'
     }),
   ],
   // 输出
