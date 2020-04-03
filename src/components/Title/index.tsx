@@ -1,12 +1,18 @@
 import React, { FC } from 'react';
 
-import { hotResultType } from '@/types/home';
+type TitleComponentPropType = {
+  title: string,
+  list?: Array<string>,
+  path: string
+};
 import './style.scss';
 
-const Title: FC<hotResultType> = (props) => {
-  const { result } = props;
+const Title: FC<TitleComponentPropType> = (props) => {
+  const { title, list, path } = props;
   return(
-      <div className="hot-wrap"></div>
+      <div className="title-wrap">
+
+      </div>
   );
 };
 
