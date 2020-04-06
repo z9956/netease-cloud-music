@@ -1,9 +1,9 @@
 import { http } from './axios';
 
 /**
-* 关键字搜索
-* @param { string } keywords 关键字
-* */
+ * 关键字搜索
+ * @param { string } keywords 关键字
+ * */
 export const getKeywords = (keywords: string) => http.get(`/search/suggest?keywords=${ keywords }`);
 
 /**
@@ -27,3 +27,24 @@ export const getBanner = (type: number = 0) => http.get(`/banner?type=${ type }`
  * @param { number } limit 去除数量，默认为30(不支持offset)
  * */
 export const getRecommendPlaylists = (limit: number = 8) => http.get(`/personalized?limit=${ limit }`);
+
+/**
+ * 歌单(网友精选碟)
+ * @param { string } cat 歌单tag
+ * @param { string } order new | hot
+ * @param { number } limit 数量
+ * @param params
+ * */
+export const getPlaylist = (
+    params: {
+      cat: string;
+      limit: number;
+      orader?: string;
+    }) => {
+  return http.get(`/top/playlist`, { params });
+};
+
+/**
+ * 获取歌单分类,包含 category 信息
+ * */
+export const getHotPlaylist = () => http.get(`/playlist/hot`);

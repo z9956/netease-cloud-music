@@ -70,7 +70,9 @@ class Home extends Component<{}, HomeComponentStateType> {
       <div>
         <Header navList={ navList } subNav={ subNav } />
         <Banner banners={ banners }></Banner>
-        <Hot result={ result }></Hot>
+        <div className="cont margin">
+          <Hot result={ result }></Hot>
+        </div>
       </div>
     );
   }
