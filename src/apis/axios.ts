@@ -4,7 +4,7 @@ export const baseUrl = process.env.NODE_ENV === 'development' ? 'http://localhos
 
 export const http = axios.create({
   baseURL: baseUrl,
-  timeout: 5000,
+  // timeout: 10000,
   // headers: {
   //   'Content-Type': 'application/json; charset=utf-8'
   // }

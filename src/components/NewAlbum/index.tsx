@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC,  useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { newAlbumAlbumsType } from '@/types/home';
@@ -10,32 +10,44 @@ import cover from  '@/static/images/topbar.png';
 
 const NewAlbum: FC<any> = (props) => {
   const { albums } = props;
-  const [ index, setIndex ] = useState<number>(0);
+  const [ width, setWidth ] = useState<number>(0);
+  const [ left, setLeft ] = useState<number>(0);
+  const banner = useRef<HTMLUListElement>(null) ;
 
   const handleLeftBtn = () => {
-
+    let offsetWidth = banner.current ? banner.current.offsetWidth : 0;
+    let offsetLeft = banner.current ? banner.current.offsetLeft : 0;
+    let newLeft = left - (offsetWidth / 3);
+    if(left < offsetLeft) newLeft = -980;
+    setLeft(newLeft);
+    console.log(left, offsetLeft);
   };
 
   const handleRightBtn = () => {
-
+    let offsetWidth = banner.current ? banner.current.offsetWidth : 0;
+    let offsetLeft = banner.current ? banner.current.offsetLeft : 0;
+    let newLeft = left + (offsetWidth / 3);
+    if(newLeft >= offsetLeft) newLeft = 0;
+    setLeft(newLeft);
   };
 
   return (
       <div className="new-album">
         <Title info={ { title: '新碟上架', path: '/discover/album' } }/>
         <div className="album-banner">
-          <div className="album"  style={ { backgroundImage: `url(${ cover })`}}>
-            <ul>
+          <div className="album" style={ { left: left } }>
+            <ul ref={ banner }>
               { albums && albums.map((item: any) => {
                 return <li key={ item.id }>
                   <div className="albums-item">
                     <img src={ item.picUrl } alt=""/>
+                    <div></div>
                   </div>
-                  <p className="ellipsis">
-                    <Link to={ `/album?id=${ item.id } `}>{ item.name }</Link>
+                  <p>
+                    <Link  className="ellipsis" to={ `/album?id=${ item.id } `}>{ item.name }</Link>
                   </p>
-                  <p className="ellipsis">
-                    <Link to={ `/album?id=${ item.id } `}>{ item?.artists.name }</Link>
+                  <p>
+                    <Link  className="ellipsis" to={ `/album?id=${ item.id } `}>{ item?.artists.name }</Link>
                   </p>
                 </li>;
               }) }

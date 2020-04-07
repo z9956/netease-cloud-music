@@ -22,7 +22,7 @@ const Discover: FC<DiscoverComponentPropType> = (props) => {
   return (
       <div className="discover-wrap">
         <Hot result={ result }/>
-        <NewAlbum newAlbums={ albums }/>
+        <NewAlbum albums={ albums }/>
       </div>
   );
 };
