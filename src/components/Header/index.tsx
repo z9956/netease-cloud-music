@@ -1,7 +1,7 @@
 import React, { ChangeEvent, FC, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { getKeywords } from '@/apis/home';
+import { getKeywordsService } from '@/service/homeService';
 import { resultsType, navListType } from '@/types/home';
 import './style.scss';
 
@@ -18,11 +18,7 @@ const Header: FC<navListType> = (props) => {
 
     if(!keywords.length) return;
 
-    getKeywords(keywords).then((res) => {
-      if(res.data.code === 200) {
-        setResults(res.data.result);
-      }
-    });
+    getKeywordsService(keywords).then((result) => setResults(result));
   };
   const getIcon = (key: string) => {
     let icons: { [key: string]: any } = {

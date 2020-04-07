@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 
 import Header from '@/components/Header';
 import Banner from '@/components/Banner';
-import Hot from '@/components/Hot';
+import Didcover from '@/components/Discover';
 import { HomeComponentStateType } from '@/types/home';
-import { getBanner, getRecommendPlaylists } from '@/apis/home';
+import { getBannerService } from '@/service/homeService';
 import './style.scss';
 
 
@@ -47,31 +47,21 @@ class Home extends Component<{}, HomeComponentStateType> {
         { name: '歌手', path: '/discover/artist' },
         { name: '新碟上架', path: '/discover/album' },
       ],
-      banners: [],
-      result: []
+      banners: []
     };
   }
   componentDidMount(): void {
-    getBanner().then(res => {
-      if(res.data.code === 200) {
-        this.setState({ banners: res.data.banners });
-      }
-    });
-    getRecommendPlaylists().then(res => {
-      if(res.data.code === 200) {
-        this.setState({result: res.data.result});
-      }
-    });
+    getBannerService().then(banners => this.setState({ banners }));
   }
 
   render() {
-    const { navList, subNav, banners, result } = this.state;
+    const { navList, subNav, banners } = this.state;
     return (
       <div>
         <Header navList={ navList } subNav={ subNav } />
         <Banner banners={ banners }></Banner>
         <div className="cont margin">
-          <Hot result={ result }></Hot>
+          <Didcover/>
         </div>
       </div>
     );

@@ -132,24 +132,74 @@ export type navListType = {
     path: string
   }>
 };
-
 export type hotResultType = {
-  result: Array<{
-    id: number,
-    type: number,
-    name: string,
-    copywriter: string,
-    picUrl: string,
-    canDislike: boolean,
-    trackNumberUpdateTime: number,
-    playCount: number,
-    trackCount: number,
-    highQuality: boolean,
-    alg: string
-  }>
+  result: Array<resultType> | undefined
+};
+export type resultType = {
+  id: number,
+  type: number,
+  name: string,
+  copywriter: string,
+  picUrl: string,
+  canDislike: boolean,
+  trackNumberUpdateTime: number,
+  playCount: number,
+  trackCount: number,
+  highQuality: boolean,
+  alg: string
 };
 
-export type HomeComponentStateType = navListType & bannersType & hotResultType;
+export type newAlbumArtistsType = {
+  img1v1Id: number,
+  topicPerson: number,
+  alias: Array<string>,
+  picId: number,
+  musicSize: number,
+  albumSize: number,
+  briefDesc: string,
+  followed: false
+  img1v1Url: string,
+  trans: string,
+  picUrl: string,
+  name: string,
+  id: number,
+  img1v1Id_str: string
+};
+
+export type newAlbumAlbumsType = {
+  songs: Array<string> | [],
+  paid: boolean,
+  onSale: boolean,
+  mark: number,
+  alias: Array<string> | [],
+  artists: Array<newAlbumArtistsType>,
+  copyrightId: number,
+  picId: number,
+  artist: Array<newAlbumArtistsType>,
+  briefDesc: string,
+  publishTime: number,
+  company: string,
+  commentThreadId: string,
+  picUrl: string,
+  blurPicUrl: string,
+  companyId: number,
+  pic: number,
+  tags: string,
+  status: number,
+  subType: string,
+  description: string,
+  name: string,
+  id: number,
+  type: string,
+  size: number,
+  picId_str: string
+};
+
+export type newAlbumType = {
+  albums: Array<newAlbumAlbumsType>
+};
+
+export type HomeComponentStateType = navListType & bannersType;
 
 //Banner
 export type bannersType = {

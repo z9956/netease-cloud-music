@@ -97,6 +97,13 @@ html,body{
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+.multi-row-ellipsis{
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
 
 .paddingTop{
     padding-top: 1.95rem;

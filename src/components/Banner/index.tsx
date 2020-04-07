@@ -45,7 +45,7 @@ const Banner: FC<bannersType> = (props) => {
               {
                 banners && banners.map((imgInfo, index) => {
                   return <img className={ index === checkIndex ? 'active' : '' } src={ imgInfo.imageUrl }
-                              key={ imgInfo.targetId } alt=""/>;
+                              key={ imgInfo.imageUrl } alt=""/>;
                 })
               }
             </div>
@@ -54,7 +54,7 @@ const Banner: FC<bannersType> = (props) => {
             <div className="dots">
               {
                 banners && banners.map((item, index) => {
-                  return <span className={ index === checkIndex ? 'active' : '' } key={ item.targetId }
+                  return <span className={ index === checkIndex ? 'active' : '' } key={ item.imageUrl }
                                onClick={ () => handleRadioBtn(index) }/>;
                 })
               }

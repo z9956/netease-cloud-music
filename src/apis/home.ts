@@ -37,9 +37,9 @@ export const getRecommendPlaylists = (limit: number = 8) => http.get(`/personali
  * */
 export const getPlaylist = (
     params: {
-      cat: string;
-      limit: number;
-      orader?: string;
+      cat?: string,
+      limit: number,
+      orader?: string
     }) => {
   return http.get(`/top/playlist`, { params });
 };
@@ -48,3 +48,20 @@ export const getPlaylist = (
  * 获取歌单分类,包含 category 信息
  * */
 export const getHotPlaylist = () => http.get(`/playlist/hot`);
+
+/**
+ * 获取歌单分类,包含 category 信息
+ * @param { number } offset 偏移数量，用于分页，默认为0
+ * @param { number } limit 取出数量，默认为50
+ * @param params
+ * */
+export const getNewAlbum = ( params: {
+  limit: number,
+  offset?: number
+}) => http.get(`/top/album`, { params });
+
+/**
+ * 最新专辑
+ * */
+export const getNewest = () => http.get(`/album/newest`);
+
