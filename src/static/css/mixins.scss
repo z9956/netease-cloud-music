@@ -14,10 +14,16 @@
   line-height: $line-height;
 }
 
-@mixin position($position: relative, $top: 0, $left: 0, $bottom: none, $right: none){
+@mixin position($position: relative, $top: 0, $left: 0, $bottom: none, $right: none) {
   position: $position;
-  top: $top;
-  left: $left;
-  bottom: $bottom;
-  right: $right;
+  top: positionValue($top);
+  left: positionValue($left);
+  bottom: positionValue($bottom);
+  right: positionValue($right);
+}
+
+@function positionValue($val) {
+  @if($val >= 0) {
+    @return ($val);
+  }
 }

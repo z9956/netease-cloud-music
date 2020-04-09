@@ -13,12 +13,12 @@ type TitleComponentPropType = {
 import './style.scss';
 
 const Title: FC<TitleComponentPropType> = (props) => {
-  const { info, list } = props;
+  const { info: { title, path }, list } = props;
   return (
-      info && <div className="title-wrap">
+      <div className="title-wrap">
         <div className="title-left">
           <i className="iconfont icon-yuanquan"></i>
-          <Link className="title" to={ '/' }>热门推荐</Link>
+          <Link className="title" to={ '/' }>{ title }</Link>
           <ul className="nav">
             { list && list.map(val => {
               return <li key={ val }>{ val }</li>;
@@ -26,7 +26,7 @@ const Title: FC<TitleComponentPropType> = (props) => {
           </ul>
         </div>
         <span className="more">
-          <Link to={ info.path }>更多</Link>
+          <Link to={ path }>更多</Link>
           <i className="iconfont icon-xiangyou"></i>
         </span>
       </div>

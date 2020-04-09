@@ -10,7 +10,6 @@ import cover from  '@/static/images/topbar.png';
 
 const NewAlbum: FC<any> = (props) => {
   const { albums } = props;
-  const [ width, setWidth ] = useState<number>(0);
   const [ left, setLeft ] = useState<number>(0);
   const banner = useRef<HTMLUListElement>(null) ;
 
