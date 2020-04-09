@@ -65,3 +65,14 @@ export const getNewAlbum = ( params: {
  * */
 export const getNewest = () => http.get(`/album/newest`);
 
+/**
+ * 所有榜单内容摘要
+ * */
+export const getTopListDetail = () => http.get(`/toplist/detail`);
+
+/**
+ * 排行榜
+ * @param { number } idx 排行榜key
+ * */
+export const getTopList = (idx: number) => http.get(`/top/list?idx=${ idx }`);
+

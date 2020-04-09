@@ -1,10 +1,20 @@
 @import '../../static/css/mixins.scss';
 
 .back-top {
-  width: 50px;
+  width: 40px;
   height: 40px;
-  @include position(fixed, none, -50%, 160px);
-  background-color: #8d8d8d;
+  font-size: 12px;
+  @include position(fixed, none, none, 160px, 20%);
+  background-color: rgba(141, 141, 141, 0.3);
+  color: beige;
+  text-align: center;
+  line-height: 40px;
   border: 1px solid gainsboro;
   z-index: 10;
+  &:before {
+    display: block;
+  }
+  &:hover:before {
+    content: '回顶部';
+  }
 }

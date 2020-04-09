@@ -16,17 +16,16 @@ const NewAlbum: FC<any> = (props) => {
   const handleLeftBtn = () => {
     let offsetWidth = banner.current ? banner.current.offsetWidth : 0;
     let offsetLeft = banner.current ? banner.current.offsetLeft : 0;
-    let newLeft = left - (offsetWidth / 3);
-    if(left < offsetLeft) newLeft = -980;
+    let newLeft = left + (offsetWidth / 3);
+    if(newLeft >= offsetLeft) newLeft = 0;
     setLeft(newLeft);
-    console.log(left, offsetLeft);
   };
 
   const handleRightBtn = () => {
     let offsetWidth = banner.current ? banner.current.offsetWidth : 0;
     let offsetLeft = banner.current ? banner.current.offsetLeft : 0;
-    let newLeft = left + (offsetWidth / 3);
-    if(newLeft >= offsetLeft) newLeft = 0;
+    let newLeft = left - (offsetWidth / 3);
+    if(left < offsetLeft) newLeft = -980;
     setLeft(newLeft);
   };
 

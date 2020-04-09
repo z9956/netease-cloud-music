@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 
 import './style.scss';
 
@@ -8,10 +8,18 @@ type TitleComponentPropType = {
 import './style.scss';
 
 const BackTop: FC<TitleComponentPropType> = (props) => {
+  const [ show, setShow ] = useState<boolean>(false);
   useEffect(() => {
-  }, []);
+    const listener = () => {
+      const shouldShow = window.scrollY > 300;
+      if(shouldShow !== show) setShow(shouldShow);
+    };
+
+    document.addEventListener('scroll', listener);
+    return () => document.removeEventListener('scroll', listener);
+  }, [show]);
   return(
-      <div className="back-top">Top</div>
+      show? <div className="back-top" onClick={ () => window.scrollTo(0, 0) }>Top</div> : null
   );
 };
 
