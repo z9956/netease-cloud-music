@@ -32,10 +32,14 @@ const Ranking: FC<any> = (props) => {
           {
             tracks && tracks.map((item: any, index: number) => {
               return <li key={ item.id } className={ index % 2 === 0 ? 'gray' : ''}>
-                <span>{ item.t }</span>
+                <span>{ index + 1 }</span>
                 <div className="name">
                   <Link to={ `/${ item.id }` }>{ item.name }</Link>
-                  <div>播放站位</div>
+                  <div className="oper">
+                    <span className="play"></span>
+                    <span className="add"></span>
+                    <span className="collect"></span>
+                  </div>
                 </div>
               </li>;
             })

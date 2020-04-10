@@ -32,6 +32,17 @@
       .name {
         width: 170px;
         @include flex();
+        .oper {
+          .play {
+            background: url('https://raw.githubusercontent.com/z9956/netease-cloud-music/dev/src/static/images/index.png') no-repeat 0 9999px;
+          }
+          .play {
+            background: url('https://raw.githubusercontent.com/z9956/netease-cloud-music/dev/src/static/images/index.png') no-repeat 0 9999px;
+          }
+          .collect {
+            background: url('https://raw.githubusercontent.com/z9956/netease-cloud-music/dev/src/static/images/index.png') no-repeat 0 9999px;
+          }
+        }
       }
     }
     .gray {
