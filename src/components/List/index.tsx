@@ -1,7 +1,9 @@
-import React, { FC, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { FC, useEffect, useState } from 'react';
 
+import { getTopListService } from '@/service/homeService';
+// import { raingType } from '@/types/home';
 import Title from '@/components/Title';
+import Ranking from '@/components/Ranking';
 import './style.scss';
 
 type ListComponentPropType = {
@@ -10,10 +12,15 @@ type ListComponentPropType = {
 import './style.scss';
 
 const List: FC<ListComponentPropType> = (props) => {
+  const [ rankingData, setRankingData ] = useState<any>();
+  useEffect(() => {
+    getTopListService(1).then(data => setRankingData(data));
+  },[]);
   return (
-      <div className="List-warp">
+      rankingData ? <div className="List-warp">
         <Title info={ { title: '榜单', path: '/toplist'}} />
-      </div>
+        <Ranking rankingData={ rankingData } />
+      </div> : null
   );
 };
 

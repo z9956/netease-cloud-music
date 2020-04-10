@@ -63,13 +63,6 @@ module.exports = {
       },
       {
         test: /\.s?css$/,
-        // 生产环境抽离css
-        // use: [
-        //   devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
-        //   'css-loader',
-        //   'sass-loader',
-        //   'resolve-url-loader'
-        // ],
         use: [
           devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',

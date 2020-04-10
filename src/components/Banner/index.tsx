@@ -25,7 +25,7 @@ const Banner: FC<bannersType> = (props) => {
     clearTimeout(time);
     let index = checkIndex;
     index--;
-    if(index <= 0) index = banners.length;
+    if(index <= 0) index = banners.length - 1;
     setCheckIndex(index);
   };
 

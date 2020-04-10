@@ -1,6 +1,4 @@
 import { getRecommendPlaylists, getNewAlbum, getBanner, getKeywords, getNewest, getTopList } from '@/apis/home';
-import { Simulate } from 'react-dom/test-utils';
-import keyPress = Simulate.keyPress;
 
 //记得封一个全局的提示
 
@@ -55,7 +53,7 @@ export const getKeywordsService = async (keywords: string) => {
 export const getTopListService = async (idx: number) => {
   const res = await getTopList(idx);
   if(res.data?.code === 200) {
-    return res.data.result;
+    return res.data.playlist;
   }else {
     alert('网络请求错误');
   }

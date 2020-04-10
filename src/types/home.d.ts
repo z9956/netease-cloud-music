@@ -36,7 +36,7 @@ export type resultsType = {
     duration: number,
     copyrightId: number,
     status: number,
-    alias: [],
+    alias: Array<string> | [],
     rtype: number,
     ftype: number,
     mvid: number,
@@ -230,4 +230,137 @@ export type bannersType = {
     song: string | null,
     scm: string
   }>
+};
+
+export type creatorType = {
+  defaultAvatar: false
+  province: number,
+  authStatus: number,
+  followed: boolean,
+  avatarUrl: string,
+  accountStatus: number,
+  gender: number,
+  city: number,
+  birthday: number,
+  userId: number,
+  userType: number,
+  nickname: string,
+  signature: string,
+  description: string,
+  detailDescription: string,
+  avatarImgId: number,
+  backgroundImgId: number,
+  backgroundUrl: string,
+  authority: number,
+  mutual: boolean,
+  expertTags: string | null,
+  experts: string | null,
+  djStatus: number,
+  vipType: number,
+  remarkName: string | null,
+  avatarImgIdStr: string,
+  backgroundImgIdStr: string,
+  avatarImgId_str: string
+};
+
+export type hType = {
+  br: number,
+  fid: number,
+  size: number,
+  vd: number
+};
+export type tracksType = {
+  name: string,
+  id: number,
+  pst: number,
+  t: number,
+  ar: Array<{
+    id: number,
+    name: string,
+    tns: Array<string> | [],
+    alias: Array<string> | []
+  }>
+  alia: Array<string> | [],
+  pop: number,
+  st: number,
+  rt: string,
+  fee: number,
+  v: number,
+  crbt: string | null,
+  cf: string,
+  al: {
+    id: number,
+    name: string,
+    picUrl: string,
+    tns: Array<string> | [],
+    pic_str: string,
+    pic: number
+  },
+  dt: number,
+  h: hType
+  m: hType
+  l: hType
+  a: string | null,
+  cd: string,
+  no: number,
+  rtUrl: string | null,
+  ftype: number,
+  rtUrls: Array<string> | [],
+  djId: number,
+  copyright: number,
+  s_id: number,
+  mark: number,
+  mst: number,
+  cp: number,
+  mv: number,
+  rtype: number,
+  rurl: string | null,
+  publishTime: number
+};
+
+export type raingType = {
+  subscribers: Array<string> | [],
+  subscribed: boolean,
+  creator: Array<creatorType>,
+  tracks: Array<tracksType>,
+  trackIds: Array<{
+    id: number,
+    v: number,
+    alg: string | null,
+    lr?: number,
+  }>,
+  updateFrequency: string | null,
+  backgroundCoverId: number,
+  backgroundCoverUrl: string | null,
+  titleImage: number,
+  titleImageUrl: null
+  englishTitle: null
+  opRecommend: boolean,
+  tags: Array<string> | [],
+  createTime: number,
+  highQuality: boolean,
+  description: string,
+  userId: number,
+  trackCount: number,
+  playCount: number,
+  trackNumberUpdateTime: number,
+  coverImgId: number,
+  newImported: boolean,
+  updateTime: number,
+  coverImgUrl: string,
+  specialType: number,
+  commentThreadId: string,
+  privacy: number,
+  trackUpdateTime: number,
+  ordered: boolean,
+  subscribedCount: number,
+  cloudTrackCount: number,
+  status: number,
+  adType: number,
+  name: string,
+  id: number,
+  shareCount: number,
+  coverImgId_str: string,
+  ToplistType: string,
+  commentCount: number
 };
