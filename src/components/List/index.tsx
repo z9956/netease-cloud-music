@@ -1,6 +1,7 @@
 import React, { FC, useEffect, useState } from 'react';
+import axios from 'axios';
 
-import { getTopListService } from '@/service/homeService';
+import { getAllTopListService } from '@/service/homeService';
 // import { raingType } from '@/types/home';
 import Title from '@/components/Title';
 import Ranking from '@/components/Ranking';
@@ -9,17 +10,30 @@ import './style.scss';
 type ListComponentPropType = {
 
 };
-import './style.scss';
 
 const List: FC<ListComponentPropType> = (props) => {
-  const [ rankingData, setRankingData ] = useState<any>();
+  const [ soarSong, setSoarSong ] = useState<any>();
+  const [ newSong, setNewSong ] = useState<any>();
+  const [ originalSong, setOriginalSong ] = useState<any>();
+  const [ show, setShow ] = useState<boolean>(false);
+
+
   useEffect(() => {
-    getTopListService(1).then(data => setRankingData(data));
+    getAllTopListService().then(data => {
+      setSoarSong(data[0]);
+      setNewSong(data[1]);
+      setOriginalSong(data[2]);
+      setShow(true);
+    });
   },[]);
   return (
-      rankingData ? <div className="List-warp">
+      show ? <div className="List-warp">
         <Title info={ { title: '榜单', path: '/toplist'}} />
-        <Ranking rankingData={ rankingData } />
+        <div className="ranking-item">
+          <Ranking rankingData={ soarSong } />
+          <Ranking rankingData={ newSong } />
+          <Ranking rankingData={ originalSong } />
+        </div>
       </div> : null
   );
 };

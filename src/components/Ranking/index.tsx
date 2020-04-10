@@ -23,25 +23,30 @@ const Ranking: FC<any> = (props) => {
           <div className="header-right">
             <Link to={ `/` } title={ name }>{ name }</Link>
             <div className="icons">
-              <Link to={ `/` }></Link>
-              <Link to={ `/` }></Link>
+              <span className="play"></span>
+              <span className="collect"></span>
             </div>
           </div>
         </div>
         <ul className="tracks">
           {
             tracks && tracks.map((item: any, index: number) => {
-              return <li key={ item.id } className={ index % 2 === 0 ? 'gray' : ''}>
-                <span>{ index + 1 }</span>
-                <div className="name">
-                  <Link to={ `/${ item.id }` }>{ item.name }</Link>
-                  <div className="oper">
-                    <span className="play"></span>
-                    <span className="add"></span>
-                    <span className="collect"></span>
+              if(index < 10) {
+                return <li key={ item.id } className={ index % 2 === 0 ? 'gray' : ''}>
+                  <span className={ index < 3? 'red': '' }>{ index + 1 }</span>
+                  <div className="name ellipsis">
+                    <Link className="ellipsis" to={ `/${ item.id }` }>{ item.name }</Link>
+                    <div className="oper">
+                      <div>
+                        <span className="play"></span>
+                        <span className="add"></span>
+                        <span className="collect"></span>
+                      </div>
+
+                    </div>
                   </div>
-                </div>
-              </li>;
+                </li>;
+              }
             })
           }
           <li>
