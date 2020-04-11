@@ -7,7 +7,7 @@ type TitleComponentPropType = {
 };
 import './style.scss';
 
-const BackTop: FC<TitleComponentPropType> = (props) => {
+const BackTop: FC<TitleComponentPropType> = props => {
   const [ show, setShow ] = useState<boolean>(false);
   useEffect(() => {
     const listener = () => {

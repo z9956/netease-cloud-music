@@ -1,14 +1,13 @@
 import React, { FC,  useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { newAlbumAlbumsType } from '@/types/home';
+import { newAlbumType } from '@/types/home';
 import Title from '@/components/Title';
 import './style.scss';
 
-import cover from  '@/static/images/topbar.png';
 
 
-const NewAlbum: FC<any> = (props) => {
+const NewAlbum: FC<newAlbumType> = props => {
   const { albums } = props;
   const [ left, setLeft ] = useState<number>(0);
   const banner = useRef<HTMLUListElement>(null) ;
@@ -22,6 +21,7 @@ const NewAlbum: FC<any> = (props) => {
   };
 
   const handleRightBtn = () => {
+    console.log(props);
     let offsetWidth = banner.current ? banner.current.offsetWidth : 0;
     let offsetLeft = banner.current ? banner.current.offsetLeft : 0;
     let newLeft = left - (offsetWidth / 3);

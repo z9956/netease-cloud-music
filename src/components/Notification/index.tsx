@@ -11,7 +11,7 @@ type NotificationComponentPropType = {
 };
 import './style.scss';
 
-const Notification: FC<NotificationComponentPropType> = (props) => {
+const Notification: FC<NotificationComponentPropType> = props => {
   return (
       <div className="wrap"></div>
   );

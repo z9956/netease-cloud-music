@@ -133,7 +133,7 @@ export type navListType = {
   }>
 };
 export type hotResultType = {
-  result: Array<resultType> | undefined
+  result: Array<resultType>
 };
 export type resultType = {
   id: number,
@@ -157,7 +157,7 @@ export type newAlbumArtistsType = {
   musicSize: number,
   albumSize: number,
   briefDesc: string,
-  followed: false
+  followed: boolean,
   img1v1Url: string,
   trans: string,
   picUrl: string,
@@ -233,7 +233,7 @@ export type bannersType = {
 };
 
 export type creatorType = {
-  defaultAvatar: false
+  defaultAvatar: boolean,
   province: number,
   authStatus: number,
   followed: boolean,

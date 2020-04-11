@@ -5,7 +5,7 @@ import Title from '@/components/Title';
 import { hotResultType } from '@/types/home';
 import './style.scss';
 
-const Hot: FC<hotResultType> = (props) => {
+const Hot: FC<hotResultType> = props => {
   const { result } = props;
   const [ list ] = useState<Array<string>>([ '华语', '流行', '摇滚', '民谣', '电子' ]);
 

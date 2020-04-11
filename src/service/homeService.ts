@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { getRecommendPlaylists, getNewAlbum, getBanner, getKeywords, getNewest, getTopList } from '@/apis/home';
+import { getRecommendPlaylists, getNewAlbum, getBanner, getKeywords, getNewest, getTopList, getSingers } from '@/apis/home';
 
-//记得封一个全局的提示
+//记得封一个全局的提示 重复代码封装
 
 export const getRecommendService = async() => {
   const res = await getRecommendPlaylists();
@@ -66,5 +66,18 @@ export const getAllTopListService = () => {
     getTopListService(1),
     getTopListService(2) ]);
 };
+
+export const getSingersService = async(params: {
+  cat: number,
+  limit?: number
+}) => {
+  const res = await getSingers(params);
+  if(res.data?.code) {
+    return res.data.artists;
+  }else {
+    alert('网络请求失败');
+  }
+};
+
 
 

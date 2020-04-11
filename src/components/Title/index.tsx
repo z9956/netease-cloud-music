@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 
 import './style.scss';
@@ -12,7 +12,7 @@ type TitleComponentPropType = {
 };
 import './style.scss';
 
-const Title: FC<TitleComponentPropType> = (props) => {
+const Title: FC<TitleComponentPropType> = props => {
   const { info: { title, path }, list } = props;
   return (
       <div className="title-wrap">

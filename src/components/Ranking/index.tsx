@@ -1,17 +1,12 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 
 import { raingType } from '@/types/home';
 import './style.scss';
 
+const Ranking: FC<raingType> = props => {
+  const {  coverImgUrl, name, tracks  } = props;
 
-const Ranking: FC<any> = (props) => {
-  const { rankingData } = props;
-  const { coverImgUrl, name, tracks } = rankingData;
-
-  useEffect(() => {
-    console.log(rankingData);
-  },[rankingData])
   return (
       <div className="ranking-warp">
         <div className="header">

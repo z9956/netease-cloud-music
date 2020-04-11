@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import Banner from '@/components/Banner';
 import BackTop from '@/components/BackTop';
 import Didcover from '@/components/Discover';
+import Singers from '@/components/Singers';
 import { navList, subNav } from '@/apis/model';
 import { HomeComponentStateType } from '@/types/home';
 import { getBannerService } from '@/service/homeService';
@@ -27,14 +28,15 @@ class Home extends Component<{}, HomeComponentStateType> {
   render() {
     const { navList, subNav, banners } = this.state;
     return (
-      <div>
+      <>
         <Header navList={ navList } subNav={ subNav } />
         <Banner banners={ banners }></Banner>
         <div className="cont margin">
           <Didcover/>
+          <Singers/>
         </div>
         <BackTop/>
-      </div>
+      </>
     );
   }
 }

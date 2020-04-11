@@ -3,7 +3,7 @@ import React, { FC, useState, useEffect, useRef } from 'react';
 import { bannersType } from '@/types/home';
 import './style.scss';
 
-const Banner: FC<bannersType> = (props) => {
+const Banner: FC<bannersType> = props => {
   const [ checkIndex, setCheckIndex ] = useState<number>(0);
   let time: any = null;
   const { banners } = props;

@@ -5,7 +5,7 @@ import { getKeywordsService } from '@/service/homeService';
 import { resultsType, navListType } from '@/types/home';
 import './style.scss';
 
-const Header: FC<navListType> = (props) => {
+const Header: FC<navListType> = props => {
   const { navList, subNav } = props;
   const [ keywords, setKeywords ] = useState<string>('');
   const [ results, setResults ] = useState<resultsType>({
@@ -18,7 +18,7 @@ const Header: FC<navListType> = (props) => {
 
     if(!keywords.length) return;
 
-    getKeywordsService(keywords).then((result) => setResults(result));
+    getKeywordsService(keywords).then(result => setResults(result));
   };
   const getIcon = (key: string) => {
     let icons: { [key: string]: any } = {

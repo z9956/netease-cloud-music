@@ -76,3 +76,11 @@ export const getTopListDetail = () => http.get(`/toplist/detail`);
  * */
 export const getTopList = (idx: number) => http.get(`/top/list?idx=${ idx }`);
 
+/**
+ * 歌手分类列表
+ * */
+export const getSingers = (params: {
+  cat: number,
+  limit?: number
+}) => http.get(`/artist/list`, { params });
+
