@@ -364,3 +364,31 @@ export type raingType = {
   ToplistType: string,
   commentCount: number
 };
+
+export type singersDataType = Array<{
+  id: number,
+  rank: number,
+  lastRank: number,
+  score: number,
+  nickName: string,
+  avatarUrl: string,
+  userType: number
+}>;
+export type singersSingersType = Array<{
+  img1v1Id: number,
+  topicPerson: number,
+  followed: boolean,
+  musicSize: number,
+  alias: string[] | [],
+  trans: string,
+  albumSize: number,
+  img1v1Url: string,
+  picUrl: string,
+  briefDesc: string,
+  picId: number,
+  name: string,
+  id: number,
+  accountId: number,
+  picId_str: string,
+  img1v1Id_str: string
+}>;

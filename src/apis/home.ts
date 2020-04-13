@@ -84,3 +84,9 @@ export const getSingers = (params: {
   limit?: number
 }) => http.get(`/artist/list`, { params });
 
+/**
+ * 电台 最热主播榜
+ * @param { number } limit 数量
+ * */
+export const getDjPopular = (limit: number) => http.get(`/dj/toplist/popular?limit=${ limit }`);
+

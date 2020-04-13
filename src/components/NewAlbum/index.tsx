@@ -21,7 +21,6 @@ const NewAlbum: FC<newAlbumType> = props => {
   };
 
   const handleRightBtn = () => {
-    console.log(props);
     let offsetWidth = banner.current ? banner.current.offsetWidth : 0;
     let offsetLeft = banner.current ? banner.current.offsetLeft : 0;
     let newLeft = left - (offsetWidth / 3);

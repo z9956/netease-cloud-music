@@ -97,6 +97,6 @@ module.exports = {
   // 输出
   output: {
     filename: 'js/[name][hash].bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist')
   },
 };
