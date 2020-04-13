@@ -2,6 +2,6 @@
 
 .cont {
   width: 982px;
-  @include flex();
+  @include flex(center, self-end);
   border: 1px solid gainsboro;
 }

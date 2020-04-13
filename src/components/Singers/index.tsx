@@ -54,11 +54,19 @@ const Singers: FC<SingersComponentPropType> = props => {
         </div>
         <div className="dj">
           <h3>热门主播</h3>
-          <ul>
+          <ul className="dj-list">
             {
               data && data.map(item => {
                 return <li key={ item.id }>
-
+                    <Link to={ `/user/home?id=${ item.id }` }>
+                      <img src={ item.avatarUrl } alt=""/>
+                    </Link>
+                  <div className="info">
+                    <p>
+                      <Link to={ `/user/home?id=${ item.id }` }>{ item.nickName }</Link>
+                    </p>
+                    <p></p>
+                  </div>
                 </li>
               })
             }
