@@ -1,12 +1,15 @@
 import React, { ChangeEvent, FC, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
 
 import { getKeywordsService } from '@/service/homeService';
 import { resultsType, navListType } from '@/types/home';
 import './style.scss';
 
-const Header: FC<navListType> = props => {
-  const { navList, subNav } = props;
+type HeaderComponentType = navListType & RouteComponentProps;
+
+
+const Header: FC<HeaderComponentType> = props => {
+  const { navList, subNav, history } = props;
   const [ keywords, setKeywords ] = useState<string>('');
   const [ checkIndex, setIndex ] = useState<number>(0);
   const [ results, setResults ] = useState<resultsType>({
@@ -21,6 +24,12 @@ const Header: FC<navListType> = props => {
 
     getKeywordsService(keywords).then(result => setResults(result));
   };
+
+  const handleJump = (index: number, path: string) => {
+    setIndex(index);
+    history.push(path);
+  };
+
   const getIcon = (key: string) => {
     let icons: { [key: string]: any } = {
       artists: [ 'icon-geshou', '歌手' ],
@@ -83,7 +92,7 @@ const Header: FC<navListType> = props => {
               </div>
               <div className="result" style={ { display: keywords.length ? 'block' : 'none' } }>
                 <p>
-                  <Link to="/search/?s=赵雷">搜"赵雷"相关用户 ></Link>
+                  <Link to={ `/search/?s${ keywords }` }>搜"{ keywords }"相关用户 ></Link>
                 </p>
                 <div className="item-wrap">
                   {
@@ -145,7 +154,7 @@ const Header: FC<navListType> = props => {
             <div className="nav">
               <ul className="nav-list margin">
                 { subNav && subNav.map((item, index) => <li key={ item.name }>
-                  <span className={ index === checkIndex ? 'check' : '' } onClick={ () => setIndex(index) }>{ item.name }</span>
+                  <span className={ index === checkIndex ? 'check' : '' } onClick={ () => handleJump(index, item.path)  }>{ item.name }</span>
                 </li>) }
               </ul>
             </div>
@@ -155,4 +164,4 @@ const Header: FC<navListType> = props => {
   );
 };
 
-export default Header;
+export default withRouter(Header);

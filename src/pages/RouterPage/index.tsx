@@ -22,38 +22,32 @@ class RouterPage extends Component<{}, navListType>{
     const { navList, subNav } = this.state;
     return(
         <>
-          <Header navList={ navList } subNav={ subNav } />
+          <Header navList={ navList } subNav={ subNav }/>
           <Switch>
             <Route
                 path={ routePath.discover.index }
                 exact={ true }
-                component={ DiscoverPage }
                 render={() => (
                     <Switch>
                       <Route
                           exact={ true }
                           path={ routePath.discover.album }
-                          component={ DiscoverPage }
+                          component={ () =>(<div>album</div>) }
                       />
                       <Route
                           exact={ true }
                           path={ routePath.discover.artist }
-                          component={ DiscoverPage }
+                          component={ () =>(<div>artist</div>) }
                       />
                       <Route
                           exact={ true }
                           path={ routePath.discover.djradio }
-                          component={ DiscoverPage }
-                      />
-                      <Route
-                          exact={ true }
-                          path={ routePath.discover.playlist }
-                          component={ DiscoverPage }
+                          component={ () =>(<div>djradio</div>) }
                       />
                       <Route
                           exact={ true }
                           path={ routePath.discover.toplist }
-                          component={ DiscoverPage }
+                          component={ () =>(<div>toplist</div>) }
                       />
                       <Route
                           path="*"
@@ -71,4 +65,4 @@ class RouterPage extends Component<{}, navListType>{
   }
 }
 
-export default RouterPage;
+export default  RouterPage;
