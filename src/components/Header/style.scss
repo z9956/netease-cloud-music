@@ -16,7 +16,7 @@
     .logo {
       width: 176px;
       height: 69px;
-      background: url('../../static/images/topbar.png') no-repeat;
+      background: url('https://raw.githubusercontent.com/z9956/netease-cloud-music/dev/src/static/images/topbar.png') no-repeat;
     }
     .nav {
       @include flex();
@@ -132,7 +132,20 @@
         font-size: 12px;
         width: 84px;
         height: 34px;
-        @include text-center(34px);
+        @include flex();
+        >span {
+          height: 20px;
+          padding: 0 12px;
+          display: block;
+          text-align: center;
+          border-radius: 20px;
+        }
+        >span:hover {
+          background-color: #9B0909;
+        }
+        >span.check {
+          background-color: #9B0909;
+        }
       }
     }
   }

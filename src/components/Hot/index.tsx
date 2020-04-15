@@ -15,7 +15,7 @@ const Hot: FC<hotResultType> = props => {
         <ul>
           {
             result && result.map(item => {
-              return <li key={ item.id } className="multi-row-ellipsis">
+              return <li key={ item.id }>
                 <div>
                   <img className="picUrl" src={ item.picUrl } alt=""/>
                   <Link to={ `/playlist?id=${ item.id }` }></Link>

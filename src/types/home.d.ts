@@ -199,7 +199,7 @@ export type newAlbumType = {
   albums: Array<newAlbumAlbumsType>
 };
 
-export type HomeComponentStateType = navListType & bannersType;
+export type HomeComponentStateType =  bannersType;
 
 //Banner
 export type bannersType = {

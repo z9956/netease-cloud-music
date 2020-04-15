@@ -1,17 +1,17 @@
-import {
-  HashRouter, Redirect, Route, Switch,
-} from 'react-router-dom';
-import React, { lazy } from 'react';
+import React, { lazy, Suspense } from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import Home from '@/pages/Home';
+const RouterPage = lazy(() => import('@/pages/RouterPage'));
 
 const App = () => (
-  <HashRouter>
-    <Switch>
-      <Route path="/" exact component={Home} />
-      <Redirect to="/" />
-    </Switch>
-  </HashRouter>
+    <Suspense fallback={ 'loading...' }>
+      <BrowserRouter>
+        <Switch>
+          <Route component={ RouterPage }/>
+        </Switch>
+      </BrowserRouter>
+    </Suspense>
+
 );
 
 

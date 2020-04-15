@@ -8,6 +8,7 @@ import './style.scss';
 const Header: FC<navListType> = props => {
   const { navList, subNav } = props;
   const [ keywords, setKeywords ] = useState<string>('');
+  const [ checkIndex, setIndex ] = useState<number>(0);
   const [ results, setResults ] = useState<resultsType>({
     albums: [], artists: [], mvs: [], songs: [], order: []
   });
@@ -86,7 +87,6 @@ const Header: FC<navListType> = props => {
                 </p>
                 <div className="item-wrap">
                   {
-                    // @ts-ignore
                     results && results.order?.map(key => {
                       return <div className="item" key={ key }>
                         <div className="item-left">
@@ -95,7 +95,7 @@ const Header: FC<navListType> = props => {
                         <ul className="item-right">
                           {
                             // @ts-ignore
-                            results[key].map(item => {
+                            results[key].map((item: { [key: string]: any }) => {
                               return liElent(item, key);
                             })
                           }
@@ -144,7 +144,9 @@ const Header: FC<navListType> = props => {
           <div className="sub-nav margin">
             <div className="nav">
               <ul className="nav-list margin">
-                { subNav && subNav.map((item) => <li key={ item.name }>{ item.name }</li>) }
+                { subNav && subNav.map((item, index) => <li key={ item.name }>
+                  <span className={ index === checkIndex ? 'check' : '' } onClick={ () => setIndex(index) }>{ item.name }</span>
+                </li>) }
               </ul>
             </div>
           </div>
