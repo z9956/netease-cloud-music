@@ -27,6 +27,10 @@ class RouterPage extends Component<{}, navListType>{
             <Route
                 path={ routePath.discover.index }
                 exact={ true }
+                component={ DiscoverPage }
+            />
+            <Route
+                path={ routePath.discover.index }
                 render={() => (
                     <Switch>
                       <Route
@@ -49,14 +53,14 @@ class RouterPage extends Component<{}, navListType>{
                           path={ routePath.discover.toplist }
                           component={ () =>(<div>toplist</div>) }
                       />
-                      <Route
-                          path="*"
-                          render={() => {
-                            return <Redirect to={ routePath.discover.index }/>
-                          }}
-                      />
                     </Switch>
                 )}
+            />
+            <Route
+                path="/"
+                render={() => {
+                  return <Redirect to={ routePath.discover.index }/>
+                }}
             />
           </Switch>
           <BackTop/>
