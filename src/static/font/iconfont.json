@@ -6,11 +6,11 @@
   "description": "",
   "glyphs": [
     {
-      "icon_id": "10408939",
-      "name": "耳机",
-      "font_class": "erji-xian",
-      "unicode": "e647",
-      "unicode_decimal": 58951
+      "icon_id": "781565",
+      "name": "耳机2-01",
+      "font_class": "erji201",
+      "unicode": "e679",
+      "unicode_decimal": 59001
     },
     {
       "icon_id": "4931652",

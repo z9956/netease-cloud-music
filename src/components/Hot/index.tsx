@@ -19,6 +19,13 @@ const Hot: FC<hotResultType> = props => {
                 <div>
                   <img className="picUrl" src={ item.picUrl } alt=""/>
                   <Link to={ `/playlist?id=${ item.id }` }></Link>
+                  <div className="bottom">
+                    <p>
+                      <i className="iconfont icon-erji201"></i>
+                      <span>{ Math.round(item.playCount / 1000) }万</span>
+                    </p>
+                    <i className="iconfont icon-bofang"></i>
+                  </div>
                 </div>
                 <p className="name">
                   <Link to={ `/playlist?id=${ item.id }` }>{ item.name }</Link>
