@@ -1,0 +1,7 @@
+@import '../../static/css/mixins';
+
+.cont {
+  width: 982px;
+  @include flex(center, self-end);
+  border: 1px solid gainsboro;
+}

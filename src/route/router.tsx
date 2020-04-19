@@ -11,5 +11,6 @@ export const routePath = {
   my: {
     index: '/my'
   },
-  friend: '/friend'
+  friend: '/friend',
+  song: '/song'
 } ;
