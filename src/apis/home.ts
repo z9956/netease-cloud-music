@@ -81,8 +81,8 @@ export const getTopList = (idx: number) => http.get(`/top/list?idx=${ idx }`);
  * */
 export const getSingers = (params: {
   cat: number,
-  limit?: number
-}) => http.get(`/artist/list`, { params });
+  limit: number
+}) => http.get(`/artist/list`, params);
 
 /**
  * 电台 最热主播榜

@@ -12,5 +12,6 @@ export const routePath = {
     index: '/my'
   },
   friend: '/friend',
-  song: '/song'
+  song: '/song',
+  playlist: '/playlist'
 } ;

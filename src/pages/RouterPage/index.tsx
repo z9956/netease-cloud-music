@@ -4,12 +4,13 @@ import { Route, Switch, Redirect, withRouter, RouteComponentProps } from 'react-
 import { navListType } from '@/types/home';
 import { navList, subNav } from '@/apis/model';
 import { routePath } from '@/route/router';
-import { cancel } from '@/apis/axios';
+
 
 const BackTop = lazy(() => import('@/components/BackTop'));
 const Header = lazy(() => import('@/components/Header'));
 const DiscoverPage = lazy(() => import('@/pages/DiscoverPage'));
 const SongPage = lazy(() => import('@/pages/SongPage'));
+const PlaylistPage = lazy(() => import('@/pages/PlaylistPage'));
 
 class RouterPage extends Component<RouteComponentProps, navListType>{
   constructor(props: any) {
@@ -46,6 +47,11 @@ class RouterPage extends Component<RouteComponentProps, navListType>{
                 component={ SongPage }
             />
             <Route
+                path={ routePath.playlist }
+                exact={ true }
+                component={ PlaylistPage }
+            />
+            <Route
                 path={ routePath.discover.index }
                 render={() => (
                     <Switch>
@@ -75,7 +81,8 @@ class RouterPage extends Component<RouteComponentProps, navListType>{
             <Route
                 path="/"
                 render={() => {
-                  return <Redirect to={ routePath.discover.index }/>
+                  // return <Redirect to={ routePath.discover.index }/>
+                  return <Redirect to={ routePath.playlist }/>
                 }}
             />
           </Switch>

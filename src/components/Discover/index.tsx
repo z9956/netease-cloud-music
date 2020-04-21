@@ -5,8 +5,10 @@ import { resultType, newAlbumAlbumsType } from '@/types/home';
 import Hot from '@/components/Hot';
 import NewAlbum from '@/components/NewAlbum';
 import List from '@/components/List';
+import { cancel } from '@/apis/axios';
 import { albumsinit } from '@/utils/initialState';
 import './style.scss';
+import { getNewAlbum, getNewest, getRecommendPlaylists } from '@/apis/home';
 
 type DiscoverComponentPropType = {};
 
@@ -27,25 +29,26 @@ const Discover: FC<DiscoverComponentPropType> = props => {
   } ]);
   const [ albums, setAlbums ] = useState<Array<newAlbumAlbumsType>>([ albumsinit ]);
 
+  const getData = async () => {
+    const result = await getRecommendPlaylists();
+    const album = await getNewest();
+    if(result.data?.result && album.data?.albums) {
+      setResult(result.data.result);
+      setAlbums(album.data.albums)
+    }
+  };
 
   useEffect( () => {
-    let isUnmounted = false;
-    (async () => {
-      let result = await getRecommendService();
-      let albums = await getNewestService();
-      if(isUnmounted) return;
-        setAlbums(albums);
-        setResult(result);
-    })();
+    getData();
     return () => {
-      isUnmounted = true;
+      cancel('取消请求');
     };
   }, []);
   return (
       <div className="discover-wrap">
         <Hot result={ ...result }/>
         <NewAlbum albums={ albums }/>
-        {/*<List/>*/}
+        <List/>
       </div>
   );
 };
