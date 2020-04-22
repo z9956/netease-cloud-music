@@ -67,7 +67,7 @@ module.exports = {
           devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
           'resolve-url-loader',
-          'sass-loader?sourceMap'
+          'sass-loader'
         ],
       },
       {
