@@ -12,18 +12,6 @@ export const getRecommendService = async() => {
   }
 };
 
-export const getNewAlbumService = async(params: {
-  limit: number,
-  offset?: number
-}) => {
-  const res = await getNewAlbum(params);
-  if(res.data?.code) {
-    return res.data.albums;
-  } else {
-    alert('网络请求错误');
-  }
-};
-
 export const getBannerService = async() => {
   const res = await getBanner();
   if(res.data?.code === 200) {
@@ -67,17 +55,7 @@ export const getAllTopListService = () => {
     getTopListService(2) ]);
 };
 
-export const getSingersService = async(params: {
-  cat: number,
-  limit?: number
-}) => {
-  const res = await getSingers(params);
-  if(res.data?.code) {
-    return res.data.artists;
-  }else {
-    alert('网络请求失败');
-  }
-};
+
 
 
 

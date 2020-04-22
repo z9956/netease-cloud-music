@@ -1,13 +1,18 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+
+import { getPlaylistDetail } from '@/apis/playlist';
 
 import './style.scss';
 
 type PlaylistTopComponentPropType = {};
-import './style.scss';
 
 const PlaylistTop: FC<PlaylistTopComponentPropType> = props => {
   const { } = props;
+
+  useEffect(() => {
+
+  }, []);
   return (
       <>
       </>
