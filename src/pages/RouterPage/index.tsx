@@ -22,11 +22,6 @@ class RouterPage extends Component<RouteComponentProps, navListType>{
   }
 
   componentDidMount(): void {
-    console.log(this.props.history);
-  }
-
-  componentDidUpdate(prevProps: Readonly<RouteComponentProps>, prevState: Readonly<navListType>, snapshot?: any): void {
-    console.log(this.props.history);
 
   }
 

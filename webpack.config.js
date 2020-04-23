@@ -89,7 +89,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: '网易云音乐',
+      title: '仅供练习',
       template: './public/index.html',
       favicon: './src/static/images/favicon.ico'
     }),
