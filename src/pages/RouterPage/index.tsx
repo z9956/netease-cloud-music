@@ -81,8 +81,8 @@ class RouterPage extends Component<RouteComponentProps, navListType>{
             <Route
                 path="/"
                 render={() => {
-                  return <Redirect to={ routePath.discover.index }/>
-                  // return <Redirect to={ routePath.playlist }/>
+                  // return <Redirect to={ routePath.discover.index }/>
+                  return <Redirect to={ routePath.playlist }/>
                 }}
             />
           </Switch>
