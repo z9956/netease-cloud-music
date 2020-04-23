@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const baseUrl = process.env.NODE_ENV === 'development' ? 'http://localhost:4000' : '';
+export const baseUrl = process.env.NODE_ENV === 'development' ? 'http://101.132.108.7:4000' : '';
 
 const CancelToken = axios.CancelToken;
 export let cancel: any;
