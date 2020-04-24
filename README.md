@@ -13,5 +13,12 @@ React + Hooks + TypeScript + Sass
 
 >部署
 >
-前后端都部署完了，中间用了Nginx,哪天想起来再整个Jenkins or action 
+前端Nginx 后端pm2<br>
+哪天想起来再整个Jenkins or action
+
+>总结
+>
+有问题还是得先翻文档，水货文章太多，转载来转载去,没啥干货<br>
+对linux不熟悉，配置环境整的难受<br>
+ 
 

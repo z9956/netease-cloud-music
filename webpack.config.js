@@ -1,12 +1,11 @@
 const path = require('path');
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin'); // 生成html模板
-const { CleanWebpackPlugin } = require('clean-webpack-plugin'); // 清除打包文件
-const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // 提取生产css
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const devMode = process.env.NODE_ENV !== 'production';
 
-let mode = 'development'
 module.exports = {
   // 开发模式
   mode: process.env.NODE_ENV, // production环境自动压缩代码
