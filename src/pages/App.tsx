@@ -1,15 +1,15 @@
 import React, { lazy, Suspense } from 'react';
-import { HashRouter, Route, Switch } from 'react-router-dom';
+import { HashRouter, Route, Switch, BrowserRouter } from 'react-router-dom';
 
 const RouterPage = lazy(() => import('@/pages/RouterPage'));
 
 const App = () => (
     <Suspense fallback={ 'loading...' }>
-      <HashRouter>
+      <BrowserRouter>
         <Switch>
           <Route component={ RouterPage }/>
         </Switch>
-      </HashRouter>
+      </BrowserRouter>
     </Suspense>
 
 );

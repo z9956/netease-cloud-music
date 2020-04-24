@@ -8,7 +8,7 @@ type PlaylistTopComponentPropType = {
 };
 
 const PlaylistTitle: FC<PlaylistTopComponentPropType> = props => {
-  const { } = props;
+  const {  } = props;
 
   return (
       <>
