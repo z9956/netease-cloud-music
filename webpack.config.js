@@ -5,10 +5,11 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin'); // 清除打包�
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // 提取生产css
 
 const devMode = process.env.NODE_ENV !== 'production';
+
 let mode = 'development'
 module.exports = {
   // 开发模式
-  mode: 'production', // production环境自动压缩代码
+  mode: process.env.NODE_ENV, // production环境自动压缩代码
   // 入口
   entry: {
     app: './src/index.tsx',

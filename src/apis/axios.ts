@@ -2,6 +2,8 @@ import axios from 'axios';
 
 export const baseUrl = process.env.NODE_ENV === 'development' ? 'http://101.132.108.7:4000' : 'http://101.132.108.7:4000';
 
+
+console.log(process.env.NODE_ENV);
 const CancelToken = axios.CancelToken;
 export let cancel: any;
 
