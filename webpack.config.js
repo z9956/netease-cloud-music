@@ -8,7 +8,7 @@ const devMode = process.env.NODE_ENV !== 'production';
 let mode = 'development'
 module.exports = {
   // 开发模式
-  mode: 'development', // production环境自动压缩代码
+  mode: 'production', // production环境自动压缩代码
   // 入口
   entry: {
     app: './src/index.tsx',

@@ -12,7 +12,7 @@ const Banner: FC<bannersType> = props => {
     time  = setTimeout(() => {
       setCheckIndex(checkIndex => checkIndex + 1);
       if(checkIndex >= banners.length -1)  setCheckIndex(0);
-    }, 2000);
+    }, 3000);
     return () => { time && clearTimeout(time)};
   }, [checkIndex]);
 
