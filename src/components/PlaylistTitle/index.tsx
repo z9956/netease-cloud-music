@@ -3,7 +3,7 @@ import React, { FC, useEffect } from 'react';
 import './style.scss';
 
 type PlaylistTopComponentPropType = {
-  type: number,
+  type?: number,
   title: string
 };
 

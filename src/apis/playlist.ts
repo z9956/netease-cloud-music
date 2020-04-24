@@ -8,12 +8,10 @@ export const getPlaylistComment = (id: number) => http.get(`/comment/playlist?id
 
 /**
  * 获取歌单详情
- * @param { number } id  歌单id
- * @param { number } s  歌单最近的s个收藏着
  * */
 export const getPlaylistDetail = (params: {
   id: number,
-  s?:  number
+  s?: number
 }) => http.get(`/playlist/detail`, params);
 
 /**
