@@ -6,7 +6,12 @@ import './style.scss';
 const PlaylistPage = () => {
   return (
       <div className="playlist">
-        <PlaylistTop/>
+        <div className="playlist-left">
+          <PlaylistTop/>
+        </div>
+        <div className="playlist-right">
+
+        </div>
       </div>
   );
 };

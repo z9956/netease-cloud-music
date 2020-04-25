@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 
 import './style.scss';
 
@@ -8,12 +8,17 @@ type PlaylistTopComponentPropType = {
 };
 
 const PlaylistTitle: FC<PlaylistTopComponentPropType> = props => {
-  const {  } = props;
+  const { title } = props;
+
+  const getBackgroundImg = (type: number) => {
+
+  };
 
   return (
-      <>
-
-      </>
+      <div className="playlist-title">
+        <i></i>
+        <h2>{ title }</h2>
+      </div>
   );
 };
 
