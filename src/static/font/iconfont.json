@@ -6,6 +6,27 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "430025",
+      "name": "添加",
+      "font_class": "new",
+      "unicode": "e63f",
+      "unicode_decimal": 58943
+    },
+    {
+      "icon_id": "749945",
+      "name": "评论",
+      "font_class": "pinglun",
+      "unicode": "e62f",
+      "unicode_decimal": 58927
+    },
+    {
+      "icon_id": "10156388",
+      "name": "转发",
+      "font_class": "zhuanfa",
+      "unicode": "e653",
+      "unicode_decimal": 58963
+    },
+    {
       "icon_id": "781565",
       "name": "耳机2-01",
       "font_class": "erji201",
