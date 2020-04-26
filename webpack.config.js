@@ -18,7 +18,7 @@ module.exports = {
   // 开发服务器相关配置
   devServer: {
     contentBase: './public', // 开发服务器内容的基本路径
-    hot: true, // 模块热更新 HotModuleReplacementPlugin,
+    hot: true,
     inline: true,
     historyApiFallback: true,
   },
@@ -65,9 +65,14 @@ module.exports = {
         test: /\.s?css$/,
         use: [
           devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
-          'css-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              url: true
+            }
+          },
           'resolve-url-loader',
-          'sass-loader'
+          'sass-loader?sourceMap'
         ],
       },
       {

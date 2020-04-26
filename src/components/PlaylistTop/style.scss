@@ -3,7 +3,7 @@
 .playlist-wrap {
   font-size: 12px;
   color: #666;
-  @include flex();
+  @include flex(space-between, end);
   .playlist-img {
     width: 208px;
     height: 208px;
@@ -14,23 +14,68 @@
       height: 200px;
     }
   }
-  .playlist-right {
+  .playlist-info {
     width: 410px;
     .user {
       margin-bottom: 20px;
-      @include flex();
+      @include flex(flex-start);
       img {
         width: 35px;
         height: 35px;
       }
+      .nickname {
+        margin: 0 15px 0 10px;
+      }
+      .nickname:hover {
+        border-bottom: 1px solid #0c73c2;
+      }
+    }
+    .operation {
+      @include flex();
+      >div:first-child {
+        color: white;
+        background-color: #0c73c2;
+      }
+      >div {
+        padding: 6px 10px;
+        border-radius: 10px;
+        background-color: #F5F5F5;
+        border: 1px solid lightgrey;
+      }
+    >div:hover {
+      opacity: 0.6;
+    }
+
     }
     .tags {
-      @include flex();
+      margin:25px 0 5px 0;
+      @include flex(flex-start);
       >a {
         width: 50px;
         height: 22px;
+        margin-left: 10px;
+        text-align: center;
+        line-height: 20px;
+        color: rgb(119, 119, 119);
         border: 1px solid lightgrey;
+        background-color: #F5F5F5;
         border-radius: 20px;
+      }
+    }
+    .top-info {
+      height: 100%;
+      white-space: pre-wrap;
+    }
+    .infoH {
+      overflow: hidden;
+      height: 126px;
+      white-space: pre-wrap;
+    }
+    .clone {
+      text-align: right;
+      button {
+        background-color: white;
+        color: #0c73c2;
       }
     }
   }

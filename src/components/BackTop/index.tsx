@@ -19,7 +19,7 @@ const BackTop: FC<TitleComponentPropType> = props => {
     return () => document.removeEventListener('scroll', listener);
   }, [show]);
   return(
-      show? <div className="back-top" onClick={ () => window.scrollTo(0, 0) }>Top</div> : null
+      show? <div className="back-top" onClick={ () => window.scrollTo(0, 0) }></div> : null
   );
 };
 

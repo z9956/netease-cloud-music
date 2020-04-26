@@ -24,6 +24,7 @@ export const getPlaylistRelated = (id: number) => http.get(`/related/playlist?id
  * 歌单收藏着
  * @param { number } id 歌单id
  * @param { number } limit 数量
+ * @param params
  * */
 export const getPlaylistSubscribers = (params: {
   id: number,

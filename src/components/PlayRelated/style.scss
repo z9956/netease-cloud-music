@@ -1,0 +1,45 @@
+@import '../../static/css/mixins.scss';
+
+.related-wrap {
+  font-size: 12px;
+  a {
+    color: #333;
+  }
+  a:hover {
+    border-bottom: 1px solid #333;
+  }
+  h3 {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+  }
+  .related-list {
+    >li {
+      margin-bottom: 15px;
+      @include flex();
+      .cover {
+        width: 50px;
+        height: 50px;
+        font-size: 0;
+        img {
+          width: 50px;
+          height: 50px;
+        }
+      }
+
+      .info {
+        width: 140px;
+        a {
+          font-size: 14px;
+        }
+        p:last-child {
+          span {
+            color: #999;
+          }
+          a {
+            color: #666;
+          }
+        }
+      }
+    }
+  }
+}

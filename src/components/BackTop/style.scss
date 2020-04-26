@@ -12,6 +12,7 @@
   border: 1px solid gainsboro;
   z-index: 10;
   &:before {
+    content: 'top';
     display: block;
   }
   &:hover:before {

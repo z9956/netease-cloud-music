@@ -1,0 +1,82 @@
+@import '../../static/css/mixins.scss';
+
+.comments-wrap {
+  border-bottom: 2px solid #c20c0c;
+  margin-bottom: 20px;
+  .title {
+    h3 {
+      font-size: 20px;
+      line-height: 28px;
+    }
+    @include flex(flex-start);
+    span {
+      margin-left: 20px;
+    }
+  }
+  .comments-list {
+    .user-comments {
+      @include flex();
+      .user-img {
+        img {
+          width: 50px;
+          height: 50px;
+          vertical-align: middle;
+        }
+      }
+      .user-text {
+        width: 578px;
+        .btns {
+          @include flex(flex-end);
+          button {
+            width: 46px;
+            height: 25px;
+            color: white;
+            margin-left: 10px;
+            text-align: center;
+            line-height: 25px;
+            background-color: #0086b3;
+          }
+        }
+      }
+    }
+  }
+  .commts {
+    h3 {
+      line-height: 20px;
+      border-bottom: 1px solid #cfcfcf;
+    }
+    .item {
+      padding: 15px 0;
+      @include flex(space-around, end);
+      .head {
+        a {
+          color: rgb(12, 115, 194);;
+          img {
+            width: 50px;
+            height: 50px;
+            vertical-align: middle;
+          }
+        }
+      }
+      .cont {
+        width: 580px;
+        .cont-head {
+          white-space: pre-wrap;
+          line-height: 20px;
+          color: #333;
+          a {
+            color: #0c73c2;
+          }
+          a:hover {
+            border-bottom: 1px solid #0c73c2;
+          }
+        }
+        .cont-info {
+          @include flex();
+          margin-top: 15px;
+          color: #999;
+        }
+      }
+    }
+  }
+}

@@ -22,7 +22,7 @@ class DiscoverPage extends Component<{}, HomeComponentStateType> {
   }
 
   componentWillUnmount(): void {
-    cancel('请求取消');
+    cancel('取消请求');
   }
 
   render() {
