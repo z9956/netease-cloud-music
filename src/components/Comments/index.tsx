@@ -2,9 +2,8 @@ import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 
 type CommentsComponentPropType = {};
+
 import './style.scss';
-import { Simulate } from 'react-dom/test-utils';
-import emptied = Simulate.emptied;
 
 const Comments: FC<any> = props => {
   const { comments, total } = props;
@@ -18,7 +17,6 @@ const Comments: FC<any> = props => {
     return `${ M }月${ D }日 ${ h }${ m }`
   };
 
-  console.log(comments);
   return (
       <div className="comments-wrap">
         <div className="title">

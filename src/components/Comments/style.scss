@@ -1,9 +1,8 @@
 @import '../../static/css/mixins.scss';
 
 .comments-wrap {
-  border-bottom: 2px solid #c20c0c;
-  margin-bottom: 20px;
   .title {
+    border-bottom: 2px solid #c20c0c;
     h3 {
       font-size: 20px;
       line-height: 28px;
@@ -15,7 +14,8 @@
   }
   .comments-list {
     .user-comments {
-      @include flex();
+      margin-top: 20px;
+      @include flex(space-between, end);
       .user-img {
         img {
           width: 50px;
@@ -25,6 +25,15 @@
       }
       .user-text {
         width: 578px;
+        margin-bottom: 20px;
+        .text-wrap {
+          border: 1px solid lightgrey;
+          margin-bottom: 10px;
+        }
+        textarea {
+          width: 100%;
+          padding: 6px;
+        }
         .btns {
           @include flex(flex-end);
           button {
