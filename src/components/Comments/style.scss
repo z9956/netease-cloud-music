@@ -71,6 +71,19 @@
             border-bottom: 1px solid #0c73c2;
           }
         }
+        .replied {
+          padding: 8px 19px;
+          margin-top: 10px;
+          line-height: 20px;
+          background-color: #f4f4f4;
+          border: 1px solid #dedede;
+          a {
+            color: #0c73c2;
+          }
+          a:hover {
+            border-bottom: #0c73c2;
+          }
+        }
         .cont-info {
           @include flex();
           margin-top: 15px;
