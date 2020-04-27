@@ -5,11 +5,11 @@ const RouterPage = lazy(() => import('@/pages/RouterPage'));
 
 const App = () => (
     <Suspense fallback={ 'loading...' }>
-      <BrowserRouter>
+      <HashRouter>
         <Switch>
           <Route component={ RouterPage }/>
         </Switch>
-      </BrowserRouter>
+      </HashRouter>
     </Suspense>
 
 );

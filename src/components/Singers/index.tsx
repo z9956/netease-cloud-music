@@ -9,9 +9,10 @@ import './style.scss';
 type SingersComponentPropType = {};
 
 const Singers: FC<SingersComponentPropType> = props => {
+  const { } = props;
   const [ data, setData ] = useState<singersDataType>();
   const [ artists, setArtists ] = useState<singersSingersType>();
-  const { } = props;
+
   const getData = async () => {
     const artists = await getSingers({ cat: 5001, limit: 5 });
     const data = await getDjPopular(5);
