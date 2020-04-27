@@ -25,25 +25,23 @@ const PlaylistPage = () => {
   const [ total, setTotal ] = useState<any>(0);
   const [ checkIndex, setIndex ] = useState<number>(1);
 
-  const local = useLocation();
+  const local: any = useLocation();
   const history = useHistory();
-
+  const { id } = parseQuery(local.search);
 
   const handleComments = async (index: number) => {
     setIndex(index);
   };
   useEffect(() => {
-    const { id } = parseQuery(local.search);
     let flag = false;
     (async function () {
       const res = await getPlaylistComment({ id: +id, offset: checkIndex - 1 });
       if(res.data.code === 200 && !flag) setComments(res.data.comments);
     })();
     return () => { flag = true };
-  },[local, checkIndex]);
+  },[id, checkIndex]);
 
   useEffect(() => {
-    const { id } = parseQuery(local.search);
     window.scrollTo(0, 0);
     let ignone = false;
     if(!id)  history.push('/discover');
@@ -80,7 +78,7 @@ const PlaylistPage = () => {
     return (() => {
       ignone = true;
     });
-  }, [local]);
+  }, [id]);
   return (
       <div className="playlist">
         <div className="playlist-left">
