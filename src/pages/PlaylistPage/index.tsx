@@ -25,9 +25,9 @@ const PlaylistPage = () => {
   const [ total, setTotal ] = useState<any>(0);
   const [ checkIndex, setIndex ] = useState<number>(1);
 
-  const local: any = useLocation();
+  const local = useLocation();
   const history = useHistory();
-  const { id } = parseQuery(local.search);
+  const { id } = local && parseQuery(local.search);
 
   const handleComments = async (index: number) => {
     setIndex(index);
