@@ -34,6 +34,7 @@ const PlaylistPage = () => {
   };
   useEffect(() => {
     let flag = false;
+    if(!id) return;
     (async function () {
       const res = await getPlaylistComment({ id: +id, offset: checkIndex - 1 });
       if(res.data.code === 200 && !flag) setComments(res.data.comments);
@@ -44,6 +45,7 @@ const PlaylistPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     let ignone = false;
+    if(!id) return;
     if(!id)  history.push('/discover');
 
     (async function () {
