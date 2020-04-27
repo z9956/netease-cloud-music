@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation, useHistory } from 'react-router-dom';
+import { useLocation, useHistory, RouteComponentProps } from 'react-router-dom';
 
 import PlaylistTop from '@/components/PlaylistTop';
 import PlayRelated from '@/components/PlayRelated';
@@ -27,21 +27,23 @@ const PlaylistPage = () => {
 
   const local = useLocation();
   const history = useHistory();
-  const { id } = parseQuery(local.search);
+
 
   const handleComments = async (index: number) => {
     setIndex(index);
   };
   useEffect(() => {
+    const { id } = parseQuery(local.search);
     let flag = false;
     (async function () {
       const res = await getPlaylistComment({ id: +id, offset: checkIndex - 1 });
       if(res.data.code === 200 && !flag) setComments(res.data.comments);
     })();
     return () => { flag = true };
-  },[id, checkIndex]);
+  },[local, checkIndex]);
 
   useEffect(() => {
+    const { id } = parseQuery(local.search);
     window.scrollTo(0, 0);
     let ignone = false;
     if(!id)  history.push('/discover');
@@ -78,7 +80,7 @@ const PlaylistPage = () => {
     return (() => {
       ignone = true;
     });
-  }, [id]);
+  }, [local]);
   return (
       <div className="playlist">
         <div className="playlist-left">
