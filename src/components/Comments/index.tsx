@@ -6,7 +6,7 @@ type CommentsComponentPropType = {};
 import './style.scss';
 
 const Comments: FC<any> = props => {
-  const { comments, total } = props;
+  const { comments, hotComments, total, hotShow } = props;
 
   const getDate = (date: Date) => {
     date = new Date(date);
@@ -14,7 +14,57 @@ const Comments: FC<any> = props => {
     let D = (date.getDate() < 10 ? '0' + (date.getDate()) : date.getDate()) + ' ';
     let h = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':';
     let m = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes());
-    return `${ M }月${ D }日 ${ h }${ m }`
+    return `${ M }月${ D }日 ${ h }${ m }`;
+  };
+
+  const handleContent = (content: any, userId: number, nickname: string) => {
+    const imgElE = "<img width={ 40 } height={ 40 } src='http://s1.music.126.net/style/web2/emt/emoji_33.png' alt='' align='center'/>";
+
+    return `<a href='/user/home?id=${ userId }'>${ nickname }</a>:${ content.replace(/\[爱心\]/g, imgElE) }`;
+  };
+
+  const handleData = (comments: any, type: number) => {
+    return (
+        <>
+          { type ? <h3>精彩评论</h3> : <h3>最新评论({ total })</h3> }
+          {
+            comments.map((comment: any) => {
+              return <div className="item" key={ comment.user.userId + comment.commentId }>
+                <div className="head">
+                  <Link to={ `/user/home?id=${ comment.user.userId }` }>
+                    <img src={ comment.user.avatarUrl } alt=""/>
+                  </Link>
+                </div>
+                <div className="cont">
+                  <div className="cont-head" dangerouslySetInnerHTML={ { __html: handleContent(comment.content, comment.user.userId, comment.user.nickname) } }></div>
+                  {
+                    comment.beReplied && comment.beReplied.map((replied: any) => {
+                      if(replied.content) {
+                        return <div className="replied" key={ replied.user.userId } dangerouslySetInnerHTML={ { __html: handleContent(replied.content, comment.user.userId, replied.user.nickname) } }></div>;
+                      }else {
+                        return <div className="replied" key={ replied.user.userId }>该评论已删除</div>;
+                      }
+                    })
+                  }
+                  <div className="cont-info">
+                    <div>{ getDate(comment.time) }</div>
+                    <div>
+                        <span>
+                          <i className="iconfont icon-dianzan1"></i>
+                          {/*<i className="iconfont icon-dianzan"></i>*/ }
+                          <em>{ comment.likedCount !== 0 ? `(${ comment.likedCount })` : '' }</em>
+                        </span>
+                      <span>回复</span>
+                    </div>
+                  </div>
+                </div>
+              </div>;
+            })
+          }
+        </>
+
+    );
+
   };
 
   return (
@@ -39,43 +89,11 @@ const Comments: FC<any> = props => {
             </div>
           </div>
           <div className="commts">
-            <h3>精彩评论</h3>
             {
-              comments && comments.map((comment: any) => {
-                return <div className="item" key={ comment.user.userId + comment.commentId }>
-                  <div className="head">
-                    <Link to={ `/user/home?id=${ comment.user.userId }` }>
-                      <img src={ comment.user.avatarUrl } alt=""/>
-                    </Link>
-                  </div>
-                  <div className="cont">
-                    <p className="cont-head">
-                      <Link to={ `/user/home?id=${ comment.user.userId }` }>{ comment.user.nickname }</Link>: { comment.content }
-                    </p>
-                    {
-                      comment.beReplied && comment.beReplied.map((replied: any) => {
-                        if(replied.content) {
-                          return <div className="replied" key={ replied.user.userId }>
-                            <Link to={ `/user/home?id=${ replied.user.userId }` }>{ replied.user.nickname }</Link>: { replied.content }
-                          </div>
-                        }
-
-                      })
-                    }
-                    <div className="cont-info">
-                      <div>{ getDate(comment.time) }</div>
-                      <div>
-                        <span>
-                          <i className="iconfont icon-dianzan1"></i>
-                          {/*<i className="iconfont icon-dianzan"></i>*/}
-                          <em>{ comment.likedCount !== 0 ? `(${ comment.likedCount })` : '' }</em>
-                        </span>
-                        <span>回复</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>;
-              })
+              hotShow && handleData(hotComments, 1)
+            }
+            {
+              comments && handleData(comments, 0)
             }
           </div>
         </div>

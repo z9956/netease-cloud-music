@@ -3,8 +3,13 @@ import { http } from '@/apis/axios';
 /**
  * 歌单评论
  * @param { number } id  歌单id
+ * @param { number } offset  偏移数量
+ * @param params
  * */
-export const getPlaylistComment = (id: number) => http.get(`/comment/playlist?id=${ id }`);
+export const getPlaylistComment = (params: {
+  id: number,
+  offset?: number
+}) => http.get(`/comment/playlist`, params);
 
 /**
  * 获取歌单详情

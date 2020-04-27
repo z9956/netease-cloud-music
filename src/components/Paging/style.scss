@@ -1,0 +1,28 @@
+@import '~@/static/css/mixins.scss';
+
+.paging-wrap {
+  width: 85%;
+  margin: 0 auto;
+  @include flex(space-around);
+  button {
+    width: 46px;
+    border-radius: 3px;
+    line-height: 24px;
+    border: 1px solid #ccc;
+  }
+  .num {
+    @include flex();
+    >div {
+      height: 24px;
+      padding: 0 8px;
+      margin: 0 2px;
+      line-height: 24px;
+      border-radius: 3px;
+      border: 1px solid lightgrey;
+    }
+    .active {
+      color: white;
+      background-color: #A2161B;
+    }
+  }
+}
