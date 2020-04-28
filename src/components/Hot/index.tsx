@@ -6,12 +6,13 @@ import { hotResultType } from '@/types/home';
 import './style.scss';
 
 const Hot: FC<hotResultType> = props => {
-  const { result } = props;
+  const { result, titleShow, children } = props;
   const [ list ] = useState<Array<string>>([ '华语', '流行', '摇滚', '民谣', '电子' ]);
 
   return (
       <div className="hot-wrap">
-        <Title list={ list } info={ { title: '热门推荐', path: '/discover/playlist' } }></Title>
+        { children }
+        { !titleShow && <Title list={ list } info={ { title: '热门推荐', path: '/discover/playlist' } }></Title> }
         <ul>
           {
             result && result.map(item => {
@@ -21,18 +22,20 @@ const Hot: FC<hotResultType> = props => {
                     <img className="picUrl" src={ item.picUrl } alt=""/>
                   </Link>
                   <div className="bottom">
-                    <p>
-                      <i className="iconfont icon-erji201"></i>
-                      <span>{ Math.round(item.playCount / 1000) }万</span>
-                    </p>
+                    {
+                      item.playCount && <p>
+                        <i className="iconfont icon-erji201"></i>
+                        <span>{ Math.round(item.playCount / 1000) }万</span>
+                      </p>
+                    }
                     <i className="iconfont icon-bofang"></i>
                   </div>
                 </div>
-                <div  className={ item.nickname ? 'ellipsis name' : 'name' }>
+                <div className={ item.nickname ? 'ellipsis name' : 'name' }>
                   <Link to={ `/playlist?id=${ item.id }` }>{ item.name }</Link>
-                  <p className="gray">{ item.nickname ?  `by ${ item.nickname }` : ''}</p>
+                  <p className="gray">{ item.nickname ? `by ${ item.nickname }` : '' }</p>
                 </div>
-              </li>
+              </li>;
             })
           }
         </ul>

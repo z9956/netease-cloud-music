@@ -12,6 +12,7 @@ import './style.scss';
 const DiscoverDjradioPage = () => {
   return (
       <>
+        DiscoverDjradioPage
       </>
   );
 };

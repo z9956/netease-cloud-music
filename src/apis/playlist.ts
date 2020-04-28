@@ -48,15 +48,6 @@ export const getHotPlaylist = () => http.get(`/playlist/hot`);
 
 /**
  * 歌单(网友精选碟)
- * @param { string } order new | hot
- * @param { string } cat tag
- * @param { string } limit tag
- * @param { number } offset
  * @param params
  * */
-export const getTopPlaylist = (params: {
-  order?: string,
-  offset?: number,
-  limit?: number,
-  cat: string
-}) => http.get(`/top/playlist`, params);
+export const getTopPlaylist = (params: { cat: string | string[]; limit: number } | { offset: number; cat: string | string[]; limit: number }) => http.get(`/top/playlist`, params);

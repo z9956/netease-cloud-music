@@ -11,6 +11,7 @@
     border: 1px solid #ccc;
   }
   .num {
+    width: 60%;
     @include flex();
     >div {
       height: 24px;
