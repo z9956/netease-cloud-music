@@ -8,7 +8,7 @@ const devMode = process.env.NODE_ENV !== 'production';
 
 module.exports = {
   // 开发模式
-  mode: 'development', // production or development
+  mode: 'production', // production or development
   // 入口
   entry: {
     app: './src/index.tsx',
