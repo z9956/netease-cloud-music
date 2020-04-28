@@ -1,0 +1,14 @@
+@import '~@/static/css/mixins.scss';
+
+.discover-playlist {
+  width: 980px;
+  padding: 40px;
+  margin: 0 auto;
+  background-color: white;
+  ul {
+    width: 980px;
+    >li {
+      width: 190px;
+    }
+  }
+}

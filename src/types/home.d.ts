@@ -146,7 +146,8 @@ export type resultType = {
   playCount: number,
   trackCount: number,
   highQuality: boolean,
-  alg: string
+  alg: string,
+  nickname?: string
 };
 
 export type newAlbumArtistsType = {

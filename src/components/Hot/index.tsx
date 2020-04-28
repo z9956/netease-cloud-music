@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import Title from '@/components/Title';
@@ -28,9 +28,10 @@ const Hot: FC<hotResultType> = props => {
                     <i className="iconfont icon-bofang"></i>
                   </div>
                 </div>
-                <p className="name">
+                <div  className={ item.nickname ? 'ellipsis name' : 'name' }>
                   <Link to={ `/playlist?id=${ item.id }` }>{ item.name }</Link>
-                </p>
+                  <p className="gray">{ item.nickname ?  `by ${ item.nickname }` : ''}</p>
+                </div>
               </li>
             })
           }

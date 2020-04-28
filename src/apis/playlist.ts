@@ -35,3 +35,28 @@ export const getPlaylistSubscribers = (params: {
   id: number,
   limit?: number
 }) => http.get(`/playlist/subscribers`, params);
+
+/**
+ * 歌单分类
+ * */
+export const getPlaylistCatlist = () => http.get(`/playlist/catlist`);
+
+/**
+ * 热门歌单分类
+ * */
+export const getHotPlaylist = () => http.get(`/playlist/hot`);
+
+/**
+ * 歌单(网友精选碟)
+ * @param { string } order new | hot
+ * @param { string } cat tag
+ * @param { string } limit tag
+ * @param { number } offset
+ * @param params
+ * */
+export const getTopPlaylist = (params: {
+  order?: string,
+  offset?: number,
+  limit?: number,
+  cat: string
+}) => http.get(`/top/playlist`, params);

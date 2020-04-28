@@ -75,6 +75,11 @@ class RouterPage extends Component<RouteComponentProps, navListType>{
                           path={ routePath.discover.toplist }
                           component={ DiscoverTopListPage }
                       />
+                      <Route
+                          exact={ false }
+                          path={ routePath.discover.playlist }
+                          component={ DiscoverPlaylistPage }
+                      />
                     </Switch>
                 )}
             />
