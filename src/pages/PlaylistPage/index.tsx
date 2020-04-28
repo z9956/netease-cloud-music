@@ -27,7 +27,6 @@ const PlaylistPage = () => {
 
   const local = useLocation();
   const history = useHistory();
-  const { id } = parseQuery(local.search);
 
   const handleComments = async (index: number) => {
     setIndex(index);
@@ -35,6 +34,7 @@ const PlaylistPage = () => {
 
   useEffect(() => {
     let flag = false;
+    const { id } = parseQuery(local.search);
     if(!id) return;
     try{
       (async function () {
@@ -46,11 +46,12 @@ const PlaylistPage = () => {
     }
 
     return () => { flag = true };
-  },[id, checkIndex]);
+  },[local, checkIndex]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
     let ignone = false;
+    const { id } = parseQuery(local.search);
     if(!id)  history.push('/discover');
 
     try{
@@ -89,7 +90,7 @@ const PlaylistPage = () => {
     return (() => {
       ignone = true;
     });
-  }, [id]);
+  }, [local]);
   return (
       <div className="playlist">
         <div className="playlist-left">
