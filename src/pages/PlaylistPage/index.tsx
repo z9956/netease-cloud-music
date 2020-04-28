@@ -27,7 +27,7 @@ const PlaylistPage = () => {
 
   const local = useLocation<any>();
   const history = useHistory<any>();
-  const { id } = local && parseQuery(local.search);
+  const { id } = parseQuery(local.search);
 
   const handleComments = async (index: number) => {
     setIndex(index);
