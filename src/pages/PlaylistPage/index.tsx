@@ -25,8 +25,8 @@ const PlaylistPage = () => {
   const [ total, setTotal ] = useState<any>(0);
   const [ checkIndex, setIndex ] = useState<number>(1);
 
-  const local = useLocation<any>();
-  const history = useHistory<any>();
+  const local = useLocation();
+  const history = useHistory();
   const { id } = parseQuery(local.search);
 
   const handleComments = async (index: number) => {
@@ -36,10 +36,15 @@ const PlaylistPage = () => {
   useEffect(() => {
     let flag = false;
     if(!id) return;
-    (async function () {
-      const res = await getPlaylistComment({ id: +id, offset: checkIndex - 1 });
-      if(res.data.code === 200 && !flag) setComments(res.data.comments);
-    })();
+    try{
+      (async function () {
+        const res = await getPlaylistComment({ id: +id, offset: checkIndex - 1 });
+        if(res.data.code === 200 && !flag) setComments(res.data.comments);
+      })();
+    }catch(e) {
+      console.log(e);
+    }
+
     return () => { flag = true };
   },[id, checkIndex]);
 
@@ -48,34 +53,38 @@ const PlaylistPage = () => {
     let ignone = false;
     if(!id)  history.push('/discover');
 
-    (async function () {
-      const result = await getPlaylistDetail({ id: +id });
-      const commentsData = await getPlaylistComment({ id: +id });
-      const related = await getPlaylistRelated(+id);
-      if(!ignone && result.data.code === 200 && related.data.code === 200) {
-        const { playlist: { trackCount, name, description, createTime, commentCount, shareCount, subscribedCount, coverImgUrl, subscribers, tracks, playCount, tags, creator } } = result.data;
-        const { userId, avatarUrl, nickname } = creator;
+    try{
+      (async function () {
+        const result = await getPlaylistDetail({ id: +id });
+        const commentsData = await getPlaylistComment({ id: +id });
+        const related = await getPlaylistRelated(+id);
+        if(!ignone && result.data.code === 200 && related.data.code === 200) {
+          const { playlist: { trackCount, name, description, createTime, commentCount, shareCount, subscribedCount, coverImgUrl, subscribers, tracks, playCount, tags, creator } } = result.data;
+          const { userId, avatarUrl, nickname } = creator;
 
-        setTracks(tracks);
-        setSubscribers(subscribers);
-        setCreator({ userId, avatarUrl, nickname });
-        setPlaylist({
-          name,
-          description,
-          coverImgUrl,
-          shareCount,
-          commentCount,
-          subscribedCount,
-          tags,
-          createTime
-        });
-        setSongData({ playCount, trackCount });
-        setRelatedList(related.data.playlists);
-        setTotal(commentsData.data.total);
-        setHotComments(commentsData.data.hotComments);
-        setComments(commentsData.data.comments);
-      }
-    })();
+          setTracks(tracks);
+          setSubscribers(subscribers);
+          setCreator({ userId, avatarUrl, nickname });
+          setPlaylist({
+            name,
+            description,
+            coverImgUrl,
+            shareCount,
+            commentCount,
+            subscribedCount,
+            tags,
+            createTime
+          });
+          setSongData({ playCount, trackCount });
+          setRelatedList(related.data.playlists);
+          setTotal(commentsData.data.total);
+          setHotComments(commentsData.data.hotComments);
+          setComments(commentsData.data.comments);
+        }
+      })();
+    }catch(e) {
+      console.log(e);
+    }
 
     return (() => {
       ignone = true;
