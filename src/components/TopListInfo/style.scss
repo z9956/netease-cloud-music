@@ -1,17 +1,25 @@
-@import '~@/static/css/mixins.scss';
+@import '~@/static/css/mixins';
 
+.toplist-info {
+  width: 740px;
+  margin: 0 auto;
+  padding: 0 30px 40px 40px;
+  >.playlist-wrap {
+    padding: 40px;
+  }
+}
 .playlist-wrap {
   font-size: 12px;
   color: #666;
   @include flex(space-between, end);
   .playlist-img {
-    width: 208px;
-    height: 208px;
+    width: 158px;
+    height: 158px;
     border: 1px solid gainsboro;
     @include flex(center);
     >img {
-      width: 200px;
-      height: 200px;
+      width: 150px;
+      height: 150px;
     }
   }
   .playlist-info {
@@ -42,9 +50,9 @@
         background-color: #F5F5F5;
         border: 1px solid lightgrey;
       }
-    >div:hover {
-      opacity: 0.6;
-    }
+      >div:hover {
+        opacity: 0.6;
+      }
 
     }
     .tags {
@@ -80,3 +88,4 @@
     }
   }
 }
+

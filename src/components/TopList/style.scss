@@ -1,0 +1,38 @@
+@import '~@/static/css/mixins';
+
+.toplist-wrap {
+  width: 240px;
+  padding-top: 40px;
+  border-left: 1px solid lightgrey;
+  border-right: 1px solid lightgrey;
+  >h2 {
+    padding: 0 10px 12px 15px;
+    font-size: 14px;
+  }
+  >.toplist {
+    >li {
+      padding: 10px 0 10px 20px;
+      @include flex();
+      .item-img {
+        img {
+          width: 40px;
+          height: 40px;
+          vertical-align: middle;
+        }
+      }
+      .item-info {
+        width: 170px;
+        >p {
+          color: #333;
+        }
+        >p:last-child {
+          color: #999;
+          margin-top: 6px;
+        }
+      }
+    }
+    .active {
+      background-color: #e6e6e6;
+    }
+  }
+}

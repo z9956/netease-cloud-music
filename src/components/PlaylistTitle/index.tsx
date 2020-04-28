@@ -4,11 +4,12 @@ import './style.scss';
 
 type PlaylistTopComponentPropType = {
   type?: number,
+  none?: boolean,
   title: string
 };
 
 const PlaylistTitle: FC<PlaylistTopComponentPropType> = props => {
-  const { title } = props;
+  const { title, none } = props;
 
   const getBackgroundImg = (type: number) => {
 
@@ -16,7 +17,7 @@ const PlaylistTitle: FC<PlaylistTopComponentPropType> = props => {
 
   return (
       <div className="playlist-title">
-        <i></i>
+        { none ? <i></i> : ''}
         <h2>{ title }</h2>
       </div>
   );

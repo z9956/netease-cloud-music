@@ -2,6 +2,7 @@ import React, { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import PlaylistTitle from '@/components/PlaylistTitle';
+import { getDate } from '@/utils/utils';
 
 import './style.scss';
 
@@ -24,14 +25,6 @@ const PlaylistTop: FC<any> = props => {
   } = props;
 
   const [ show, setShow ] = useState<boolean>(false);
-
-  const getDate = (createTime: number) => {
-    try {
-      return new Date(createTime).toISOString().split('T')[0];
-    } catch(e) {
-      console.log(e);
-    }
-  };
 
   const handleButton = () => {
     setShow(!show);

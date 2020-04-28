@@ -30,7 +30,7 @@ class DiscoverPage extends Component<{}, HomeComponentStateType> {
     return (
       <>
         <Banner banners={ banners }></Banner>
-        <div className="cont margin">
+        <div className="discover-cont margin">
           <Didcover/>
           <Singers/>
         </div>

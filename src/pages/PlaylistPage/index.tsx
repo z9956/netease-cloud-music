@@ -25,13 +25,14 @@ const PlaylistPage = () => {
   const [ total, setTotal ] = useState<any>(0);
   const [ checkIndex, setIndex ] = useState<number>(1);
 
-  const local = useLocation();
-  const history = useHistory();
+  const local = useLocation<any>();
+  const history = useHistory<any>();
   const { id } = local && parseQuery(local.search);
 
   const handleComments = async (index: number) => {
     setIndex(index);
   };
+
   useEffect(() => {
     let flag = false;
     if(!id) return;
@@ -45,7 +46,6 @@ const PlaylistPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     let ignone = false;
-    if(!id) return;
     if(!id)  history.push('/discover');
 
     (async function () {

@@ -8,9 +8,14 @@ import { routePath } from '@/route/router';
 
 const BackTop = lazy(() => import('@/components/BackTop'));
 const Header = lazy(() => import('@/components/Header'));
-const DiscoverPage = lazy(() => import('@/pages/DiscoverPage'));
 const SongPage = lazy(() => import('@/pages/SongPage'));
 const PlaylistPage = lazy(() => import('@/pages/PlaylistPage'));
+const DiscoverIndexPage = lazy(() => import('@/pages/DiscoverPage/DiscoverIndexPage'));
+const DiscoverPlaylistPage = lazy(() => import('@/pages/DiscoverPage/DiscoverPlaylistPage'));
+const DiscoverAlbumPage = lazy(() => import('@/pages/DiscoverPage/DiscoverAlbumPage'));
+const DiscoverArtistPage = lazy(() => import('@/pages/DiscoverPage/DiscoverArtistPage'));
+const DiscoverDjradioPage = lazy(() => import('@/pages/DiscoverPage/DiscoverDjradioPage'));
+const DiscoverTopListPage = lazy(() => import('@/pages/DiscoverPage/DiscoverTopListPage'));
 
 class RouterPage extends Component<RouteComponentProps, navListType>{
   constructor(props: any) {
@@ -34,7 +39,7 @@ class RouterPage extends Component<RouteComponentProps, navListType>{
             <Route
                 path={ routePath.discover.index }
                 exact={ true }
-                component={ DiscoverPage }
+                component={ DiscoverIndexPage }
             />
             <Route
                 path={ routePath.song }
@@ -53,22 +58,22 @@ class RouterPage extends Component<RouteComponentProps, navListType>{
                       <Route
                           exact={ true }
                           path={ routePath.discover.album }
-                          component={ () =>(<div>album</div>) }
+                          component={ DiscoverAlbumPage }
                       />
                       <Route
                           exact={ true }
                           path={ routePath.discover.artist }
-                          component={ () =>(<div>artist</div>) }
+                          component={ DiscoverArtistPage }
                       />
                       <Route
                           exact={ true }
                           path={ routePath.discover.djradio }
-                          component={ () =>(<div>djradio</div>) }
+                          component={ DiscoverDjradioPage }
                       />
                       <Route
-                          exact={ true }
+                          exact={ false }
                           path={ routePath.discover.toplist }
-                          component={ () =>(<div>toplist</div>) }
+                          component={ DiscoverTopListPage }
                       />
                     </Switch>
                 )}
@@ -77,7 +82,6 @@ class RouterPage extends Component<RouteComponentProps, navListType>{
                 path="/"
                 render={() => {
                   return <Redirect to={ routePath.discover.index }/>
-                  // return <Redirect to={ routePath.playlist }/>
                 }}
             />
           </Switch>

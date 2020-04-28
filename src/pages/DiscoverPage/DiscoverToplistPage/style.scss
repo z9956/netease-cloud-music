@@ -1,0 +1,8 @@
+@import '~@/static/css/mixins';
+
+.toplist-page {
+  width: 980px;
+  margin: 0 auto;
+  border-right: 1px solid lightgrey;
+  @include flex(space-around, end);
+}

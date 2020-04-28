@@ -1,6 +1,6 @@
-@import '../../static/css/mixins';
+@import '../../../static/css/mixins';
 
-.cont {
+.discover-cont {
   width: 982px;
   @include flex(center, self-end);
   border: 1px solid gainsboro;

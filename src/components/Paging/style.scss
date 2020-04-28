@@ -2,7 +2,7 @@
 
 .paging-wrap {
   width: 85%;
-  margin: 0 auto;
+  margin: 10px auto;
   @include flex(space-around);
   button {
     width: 46px;
