@@ -12,7 +12,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      '@': projectRoot('/src'),
+      '@': projectRoot('src'),
     },
     extensions: ['.tsx', '.ts', '.js', '.json'],
   },
@@ -83,15 +83,15 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: '仅供练习',
-      template: projectRoot('./public/index.html'),
-      favicon: projectRoot('./src/static/images/favicon.ico'),
-      chunks: ['index'],
-      minify: {
-        removeComments: true,
-        minifyJS: true,
-        minifyCSS: true,
-        minifyURLs: true
-      }
+      template: projectRoot('/public/index.html'),
+      favicon: projectRoot('/src/static/images/favicon.ico')
+      // chunks: ['index'],
+      // minify: {
+      //   removeComments: true,
+      //   minifyJS: true,
+      //   minifyCSS: true,
+      //   minifyURLs: true
+      // }
     }),
   ],
   output: {
