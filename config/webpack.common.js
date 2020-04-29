@@ -1,30 +1,18 @@
-const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+const { projectRoot } = require('./config');
 const devMode = process.env.NODE_ENV !== 'production';
 
 module.exports = {
-  // 开发模式
-  mode: 'production', // production or development
-  // 入口
   entry: {
-    app: './src/index.tsx',
-  },
-  // 启用源映射
-  devtool: 'source-map',
-  // 开发服务器相关配置
-  devServer: {
-    contentBase: './public', // 开发服务器内容的基本路径
-    hot: true,
-    inline: true,
-    historyApiFallback: true,
+    app: projectRoot('./src/index.tsx'),
   },
   resolve: {
     alias: {
-      '@': path.join(__dirname, 'src'),
+      '@': projectRoot('/src'),
     },
     extensions: ['.tsx', '.ts', '.js', '.json'],
   },
@@ -95,13 +83,19 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: '仅供练习',
-      template: './public/index.html',
-      favicon: './src/static/images/favicon.ico'
+      template: projectRoot('./public/index.html'),
+      favicon: projectRoot('./src/static/images/favicon.ico'),
+      chunks: ['index'],
+      minify: {
+        removeComments: true,
+        minifyJS: true,
+        minifyCSS: true,
+        minifyURLs: true
+      }
     }),
   ],
-  // 输出
   output: {
     filename: 'js/[name][hash].bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    path: projectRoot('dist')
   },
 };
