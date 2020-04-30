@@ -1,0 +1,31 @@
+@import '../../../static/css/mixins';
+
+.likes {
+  > h3 {
+    font-size: 12px;
+    line-height: 24px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid lightgrey;
+  }
+
+  .like-list {
+    width: 210px;
+    padding-bottom: 25px;
+    padding-left: -12px;
+    @include flex();
+    flex-wrap: wrap;
+    > li {
+      padding: 0 0 12px 12px;
+      font-size: 0;
+      > a {
+        > img {
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
+    .none {
+      padding-left: 0;
+    }
+  }
+}

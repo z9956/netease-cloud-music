@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-import Banner from '@/components/Banner';
-import BackTop from '@/components/BackTop';
-import Didcover from '@/components/Discover';
-import Singers from '@/components/Singers';
+import Banner from '@/components/common/Banner';
+import BackTop from '@/components/common/BackTop';
+import Didcover from '@/components/common/Discover';
+import Singers from '@/components/common/Singers';
 import { HomeComponentStateType } from '@/types/home';
 import { getBannerService } from '@/service/homeService';
 

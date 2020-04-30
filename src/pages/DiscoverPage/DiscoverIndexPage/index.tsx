@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import Banner from '@/components/Banner';
-import Didcover from '@/components/Discover';
-import Singers from '@/components/Singers';
+import Banner from '@/components/common/Banner';
+import Didcover from '@/components/common/Discover';
+import Singers from '@/components/common/Singers';
 import { HomeComponentStateType } from '@/types/home';
 import { getBannerService } from '@/service/homeService';
 import { cancel } from '@/apis/axios';

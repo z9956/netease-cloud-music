@@ -1,0 +1,8 @@
+@import '../../../static/css/mixins';
+
+.ranking-item {
+  border: 1px solid #d3d3d3;
+  margin-top: 20px;
+  border-right: none;
+  @include flex();
+}

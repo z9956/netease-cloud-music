@@ -1,0 +1,41 @@
+@import '~@/static/css/mixins';
+.categories {
+  @include flex();
+  >.categories-wrap {
+    width: 100%;
+    @include flex();
+    > li {
+      width: 70px;
+      height: 72px;
+      >a {
+        color: #999;
+      }
+      div {
+        width: 48px;
+        height: 48px;
+        background-position: 0 0;
+      }
+      div.check {
+        background-position: -48 0;
+      }
+    }
+    >li.check {
+      color: #d35757;
+      background-color: #d35757;
+    }
+    >li:hover {
+      background-color: lightgrey;
+    }
+  }
+}
+.radius {
+  >span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  >span.active {
+    background-color: #d35757;
+  }
+}

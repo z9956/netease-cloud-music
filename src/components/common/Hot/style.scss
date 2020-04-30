@@ -1,0 +1,47 @@
+@import '../../../static/css/mixins';
+
+.hot-wrap {
+  width: 689px;
+  >ul {
+    @include flex();
+    margin-top: 20px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    >li {
+      width: 140px;
+      height: 234px;
+      >div {
+        width: 140px;
+        @include position();
+        img {
+          width: 140px;
+          height: 140px;
+          display: block;
+        }
+        .bottom {
+          width: 140px;
+          height: 27px;
+          font-size: 12px;
+          background-color: rgba(43, 43, 43, 0.5);
+          color: #ccc;
+          @include position(absolute, none, 0, 0);
+          @include flex(space-around);
+        }
+      }
+      .name {
+        margin-top: 8px;
+        a {
+          font-size: 14px;
+          color: #000;
+          border-bottom: 1px solid rgba(1, 1, 1, 0);
+        }
+        a:hover {
+          border-bottom: 1px solid #000;
+        }
+        .gray {
+          color: #999;
+        }
+      }
+    }
+  }
+}

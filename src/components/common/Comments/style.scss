@@ -1,0 +1,105 @@
+@import '../../../static/css/mixins';
+
+.comments-wrap {
+  .title {
+    border-bottom: 2px solid #c20c0c;
+    h3 {
+      font-size: 20px;
+      line-height: 28px;
+    }
+    @include flex(flex-start);
+    span {
+      margin-left: 20px;
+    }
+  }
+  .comments-list {
+    .user-comments {
+      margin-top: 20px;
+      @include flex(space-between, end);
+      .user-img {
+        img {
+          width: 50px;
+          height: 50px;
+          vertical-align: middle;
+        }
+      }
+      .user-text {
+        width: 578px;
+        margin-bottom: 20px;
+        .text-wrap {
+          border: 1px solid lightgrey;
+          margin-bottom: 10px;
+        }
+        textarea {
+          width: 100%;
+          padding: 6px;
+        }
+        .btns {
+          @include flex(flex-end);
+          button {
+            width: 46px;
+            height: 25px;
+            color: white;
+            margin-left: 10px;
+            text-align: center;
+            line-height: 25px;
+            background-color: #0086b3;
+          }
+        }
+      }
+    }
+  }
+  .commts {
+    h3 {
+      line-height: 20px;
+      border-bottom: 1px solid #cfcfcf;
+    }
+    .item {
+      padding: 15px 0;
+      border-bottom: 1px dotted #ccc;
+      @include flex(space-around, end);
+      .head {
+        a {
+          color: rgb(12, 115, 194);;
+          img {
+            width: 50px;
+            height: 50px;
+            vertical-align: middle;
+          }
+        }
+      }
+      .cont {
+        width: 580px;
+        .cont-head {
+          white-space: pre-wrap;
+          line-height: 20px;
+          color: #333;
+          a {
+            color: #0c73c2;
+          }
+          a:hover {
+            border-bottom: 1px solid #0c73c2;
+          }
+        }
+        .replied {
+          padding: 8px 19px;
+          margin-top: 10px;
+          line-height: 20px;
+          background-color: #f4f4f4;
+          border: 1px solid #dedede;
+          a {
+            color: #0c73c2;
+          }
+          a:hover {
+            border-bottom: #0c73c2;
+          }
+        }
+        .cont-info {
+          @include flex();
+          margin-top: 15px;
+          color: #999;
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import DiscoverPlaylistComponent from '@/components/DiscoverPlaylistComponent';
+import DiscoverPlaylistComponent from '@/components/business/DiscoverPlaylistComponent';
 
 import './style.scss';
 

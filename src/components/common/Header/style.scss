@@ -1,0 +1,152 @@
+@import '../../../static/css/mixins';
+.topbar {
+  color: white;
+  .wrap {
+    width: 100%;
+    color: #ccc;
+    background-color: #242424;
+  }
+  .wrap:last-child{
+    color: white;
+    background-color: #C20C0C;
+  }
+  .nav-top {
+    width: 1100px;
+    @include flex();
+    .logo {
+      width: 176px;
+      height: 69px;
+      background: url('https://raw.githubusercontent.com/z9956/netease-cloud-music/dev/src/static/images/topbar.png') no-repeat;
+    }
+    .nav {
+      @include flex();
+      >li {
+         width: 94px;
+         height: 70px;
+         @include text-center(70px);
+       }
+      >li:hover {
+        color: white;
+        background-color: #000;
+      }
+      .check {
+        color: white;
+        background-color: #000;
+      }
+    }
+    .search {
+      width: 158px;
+      height: 32px;
+      border-radius: 32px;
+      background-color: white;
+      @include position();
+      .search-input {
+        @include flex(space-around);
+        line-height: 32px;
+        >input {
+          width: 128px;
+        }
+      }
+      .result {
+        width: 240px;
+        background-color: white;
+        @include position(absolute, 34px, 0);
+        z-index: 1;
+        >p {
+          width: 100%;
+        }
+        >p a {
+          display: block;
+          color: #666;
+          font-size: 12px;
+          padding: 11px 10px;
+          border-bottom: 1px solid #e2e2e2;
+        }
+        .item-wrap {
+          .item {
+            @include flex(space-between);
+            font-size: 12px;
+            color: black;
+            .item-left {
+              margin: 0 auto;
+            }
+            .item-right {
+              width: 175px;
+              border-left: solid 1px #e2e2e2;
+              border-bottom: solid 1px #e2e2e2;
+              >li {
+                height: 24px;
+                padding-left: 20px;
+                line-height: 24px;
+              }
+              >li:hover {
+                background-color: rgba(121, 128, 93, 0.65);
+              }
+            }
+            .name {
+              color: dodgerblue;
+            }
+          }
+        }
+      }
+    }
+    .creator {
+      width: 90px;
+      height: 32px;
+      line-height: 32px;
+      text-align: center;
+      border: 1px solid #4F4F4F;
+      border-radius: 20px;
+      font-size: 12px;
+    }
+    .user-info {
+      @include position();
+      z-index: 10;
+      font-size: 12px;
+      > .photos img {
+        border-radius: 50%;
+      }
+      .user-list {
+        width: 160px;
+        background-color: #2b2b2b;
+        display: none;
+        @include position(absolute, 30px, 0);
+        transform: translateX(-50%);
+        >li {
+          height: 34px;
+          @include flex(center);
+        }
+      }
+
+    }
+    .user-info:hover .user-list {
+      display: block;
+    }
+  }
+  .sub-nav {
+    width: 1100px;
+    .nav-list {
+      width: 744px;
+      @include flex();
+      >li {
+        font-size: 12px;
+        width: 84px;
+        height: 34px;
+        @include flex();
+        >span {
+          height: 20px;
+          padding: 0 12px;
+          display: block;
+          text-align: center;
+          border-radius: 20px;
+        }
+        >span:hover {
+          background-color: #9B0909;
+        }
+        >span.check {
+          background-color: #9B0909;
+        }
+      }
+    }
+  }
+}

@@ -7,11 +7,12 @@ export const routePath = {
     artist: '/discover/artist',
     album: '/discover/album'
   },
-  search: '/search',
   my: {
     index: '/my'
   },
-  friend: '/friend',
   song: '/song',
-  playlist: '/playlist'
+  search: '/search',
+  friend: '/friend',
+  program: '/program',
+  playlist: '/playlist',
 } ;

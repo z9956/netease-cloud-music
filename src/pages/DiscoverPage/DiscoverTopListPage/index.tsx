@@ -1,7 +1,7 @@
 import React, {  useState } from 'react';
 
-import TopList from '@/components/TopList';
-import TopListInfo from '@/components/TopListInfo';
+import TopList from '@/components/common/TopList';
+import TopListInfo from '@/components/common/TopListInfo';
 
 import './style.scss';
 

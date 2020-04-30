@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useHistory, RouteComponentProps } from 'react-router-dom';
 
-import PlaylistTop from '@/components/PlaylistTop';
-import PlayRelated from '@/components/PlayRelated';
-import Comments from '@/components/Comments';
-import SongList from '@/components/SongList';
-import Paging from '@/components/Paging';
-import Likes from '@/components/Likes';
+import PlaylistTop from '@/components/common/PlaylistTop';
+import PlayRelated from '@/components/common/PlayRelated';
+import Comments from '@/components/common/Comments';
+import SongList from '@/components/common/SongList';
+import Paging from '@/components/common/Paging';
+import Likes from '@/components/common/Likes';
 import { parseQuery } from '@/utils/utils';
 import { getPlaylistDetail, getPlaylistComment, getPlaylistRelated } from '@/apis/playlist';
 

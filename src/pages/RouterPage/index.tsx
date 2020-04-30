@@ -6,15 +6,15 @@ import { navList, subNav } from '@/apis/model';
 import { routePath } from '@/route/router';
 
 
-const BackTop = lazy(() => import('@/components/BackTop'));
-const Header = lazy(() => import('@/components/Header'));
+const BackTop = lazy(() => import('@/components/common/BackTop'));
+const Header = lazy(() => import('@/components/common/Header'));
 const SongPage = lazy(() => import('@/pages/SongPage'));
 const PlaylistPage = lazy(() => import('@/pages/PlaylistPage'));
 const DiscoverIndexPage = lazy(() => import('@/pages/DiscoverPage/DiscoverIndexPage'));
 const DiscoverPlaylistPage = lazy(() => import('@/pages/DiscoverPage/DiscoverPlaylistPage'));
 const DiscoverAlbumPage = lazy(() => import('@/pages/DiscoverPage/DiscoverAlbumPage'));
 const DiscoverArtistPage = lazy(() => import('@/pages/DiscoverPage/DiscoverArtistPage'));
-const DiscoverDjradioPage = lazy(() => import('@/pages/DiscoverPage/DiscoverDjradioPage'));
+const DiscoverDjRadioPage = lazy(() => import('@/pages/DiscoverPage/DiscoverDjRadioPage'));
 const DiscoverTopListPage = lazy(() => import('@/pages/DiscoverPage/DiscoverTopListPage'));
 
 class RouterPage extends Component<RouteComponentProps, navListType>{
@@ -68,7 +68,7 @@ class RouterPage extends Component<RouteComponentProps, navListType>{
                       <Route
                           exact={ true }
                           path={ routePath.discover.djradio }
-                          component={ DiscoverDjradioPage }
+                          component={ DiscoverDjRadioPage }
                       />
                       <Route
                           exact={ false }

@@ -1,0 +1,21 @@
+@import '../../../static/css/mixins';
+
+.back-top {
+  width: 40px;
+  height: 40px;
+  font-size: 12px;
+  @include position(fixed, none, none, 160px, 10%);
+  background-color: rgba(141, 141, 141, 0.3);
+  color: beige;
+  text-align: center;
+  line-height: 40px;
+  border: 1px solid gainsboro;
+  z-index: 10;
+  &:before {
+    content: 'top';
+    display: block;
+  }
+  &:hover:before {
+    content: '回顶部';
+  }
+}

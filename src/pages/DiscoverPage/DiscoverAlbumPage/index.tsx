@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import DiscoverAlbumComponent from '@/components/DiscoverAlbumComponent';
+import DiscoverAlbumComponent from '@/components/business/DiscoverAlbumComponent';
 
 import './style.scss';
 
