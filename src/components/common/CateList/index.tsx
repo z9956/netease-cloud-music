@@ -13,16 +13,17 @@ const CateList: FC = () => {
   const [ categories, setCategories ] = useState<any>({});
   const [ checkIndex, setIndex ] = useState<number>(-1);
   const [ show, setShow ] = useState<boolean>(true);
-  const [ radiusIndex, setRadiusIndex ] = useState<number>();
+  const [ radiusIndex, setRadiusIndex ] = useState<number>(0);
 
   const mapData = (data: any) => {
+    if(!data) return;
     return (
         <ul className="categories-wrap">
           {
             data.map((item: any, index: number) => {
               return <li key={ item.id }  className={ checkIndex === index ? 'check' : '' }>
                 <Link to={ `discover/djradio/category?id=${ item.id }` }>
-                  <div className={ checkIndex === index ? 'check' : '' } style={ { backgroundImage: item.picWebUrl } }></div>
+                  <div className={ checkIndex === index ? 'check' : '' } style={ { backgroundImage: `url(${ item.picWebUrl })` } }></div>
                   <em>{ item.name }</em>
                 </Link>
               </li>;
@@ -54,15 +55,15 @@ const CateList: FC = () => {
   const { first, last } = categories;
 
   return (
-      <>
+      categories && <div>
         <div className="categories">
-          { first && mapData(first) && mapData(last) }
+          { radiusIndex === 0 ? mapData(first) : mapData(last) }
         </div>
         <div className="radius">
           <span onClick={ () => setShow(true)}></span>
           <span onClick={ () => setShow(true)}></span>
         </div>
-      </>
+      </div>
   );
 };
 
