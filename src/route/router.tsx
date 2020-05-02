@@ -3,9 +3,14 @@ export const routePath = {
     index: '/discover',
     toplist: '/discover/toplist',
     playlist: '/discover/playlist',
-    djradio: '/discover/djradio',
     artist: '/discover/artist',
-    album: '/discover/album'
+    album: '/discover/album',
+    djradio: {
+      index: '/discover/djradio',
+      rank: '/discover/djradio/rank',
+      recommend: '/discover/djradio/recommend',
+      category: '/discover/djradio/category'
+    },
   },
   my: {
     index: '/my'

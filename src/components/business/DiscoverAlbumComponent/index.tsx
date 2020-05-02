@@ -2,7 +2,7 @@ import React, { FC, useEffect, useState } from 'react';
 
 import Hot from '@/components/common/Hot';
 import Paging from '@/components/common/Paging';
-import { getAlbumNewst, getTopAlbum } from '@/apis/album';
+import { getAlbumNews, getTopAlbum } from '@/apis/album';
 
 type TitleComponentPropType = {
   top?: number
@@ -21,7 +21,7 @@ const DiscoverAlbumComponent: FC<any> = props => {
     let flag: boolean = false;
 
     (async function () {
-        const res = await getAlbumNewst();
+        const res = await getAlbumNews();
         if(!flag && res.data.code === 200) {
           let result = res.data.albums.splice(0, 10);
 

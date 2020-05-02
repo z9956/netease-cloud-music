@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-import { getDjCateList } from '@/apis/cetelist';
+import { getDjCateList } from '@/apis/djradio';
 
 import './style.scss';
 
@@ -33,6 +33,10 @@ const CateList: FC = () => {
     );
   };
 
+  const handleChangeIndex = (index: number) => {
+    setRadiusIndex(index);
+  };
+
   useEffect(() => {
     let flag = false;
 
@@ -60,8 +64,11 @@ const CateList: FC = () => {
           { radiusIndex === 0 ? mapData(first) : mapData(last) }
         </div>
         <div className="radius">
-          <span onClick={ () => setShow(true)}></span>
-          <span onClick={ () => setShow(true)}></span>
+          {
+            [0, 1].map(index => {
+              return <span key={ index } className={ radiusIndex === index ? 'active' : '' } onClick={ () => handleChangeIndex(index) }></span>
+            })
+          }
         </div>
       </div>
   );

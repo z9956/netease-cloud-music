@@ -3,7 +3,7 @@ import { http } from './axios';
 /**
  * 最新专辑
  * */
-export const getAlbumNewst = () => http.get(`/album/newest`);
+export const getAlbumNews = () => http.get(`/album/newest`);
 
 /**
  * 新碟上架

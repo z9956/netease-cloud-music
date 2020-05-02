@@ -3,7 +3,8 @@
   @include flex();
   >.categories-wrap {
     width: 100%;
-    @include flex();
+    height: 198px;
+    @include flex(flex-start, self-end);
     flex-wrap: wrap;
     > li {
       width: 99px;
@@ -35,11 +36,15 @@
   }
 }
 .radius {
+  width: 100px;
+  margin: 0 auto;
+  @include flex(space-around);
   >span {
     width: 10px;
     height: 10px;
     border-radius: 50%;
     display: inline-block;
+    background-color: gray;
   }
   >span.active {
     background-color: #d35757;

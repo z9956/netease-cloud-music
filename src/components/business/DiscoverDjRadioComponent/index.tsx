@@ -2,7 +2,7 @@ import React, { FC, useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 import CateList from '@/components/common/CateList';
-import { getDjCateList } from '@/apis/cetelist';
+import { getDjCateList } from '@/apis/djradio';
 
 import './style.scss';
 

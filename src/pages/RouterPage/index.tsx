@@ -67,18 +67,47 @@ class RouterPage extends Component<RouteComponentProps, navListType>{
                       />
                       <Route
                           exact={ true }
-                          path={ routePath.discover.djradio }
-                          component={ DiscoverDjRadioPage }
+                          path={ routePath.discover.playlist }
+                          component={ DiscoverPlaylistPage }
                       />
                       <Route
-                          exact={ false }
+                          exact={ true }
                           path={ routePath.discover.toplist }
                           component={ DiscoverTopListPage }
                       />
                       <Route
-                          exact={ false }
-                          path={ routePath.discover.playlist }
-                          component={ DiscoverPlaylistPage }
+                          path={ routePath.discover.djradio.index }
+                          // component={ DiscoverDjRadioPage }
+                          render={ () => (
+                              <Switch>
+                                  <Route
+                                      exact={ true }
+                                      path={ routePath.discover.djradio.index }
+                                      component={ DiscoverDjRadioPage }
+                                  />
+                                  <Route
+                                    exact={ true }
+                                    path={ routePath.discover.djradio.rank }
+                                    component={ () => (<div>rank</div>)}
+                                  />
+                                  <Route
+                                      exact={ true }
+                                      path={ routePath.discover.djradio.recommend }
+                                      component={ () => (<div>recommend</div>)}
+                                  />
+                                  <Route
+                                      exact={ true }
+                                      path={ routePath.discover.djradio.category }
+                                      component={ () => (<div>category</div>)}
+                                  />
+                                  <Route
+                                      path="*"
+                                      render={() => {
+                                          return <Redirect to={ routePath.discover.djradio.index } />;
+                                      }}
+                                  />
+                              </Switch>
+                          ) }
                       />
                     </Switch>
                 )}

@@ -33,7 +33,6 @@ export const getRecommendPlaylists = (limit: number = 8) => http.get(`/personali
  * @param { string } cat 歌单tag
  * @param { string } order new | hot
  * @param { number } limit 数量
- * @param params
  * */
 export const getPlaylist = (
     params: {
