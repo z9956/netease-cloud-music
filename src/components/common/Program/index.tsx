@@ -21,21 +21,21 @@ const Program: FC<ProgramComponentPropType> = () => {
   };
 
   const getProgramEle = (title: string, path: string, data: any) => {
-    return(
+    return (
       <div className="program">
         <div className="title">
           <h3>
             <Link to={ path }>{ title }</Link>
           </h3>
-          <Link to={ path }>更多</Link>
+          <Link to={ path }>更多></Link>
         </div>
         <ul className="playlist">
           {
             data.map((item: any, index: number) => {
-              if(item?.program) {
+              if (item?.program) {
                 const rankInfo = { rank: item.rank, lastRank: item.lastRank };
                 item = item.program;
-                item = { ...item, ...rankInfo};
+                item = { ...item, ...rankInfo };
               }
               return <li key={ item.radio.id }>
                 {
@@ -47,10 +47,10 @@ const Program: FC<ProgramComponentPropType> = () => {
                     </span>
                   </div>
                 }
-                <Link className="prc-url" to={ 'javascript:;' } title={ '播放' }>
+                <a className="prc-url" href={ '' } onClick={ e => e.preventDefault() } title={ '播放' }>
                   <img src={ item.radio.picUrl } alt=""/>
-                </Link>
-                <div className="programs-info">
+                </a>
+                <div className={ item.rank ? 'info-width' : 'programs-info' }>
                   <p className="ellipsis">
                     <Link to={ `/program?id=${ item.radio.lastProgramId }` }>{ item.mainSong.name }</Link>
                   </p>
@@ -58,8 +58,12 @@ const Program: FC<ProgramComponentPropType> = () => {
                     <Link to={ `/djradio?id=${ item.radio.id }` }>{ item.radio.name }</Link>
                   </p>
                 </div>
-                <Link className="tag"
-                      to={ `/discover/djradio/category?id=${ item.radio.categoryId }` }>{ item.radio.category }</Link>
+                {
+                  item.rank ? <div className="bar">
+                    <i style={ { width: (100 - index * 6) + '%' } }></i>
+                  </div> : <Link className="tag"
+                                                  to={ `/discover/djradio/category?id=${ item.radio.categoryId }` }>{ item.radio.category }</Link>
+                }
               </li>
             })
           }

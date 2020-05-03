@@ -8,8 +8,10 @@
   }
   .program {
     width: 426px;
+    margin-top: 20px;
     .title {
       height: 40px;
+      line-height: 40px;
       @include flex();
       >h3 {
         border-bottom: 2px solid #c20c0c;
@@ -17,7 +19,8 @@
           font-size: 24px;
         }
       }
-      a {
+      >a {
+        color: #999;
       }
     }
     .playlist {
@@ -38,9 +41,10 @@
             width: 100%;
             text-align: center;
             display: inline-block;
+            color: #ba2226;
             >i {
-              font-size: 12px;
-              color: red;
+              font-size: 10px;
+              color: #ba2226;
             }
           }
         }
@@ -61,6 +65,22 @@
           }
           a:hover {
             border-bottom: 1px solid lightgrey;
+          }
+        }
+        .info-width {
+          width: 208px;
+        }
+        .bar {
+          width: 100px;
+          height: 8px;
+          border-radius: 10px;
+          background-color: lightgrey;
+          @include position();
+          >i {
+            height: 8px;
+            border-radius: 10px;
+            background-color: gray;
+            @include position(absolute);
           }
         }
         .tag {
