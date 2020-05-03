@@ -29,87 +29,97 @@ netease-cloud-music
 │   ├── webpack.common.js
 │   ├── webpack.dev.js
 │   └── webpack.prod.js
-├── package-lock.json
-├── package.json
 ├── public
 │   └── index.html
-├── README.md
 ├── src
 │   ├── apis
 │   │   ├── album.ts
 │   │   ├── axios.ts
+│   │   ├── djradio.ts
 │   │   ├── home.ts
+│   │   ├── login.ts
 │   │   ├── model.ts
 │   │   ├── playlist.ts
 │   │   ├── song.ts
 │   │   └── toplist.ts
 │   ├── components
-│   │   ├── BackTop
-│   │   │   ├── index.tsx
-│   │   │   └── style.scss
-│   │   ├── Banner
-│   │   │   ├── index.tsx
-│   │   │   └── style.scss
-│   │   ├── Comments
-│   │   │   ├── index.tsx
-│   │   │   └── style.scss
-│   │   ├── Discover
-│   │   │   ├── index.tsx
-│   │   │   └── style.scss
-│   │   ├── DiscoverAlbumComponent
-│   │   │   ├── index.tsx
-│   │   │   └── style.scss
-│   │   ├── DiscoverPlaylistComponent
-│   │   │   ├── index.tsx
-│   │   │   └── style.scss
-│   │   ├── Header
-│   │   │   ├── index.tsx
-│   │   │   └── style.scss
-│   │   ├── Hot
-│   │   │   ├── index.tsx
-│   │   │   └── style.scss
-│   │   ├── Likes
-│   │   │   ├── index.tsx
-│   │   │   └── style.scss
-│   │   ├── List
-│   │   │   ├── index.tsx
-│   │   │   └── style.scss
-│   │   ├── NewAlbum
-│   │   │   ├── index.tsx
-│   │   │   └── style.scss
-│   │   ├── Notification
-│   │   │   ├── index.tsx
-│   │   │   └── style.scss
-│   │   ├── Paging
-│   │   │   ├── index.tsx
-│   │   │   └── style.scss
-│   │   ├── PlaylistTitle
-│   │   │   ├── index.tsx
-│   │   │   └── style.scss
-│   │   ├── PlaylistTop
-│   │   │   ├── index.tsx
-│   │   │   └── style.scss
-│   │   ├── PlayRelated
-│   │   │   ├── index.tsx
-│   │   │   └── style.scss
-│   │   ├── Ranking
-│   │   │   ├── index.tsx
-│   │   │   └── style.scss
-│   │   ├── Singers
-│   │   │   ├── index.tsx
-│   │   │   └── style.scss
-│   │   ├── SongList
-│   │   │   ├── index.tsx
-│   │   │   └── style.scss
-│   │   ├── Title
-│   │   │   ├── index.tsx
-│   │   │   └── style.scss
-│   │   ├── TopList
-│   │   │   ├── index.tsx
-│   │   │   └── style.scss
-│   │   └── TopListInfo
-│   │       ├── index.tsx
-│   │       └── style.scss
+│   │   ├── business
+│   │   │   ├── DiscoverAlbumComponent
+│   │   │   │   ├── index.tsx
+│   │   │   │   └── style.scss
+│   │   │   ├── DiscoverDjRadioComponent
+│   │   │   │   ├── index.tsx
+│   │   │   │   └── style.scss
+│   │   │   └── DiscoverPlaylistComponent
+│   │   │       ├── index.tsx
+│   │   │       └── style.scss
+│   │   └── common
+│   │       ├── BackTop
+│   │       │   ├── index.tsx
+│   │       │   └── style.scss
+│   │       ├── Banner
+│   │       │   ├── index.tsx
+│   │       │   └── style.scss
+│   │       ├── CateList
+│   │       │   ├── index.tsx
+│   │       │   └── style.scss
+│   │       ├── Comments
+│   │       │   ├── index.tsx
+│   │       │   └── style.scss
+│   │       ├── Discover
+│   │       │   ├── index.tsx
+│   │       │   └── style.scss
+│   │       ├── Header
+│   │       │   ├── index.tsx
+│   │       │   └── style.scss
+│   │       ├── Hot
+│   │       │   ├── index.tsx
+│   │       │   └── style.scss
+│   │       ├── Likes
+│   │       │   ├── index.tsx
+│   │       │   └── style.scss
+│   │       ├── List
+│   │       │   ├── index.tsx
+│   │       │   └── style.scss
+│   │       ├── NewAlbum
+│   │       │   ├── index.tsx
+│   │       │   └── style.scss
+│   │       ├── Notification
+│   │       │   ├── index.tsx
+│   │       │   └── style.scss
+│   │       ├── Paging
+│   │       │   ├── index.tsx
+│   │       │   └── style.scss
+│   │       ├── PlaylistTitle
+│   │       │   ├── index.tsx
+│   │       │   └── style.scss
+│   │       ├── PlaylistTop
+│   │       │   ├── index.tsx
+│   │       │   └── style.scss
+│   │       ├── PlayRelated
+│   │       │   ├── index.tsx
+│   │       │   └── style.scss
+│   │       ├── Program
+│   │       │   ├── index.tsx
+│   │       │   └── style.scss
+│   │       ├── Ranking
+│   │       │   ├── index.tsx
+│   │       │   └── style.scss
+│   │       ├── Singers
+│   │       │   ├── index.tsx
+│   │       │   └── style.scss
+│   │       ├── SongList
+│   │       │   ├── index.tsx
+│   │       │   └── style.scss
+│   │       ├── Title
+│   │       │   ├── index.tsx
+│   │       │   └── style.scss
+│   │       ├── TopList
+│   │       │   ├── index.tsx
+│   │       │   └── style.scss
+│   │       └── TopListInfo
+│   │           ├── index.tsx
+│   │           └── style.scss
 │   ├── index.tsx
 │   ├── pages
 │   │   ├── App.tsx
@@ -120,7 +130,7 @@ netease-cloud-music
 │   │   │   ├── DiscoverArtistPage
 │   │   │   │   ├── index.tsx
 │   │   │   │   └── style.scss
-│   │   │   ├── DiscoverDjradioPage
+│   │   │   ├── DiscoverDjRadioPage
 │   │   │   │   ├── index.tsx
 │   │   │   │   └── style.scss
 │   │   │   ├── DiscoverIndexPage
@@ -171,10 +181,11 @@ netease-cloud-music
 │   └── utils
 │       ├── initialState.tsx
 │       └── utils.tsx
+├── package-lock.json
+├── package.json
+├── README.md
 ├── tree.md
-├── tsconfig.json
-├── webpack.dev.js
-└── yarn.lock
+└── tsconfig.json
 ```
 
  
