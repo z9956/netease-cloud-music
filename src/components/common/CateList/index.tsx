@@ -12,7 +12,6 @@ type TitleComponentPropType = {
 const CateList: FC = () => {
   const [ categories, setCategories ] = useState<any>({});
   const [ checkIndex, setIndex ] = useState<number>(-1);
-  const [ show, setShow ] = useState<boolean>(true);
   const [ radiusIndex, setRadiusIndex ] = useState<number>(0);
 
   const mapData = (data: any) => {

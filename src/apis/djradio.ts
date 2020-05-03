@@ -14,6 +14,7 @@ export const getDjRecommend = () => http.get(`/program/recommend`);
  * 电台-节目榜
  * */
 export const getProgramTopList = (params: {
+    idx: number,
     limit?: number,
     offset?: number
-}) => http.get(`/dj/program/toplist?limit=1`, params);
+}) => http.get(`/dj/program/toplist`, params);

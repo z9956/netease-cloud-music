@@ -77,7 +77,6 @@ class RouterPage extends Component<RouteComponentProps, navListType>{
                       />
                       <Route
                           path={ routePath.discover.djradio.index }
-                          // component={ DiscoverDjRadioPage }
                           render={ () => (
                               <Switch>
                                   <Route
