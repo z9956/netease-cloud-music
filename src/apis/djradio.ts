@@ -18,3 +18,13 @@ export const getProgramTopList = (params: {
     limit?: number,
     offset?: number
 }) => http.get(`/dj/program/toplist`, params);
+
+/**
+ * 电台-节目榜
+ * */
+export const getHotRadio = (cateId: number) => http.get(`/dj/radio/hot?cateId=${ cateId }`);
+
+/**
+ * 电台-分类推荐
+ * */
+export const getRecommendType = (type: number) => http.get(`/dj/recommend/type?type=${ type }`);
