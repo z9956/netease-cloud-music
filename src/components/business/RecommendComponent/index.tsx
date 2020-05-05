@@ -21,7 +21,7 @@ const RecommendComponent: FC<any> = props => {
 
   return(
     <div className="recommend">
-      <ProgramList title={ '推荐节目' } time={ '每日更新' } path={ `/discover/djradio/recommend` } data={ programs } type={ true }/>
+      <ProgramList title={ '推荐节目' } time={ '每日更新' } path={ `/discover/djradio/recommend` } data={ programs } type={ 0 }/>
     </div>
   );
 };

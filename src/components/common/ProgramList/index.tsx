@@ -4,13 +4,90 @@ import { Link } from "react-router-dom";
 
 type ProgramListComponentPropType = {};
 
-import '@/components/common/Program/style.scss';
 import './style.scss';
 
 const ProgramList: FC<any> = props => {
   const { path, title, data, time, type } = props;
 
-  return(
+  const getProgramEle = (item: any, type?: number) => {
+    switch (type) {
+      case 0:
+        return (<div className="recommend-info">
+          <p className="ellipsis">
+            <Link to={ `/program?id=${ item.radio.lastProgramId }` }>{ item.mainSong.name }</Link>
+          </p>
+          <p className="ellipsis">
+            <Link to={ `/djradio?id=${ item.radio.id }` }>{ item.radio.name }</Link>
+          </p>
+          <p>播放{ item.listenerCount }</p>
+          <p>赞{ item.serialNum }</p>
+        </div>);
+      case 1:
+        return (<div className="rank-wrap">
+          <p className="ellipsis">
+            <Link to={ `/program?id=${ item.radio.lastProgramId }` }>{ item.mainSong.name }</Link>
+          </p>
+          <p className="ellipsis">
+            <Link to={ `/djradio?id=${ item.radio.id }` }>{ item.radio.name }</Link>
+          </p>
+          <p>
+            <Link className="tag"
+                  to={ `/discover/djradio/category?id=${ item.radio.categoryId }` }>{ item.radio.category }</Link>
+          </p>
+        </div>);
+      default:
+        return (<div className={ item.rank ? 'info-width' : 'programs-info' }>
+          <p className="ellipsis">
+            <Link to={ `/program?id=${ item.radio.lastProgramId }` }>{ item.mainSong.name }</Link>
+          </p>
+          <p className="ellipsis">
+            <Link to={ `discover/djradio/category?id=${ item.radio.id }` }>{ item.radio.name }</Link>
+          </p>
+        </div>);
+    }
+  };
+
+  const getRankIng = (index: number, num: number) => {
+    if (num === -1 ) {
+      return (
+        <>
+          <em>{ index }</em>
+          <span>
+            { num === -1 ? 'new' : num }
+        </span>
+        </>);
+    }else if(num - index > 0 ) {
+      return (
+        <>
+          <em>{ index }</em>
+          <span>
+          <i className="iconfont icon-iconsfsx"></i>
+            { num - index }
+        </span>
+        </>);
+    }else if(index > num) {
+      return (
+        <>
+          <em>{ index }</em>
+          <span>
+            <i className="iconfont icon-plus-shiftdown"></i>
+            { index - num }
+        </span>
+        </>);
+    }else if(num - index === 0) {
+      return (
+        <>
+          <em>{ index }</em>
+          <span>
+            <i>-</i>
+            { index - num }
+        </span>
+        </>);
+    }
+
+  };
+
+  return (
     <div className="program-wrap">
       { data ? <div className="program">
         <div className="title">
@@ -30,39 +107,17 @@ const ProgramList: FC<any> = props => {
               }
               return <li key={ item.radio.id + item.createTime }>
                 {
-                  item.rank && <div className="rank">
-                    <em>{ item.rank }</em>
-                    <span>
-                      <i className="iconfont icon-iconsfsx"></i>
-                      { item.lastRank === -1 ? 'new' : item.lastRank }
-                    </span>
+                  item.rank && <div className={ index < 3 ? 'rank red' : 'rank' }>
+                    { getRankIng(index + 1, item.lastRank) }
                   </div>
                 }
                 <a className="prc-url" href={ '' } onClick={ e => e.preventDefault() } title={ '播放' }>
                   <img src={ item.radio.picUrl } alt=""/>
                 </a>
-                {
-                  type ? <div>
-                    <p className="ellipsis">
-                      <Link to={ `/program?id=${ item.radio.lastProgramId }` }>{ item.mainSong.name }</Link>
-                    </p>
-                    <p className="ellipsis">
-                      <Link to={ `/djradio?id=${ item.radio.id }` }>{ item.radio.name }</Link>
-                    </p>
-                    <p>播放{ item.listenerCount }</p>
-                    <p>赞{ item.serialNum }</p>
-                  </div> : <div className={ item.rank ? 'info-width' : 'programs-info' }>
-                    <p className="ellipsis">
-                      <Link to={ `/program?id=${ item.radio.lastProgramId }` }>{ item.mainSong.name }</Link>
-                    </p>
-                    <p className="ellipsis">
-                      <Link to={ `/djradio?id=${ item.radio.id }` }>{ item.radio.name }</Link>
-                    </p>
-                  </div>
-                }
+                { getProgramEle(item, type) }
                 {
                   item.rank ? <div className="bar">
-                    <i style={ { width: (100 - index * 6) + '%' } }></i>
+                    <i style={ { width: (100 - index * 0.5) + '%' } }></i>
                   </div> : <Link className="tag"
                                  to={ `/discover/djradio/category?id=${ item.radio.categoryId }` }>{ item.radio.category }</Link>
                 }

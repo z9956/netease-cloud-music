@@ -1,1 +1,24 @@
 @import '../../../static/css/mixins';
+@import '~@/components/common/Program/style';
+
+.recommend-info {
+  width: 80%;
+  @include flex();
+  >p:nth-child(1) {
+    width: 304px;
+  }
+  >p:nth-child(2) {
+    width: 166px;
+  }
+  >p:nth-child(3) {
+    width: 90px;
+    color: #999;
+  }
+  >p:nth-child(4) {
+    width: 126px;
+    color: #999;
+  }
+}
+.red {
+  color: #ba2226;
+}

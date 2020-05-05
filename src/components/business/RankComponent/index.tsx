@@ -10,18 +10,25 @@ type RankComponentPropType = {};
 
 const RankComponent: FC<any> = props => {
   const [ programs, setPrograms ] = useState<any>([]);
+  const [ updateTime, setUpdateTime ] = useState<number>(0);
 
   useEffect(() => {
     let flag = false;
     (async function () {
       const res = await getProgramTopList({ idx: 1 });
-      if (!flag && res.data.code === 200) setPrograms(res.data.programs);
+      if (!flag && res.data.code === 200) {
+        const { toplist, updateTime } = res.data;
+        setPrograms(toplist);
+        setUpdateTime(updateTime);
+      }
     })();
   },[]);
 
 
   return(
-    <ProgramList title={ '节目排行榜' } path={ `/discover/djradio/rank` } data={ programs }/>
+    <div className="recommend">
+      <ProgramList title={ '节目排行榜' } path={ `/discover/djradio/rank` } updateTime={ updateTime } data={ programs } type={ 1 }/>
+    </div>
   );
 };
 

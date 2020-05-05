@@ -41,10 +41,16 @@
             width: 100%;
             text-align: center;
             display: inline-block;
-            color: #ba2226;
+            color: #999;
             >i {
               font-size: 10px;
+              font-weight: 700;
+            }
+            >i.icon-iconsfsx {
               color: #ba2226;
+            }
+            >i.icon-plus-shiftdown {
+              color: #4abbeb;
             }
           }
         }
