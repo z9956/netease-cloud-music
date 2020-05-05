@@ -1,13 +1,14 @@
 import React, { FC, useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 
+import { getDate } from "@/utils/utils";
 
 type ProgramListComponentPropType = {};
 
 import './style.scss';
 
 const ProgramList: FC<any> = props => {
-  const { path, title, data, time, type } = props;
+  const { path, title, data, time, type, updateTime } = props;
 
   const getProgramEle = (item: any, type?: number) => {
     switch (type) {
@@ -94,8 +95,9 @@ const ProgramList: FC<any> = props => {
           <h3>
             <Link to={ path }>{ title }</Link>
             { time && <span>{ time }</span> }
+            { updateTime && <span>最近更新:{ getDate(updateTime) }</span> }
           </h3>
-          <Link to={ path }>更多></Link>
+          { (!time && !updateTime) && <Link to={ path }>更多></Link> }
         </div>
         <ul className="playlist">
           {

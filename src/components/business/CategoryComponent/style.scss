@@ -1,0 +1,13 @@
+@import '~@/static/css/mixins.scss';
+
+.recommend {
+  .program-wrap {
+    width: 980px;
+    margin: 0 auto;
+    padding: 40px;
+    border: 1px solid lightgrey;
+    .program {
+      width: 900px;
+    }
+  }
+}

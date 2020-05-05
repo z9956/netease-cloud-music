@@ -5,7 +5,6 @@ import { navListType } from '@/types/home';
 import { navList, subNav } from '@/apis/model';
 import { routePath } from '@/route/router';
 
-
 const BackTop = lazy(() => import('@/components/common/BackTop'));
 const Header = lazy(() => import('@/components/common/Header'));
 const SongPage = lazy(() => import('@/pages/SongPage'));
@@ -18,6 +17,7 @@ const DiscoverDjRadioPage = lazy(() => import('@/pages/DiscoverPage/DiscoverDjRa
 const DiscoverTopListPage = lazy(() => import('@/pages/DiscoverPage/DiscoverTopListPage'));
 const RecommendComponent = lazy(() => import('@/components/business/RecommendComponent'));
 const RankComponent = lazy(() => import('@/components/business/RankComponent'));
+const CategoryComponent = lazy(() => import('@/components/business/CategoryComponent'));
 
 
 class RouterPage extends Component<RouteComponentProps, navListType>{
@@ -100,7 +100,7 @@ class RouterPage extends Component<RouteComponentProps, navListType>{
                                   <Route
                                       exact={ true }
                                       path={ routePath.discover.djradio.category }
-                                      component={ () => (<div>category</div>)}
+                                      component={ CategoryComponent }
                                   />
                                   <Route
                                       path="*"
