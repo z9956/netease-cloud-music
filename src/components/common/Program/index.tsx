@@ -35,7 +35,6 @@ const Program: FC<ProgramComponentPropType> = () => {
 
   return (
     <div className="program-wrap">
-      <ProgramList/>
       <ProgramList title={ '推荐节目' } path={ `/discover/djradio/recommend` } data={ programs }/>
       <ProgramList title={ '节目排行榜' } path={ `/discover/djradio/rank` } data={ topList }/>
     </div>

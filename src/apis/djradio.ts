@@ -8,7 +8,7 @@ export const getDjCateList = () => http.get(`/dj/catelist`);
 /**
  * 推荐节目
  * */
-export const getDjRecommend = () => http.get(`/program/recommend`);
+export const getDjRecommend = (limit: number = 10) => http.get(`/program/recommend?limit=${ limit }`);
 
 /**
  * 电台-节目榜

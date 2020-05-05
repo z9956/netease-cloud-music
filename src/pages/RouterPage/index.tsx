@@ -16,6 +16,9 @@ const DiscoverAlbumPage = lazy(() => import('@/pages/DiscoverPage/DiscoverAlbumP
 const DiscoverArtistPage = lazy(() => import('@/pages/DiscoverPage/DiscoverArtistPage'));
 const DiscoverDjRadioPage = lazy(() => import('@/pages/DiscoverPage/DiscoverDjRadioPage'));
 const DiscoverTopListPage = lazy(() => import('@/pages/DiscoverPage/DiscoverTopListPage'));
+const RecommendComponent = lazy(() => import('@/components/business/RecommendComponent'));
+const RankComponent = lazy(() => import('@/components/business/RankComponent'));
+
 
 class RouterPage extends Component<RouteComponentProps, navListType>{
   constructor(props: any) {
@@ -87,12 +90,12 @@ class RouterPage extends Component<RouteComponentProps, navListType>{
                                   <Route
                                     exact={ true }
                                     path={ routePath.discover.djradio.rank }
-                                    component={ () => (<div>rank</div>)}
+                                    component={ RankComponent }
                                   />
                                   <Route
                                       exact={ true }
                                       path={ routePath.discover.djradio.recommend }
-                                      component={ () => (<div>recommend</div>)}
+                                      component={ RecommendComponent }
                                   />
                                   <Route
                                       exact={ true }
