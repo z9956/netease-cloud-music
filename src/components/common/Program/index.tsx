@@ -2,6 +2,7 @@ import React, { FC, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { getDjRecommend, getProgramTopList } from '@/apis/djradio';
+import ProgramList from "@/components/common/ProgramList";
 
 type ProgramComponentPropType = {};
 import './style.scss';
@@ -20,58 +21,6 @@ const Program: FC<ProgramComponentPropType> = () => {
     if (res.data.code === 200) setPrograms(res.data.programs);
   };
 
-  const getProgramEle = (title: string, path: string, data: any) => {
-    return (
-      <div className="program">
-        <div className="title">
-          <h3>
-            <Link to={ path }>{ title }</Link>
-          </h3>
-          <Link to={ path }>更多></Link>
-        </div>
-        <ul className="playlist">
-          {
-            data.map((item: any, index: number) => {
-              if (item?.program) {
-                const rankInfo = { rank: item.rank, lastRank: item.lastRank };
-                item = item.program;
-                item = { ...item, ...rankInfo };
-              }
-              return <li key={ item.radio.id }>
-                {
-                  item.rank && <div className="rank">
-                    <em>{ item.rank }</em>
-                    <span>
-                      <i className="iconfont icon-iconsfsx"></i>
-                      { item.lastRank === -1 ? 'new' : item.lastRank }
-                    </span>
-                  </div>
-                }
-                <a className="prc-url" href={ '' } onClick={ e => e.preventDefault() } title={ '播放' }>
-                  <img src={ item.radio.picUrl } alt=""/>
-                </a>
-                <div className={ item.rank ? 'info-width' : 'programs-info' }>
-                  <p className="ellipsis">
-                    <Link to={ `/program?id=${ item.radio.lastProgramId }` }>{ item.mainSong.name }</Link>
-                  </p>
-                  <p className="ellipsis">
-                    <Link to={ `/djradio?id=${ item.radio.id }` }>{ item.radio.name }</Link>
-                  </p>
-                </div>
-                {
-                  item.rank ? <div className="bar">
-                    <i style={ { width: (100 - index * 6) + '%' } }></i>
-                  </div> : <Link className="tag"
-                                                  to={ `/discover/djradio/category?id=${ item.radio.categoryId }` }>{ item.radio.category }</Link>
-                }
-              </li>
-            })
-          }
-        </ul>
-      </div>
-    );
-  };
-
   useEffect(() => {
     let flag = false;
     if (!flag) {
@@ -86,8 +35,9 @@ const Program: FC<ProgramComponentPropType> = () => {
 
   return (
     <div className="program-wrap">
-      { programs && getProgramEle('推荐节目', `/discover/djradio/recommend`, programs) }
-      { topList && getProgramEle('节目排行榜', `/discover/djradio/rank`, topList) }
+      <ProgramList/>
+      <ProgramList title={ '推荐节目' } path={ `/discover/djradio/recommend` } data={ programs }/>
+      <ProgramList title={ '节目排行榜' } path={ `/discover/djradio/rank` } data={ topList }/>
     </div>
   );
 };
