@@ -13,8 +13,8 @@ const CategoryComponent: FC<any> = props => {
   useEffect(() => {
     let flag = false;
     (async function () {
-      // const res = await getHotRadio();
-      // if (!flag && res.data.code === 200) setPrograms(res.data.programs);
+      const res = await getHotRadio(2001);
+      if (!flag && res.data.code === 200) setPrograms(res.data.programs);
     })();
   },[]);
 
