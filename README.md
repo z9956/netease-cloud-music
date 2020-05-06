@@ -37,7 +37,7 @@ netease-cloud-music
 │   │   ├── axios.ts
 │   │   ├── djradio.ts
 │   │   ├── home.ts
-│   │   ├── login.ts
+│   │   ├── user.ts
 │   │   ├── model.ts
 │   │   ├── playlist.ts
 │   │   ├── song.ts

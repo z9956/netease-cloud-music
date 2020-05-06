@@ -68,3 +68,91 @@ export const ids = [
   '云音乐欧美新歌榜',
   '说唱TOP榜'
 ];
+
+export const artistNav = [
+  {
+    name: '华语',
+    list: [
+      {
+        name: '华语男歌手',
+        path: 'type=1&area=7'
+      },
+      {
+        name: '华语女歌手',
+        path: 'type=2&area=7'
+      },
+      {
+        name: '华语组合/乐队',
+        path: 'type=3&area=7'
+      }
+    ]
+  },
+  {
+    name: '欧美',
+    list: [
+      {
+        name: '欧美男歌手',
+        path: 'type=1&area=96'
+      },
+      {
+        name: '欧美女歌手',
+        path: 'type=2&area=96'
+      },
+      {
+        name: '欧美组合/乐队',
+        path: 'type=3&area=96'
+      }
+    ]
+  },
+  {
+    name: '日本',
+    list: [
+      {
+        name: '日本男歌手',
+        path: 'type=1&area=8'
+      },
+      {
+        name: '日本女歌手',
+        path: 'type=2&area=8'
+      },
+      {
+        name: '日本组合/乐队',
+        path: 'type=3&area=8'
+      }
+    ]
+  },
+  {
+    name: '韩国',
+    list: [
+      {
+        name: '韩国男歌手',
+        path: 'type=1&area=16'
+      },
+      {
+        name: '韩国女歌手',
+        path: 'type=2&area=16'
+      },
+      {
+        name: '韩国组合/乐队',
+        path: 'type=3&area=16'
+      }
+    ]
+  },
+  {
+    name: '其他',
+    list: [
+      {
+        name: '其他男歌手',
+        path: 'type=1&area=0'
+      },
+      {
+        name: '其他女歌手',
+        path: 'type=2&area=0'
+      },
+      {
+        name: '其他组合/乐队',
+        path: 'type=3&area=0'
+      }
+    ]
+  }
+];

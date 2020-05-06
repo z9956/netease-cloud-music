@@ -133,6 +133,7 @@ export type navListType = {
   }>
 };
 export type hotResultType = {
+  path?: string,
   result: Array<resultType>,
   titleShow?: boolean
 };

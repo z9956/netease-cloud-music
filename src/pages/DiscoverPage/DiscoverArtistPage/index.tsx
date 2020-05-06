@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-
+import ArtistComponent from "@/components/business/ArtistComponent";
 import './style.scss';
 
 const DiscoverArtistPage = () => {
   return (
       <>
-        DiscoverArtistPage
+        <ArtistComponent/>
       </>
   );
 };

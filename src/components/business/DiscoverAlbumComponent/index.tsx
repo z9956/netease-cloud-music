@@ -57,9 +57,9 @@ const DiscoverAlbumComponent: FC<any> = props => {
   return(
       <div className="discover-album">
         <h3>热门新碟</h3>
-        <Hot result={ albums } titleShow={ true }/>
+        <Hot result={ albums } titleShow={ true } path={ '/album' }/>
         <h3>全部新碟</h3>
-        <Hot result={ newAlbums } titleShow={ true }/>
+        <Hot result={ newAlbums } titleShow={ true } path={ '/album' }/>
         <Paging checkIndex={ checkIndex } onChangeComments={ handleChangeIndex } total={ total }/>
       </div>
   );

@@ -35,31 +35,33 @@ const PlaylistPage = () => {
   useEffect(() => {
     let flag = false;
     const { id } = parseQuery(local.search);
-    if(!id) return;
-    try{
+    if (!id) return;
+    try {
       (async function () {
         const res = await getPlaylistComment({ id: +id, offset: checkIndex - 1 });
-        if(res.data.code === 200 && !flag) setComments(res.data.comments);
+        if (res.data.code === 200 && !flag) setComments(res.data.comments);
       })();
-    }catch(e) {
+    } catch (e) {
       console.log(e);
     }
 
-    return () => { flag = true };
-  },[local, checkIndex]);
+    return () => {
+      flag = true
+    };
+  }, [ local, checkIndex ]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
     let ignone = false;
     const { id } = parseQuery(local.search);
-    if(!id)  history.push('/discover');
+    if (!id) history.push('/discover');
 
-    try{
+    try {
       (async function () {
         const result = await getPlaylistDetail({ id: +id });
         const commentsData = await getPlaylistComment({ id: +id });
         const related = await getPlaylistRelated(+id);
-        if(!ignone && result.data.code === 200 && related.data.code === 200) {
+        if (!ignone && result.data.code === 200 && related.data.code === 200) {
           const { playlist: { trackCount, name, description, createTime, commentCount, shareCount, subscribedCount, coverImgUrl, subscribers, tracks, playCount, tags, creator } } = result.data;
           const { userId, avatarUrl, nickname } = creator;
 
@@ -83,27 +85,27 @@ const PlaylistPage = () => {
           setComments(commentsData.data.comments);
         }
       })();
-    }catch(e) {
+    } catch (e) {
       console.log(e);
     }
 
     return (() => {
       ignone = true;
     });
-  }, [local]);
+  }, [ local ]);
   return (
-      <div className="playlist">
-        <div className="playlist-left">
-          <PlaylistTop { ...playlist } { ...creator}/>
-          <SongList tracks={ tracks } { ...SongData }/>
-          <Comments comments={ comments } hotComments={ hotComments } total={ total } hotShow={ checkIndex === 1 }/>
-          <Paging total={ total } checkIndex={ checkIndex } onChangeComments={ handleComments }/>
-        </div>
-        <div className="playlist-right">
-          <Likes subscribers={ subscribers }/>
-          <PlayRelated relatedList={ relatedList }/>
-        </div>
+    <div className="playlist">
+      <div className="playlist-left">
+        <PlaylistTop { ...playlist } { ...creator }/>
+        <SongList tracks={ tracks } { ...SongData }/>
+        <Comments comments={ comments } hotComments={ hotComments } total={ total } hotShow={ checkIndex === 1 }/>
+        <Paging total={ total } checkIndex={ checkIndex } onChangeComments={ handleComments }/>
       </div>
+      <div className="playlist-right">
+        <Likes subscribers={ subscribers }/>
+        <PlayRelated relatedList={ relatedList }/>
+      </div>
+    </div>
   );
 };
 

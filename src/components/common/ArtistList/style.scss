@@ -1,0 +1,54 @@
+@import '../../../static/css/mixins';
+
+.artist-list {
+  width: 800px;
+  padding: 40px;
+  background-color: white;
+  border-left: 1px solid lightgrey;
+  a {
+    color: #333;
+  }
+  h3 {
+    font-size: 24px;
+    height: 40px;
+  }
+  .initial {
+    @include flex();
+    margin: 20px 0;
+    >li {
+      width: 24px;
+      text-align: center;
+    }
+    >li.active {
+      text-align: center;
+      background-color: #c20c0c;
+      border-radius: 4px;
+      a {
+        color: white;
+      }
+    }
+  }
+  .artist-item {
+    @include flex();
+    flex-wrap: wrap;
+    li:nth-child(6), li:nth-child(7), li:nth-child(8), li:nth-child(9),li:nth-child(10) {
+      border-bottom: 1px dotted #999;
+    }
+    li {
+      width: 142px;
+      .cover {
+        img {
+          width: 130px;
+          height: 130px;
+        }
+      }
+      p {
+        height: 30px;
+        line-height: 30px;
+      }
+    }
+    .line {
+      padding-bottom: 30px;
+    }
+  }
+}
