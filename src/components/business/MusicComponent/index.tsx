@@ -5,7 +5,7 @@ import './style.scss';
 
 type MusicComponentPropType = {};
 
-const MusicComponent: FC<MusicComponentPropType> = props => {
+const MusicComponent: () => "" | any = () => {
   const [ url, setUrl ] = useState<string>('');
 
   useEffect(() => {
@@ -26,8 +26,8 @@ const MusicComponent: FC<MusicComponentPropType> = props => {
   }, [ localStorage ]);
 
   return (
-    <div className="music-wrap">
-      { url && <audio src={ url } autoPlay controls={ true }></audio> }
+    url && <div className="music-wrap">
+      <audio src={ url } autoPlay controls={ true }></audio>
     </div>
   );
 };

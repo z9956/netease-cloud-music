@@ -27,19 +27,8 @@ const ArtistComponent: FC<ArtistComponentPropType> = props => {
 
   const handleChangeTitle = (title: string, index: number) => setTitle(title);
 
-  const handleChangeStorge = () => {
-    console.log(123123321);
-    const info = {
-      name: 'Lee',
-      age: 20,
-      id: '001'
-    };
-    sessionStorage.setItem('key', JSON.stringify(info));
-    localStorage.setItem('key', JSON.stringify(info));
-  };
   return(
     <div className="artist-wrap">
-      <div onClick={ handleChangeStorge }>123123132</div>
       <div className="artist-nav">
         {
           artistNav.map(item => {

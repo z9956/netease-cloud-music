@@ -8,9 +8,9 @@ import { getDjCateList } from '@/apis/djradio';
 
 import './style.scss';
 
-type TitleComponentPropType = {};
+type DiscoverDjRadioComponentPropType = {};
 
-const DiscoverDjRadioComponent: FC<any> = props => {
+const DiscoverDjRadioComponent: FC<DiscoverDjRadioComponentPropType> = props => {
 
 
   return (
