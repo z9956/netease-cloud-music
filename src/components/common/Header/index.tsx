@@ -14,6 +14,7 @@ type HeaderComponentType = navListType & RouteComponentProps;
 const Header: FC<HeaderComponentType> = props => {
   const { navList, subNav, history } = props;
   const [ keywords, setKeywords ] = useState<string>('');
+  const [ LoginStatus, setLoginStatus ] = useState<boolean>(false);
   const [ checkIndex, setIndex ] = useState<number>(0);
   const [ phone, setPhone ] = useState<string>('');
   const [ show, setShow ] = useState<boolean>(false);
@@ -60,10 +61,15 @@ const Header: FC<HeaderComponentType> = props => {
   };
 
   const handleLogin = async () => {
-    const res = await phoneLogin({ phone: phone, password });
-    if (res.data.code === 200) {
-      const { token } = res.data;
-      cookie.setCookie('MUSIC_U', token);
+    try{
+      const res = await phoneLogin({ phone: phone, password });
+      if (res.data.code === 200) {
+        const { token } = res.data;
+        cookie.setCookie('MUSIC_U', token);
+        setShow(false);
+      }
+    }catch (e) {
+      console.log(e);
     }
   };
 
@@ -97,12 +103,51 @@ const Header: FC<HeaderComponentType> = props => {
     const res = await getUserSubCount();
   };
 
+  const handleQuit = () => {
+    cookie.delCookie('MUSIC_U');
+    setLoginStatus(false);
+  };
+
+  const getLoginEle = () => {
+    return(<div className="user-info">
+      <div className="photos" onClick={ handleLogin }>
+        <img src="http://p4.music.126.net/NWbMq8btqZAlEG9SMT4uGA==/1376588559261305.jpg?param=30y30" alt=""/>
+      </div>
+      <ul className="user-list">
+        <li>
+          <i className="iconfont icon-min7"/>
+          <em>我的主页</em>
+        </li>
+        <li>
+          <i className="iconfont icon-youjian"/>
+          <em>我的消息</em>
+        </li>
+        <li>
+          <i className="iconfont icon-dengji"/>
+          <em>我的等级</em>
+        </li>
+        <li>
+          <i className="iconfont icon-333333-copy"/>
+          <em>VIP会员</em>
+        </li>
+        <li>
+          <i className="iconfont icon-shimingrenzheng"/>
+          <em>实名认证</em>
+        </li>
+        <li>
+          <i className="iconfont icon-tuichu"/>
+          <em onClick={ handleQuit }>退出</em>
+        </li>
+      </ul>
+    </div>);
+  };
+
   useEffect(() => {
     let flag = false;
     (async function () {
       const res = await getLoginStatus();
       if (!flag && res.data.code === 200) {
-
+        setLoginStatus(true);
       }
     })();
     return () => { flag = true };
@@ -149,38 +194,9 @@ const Header: FC<HeaderComponentType> = props => {
             </div>
           </div>
           <p className="creator">创作者中心</p>
-          <div>登录</div>
-          <div className="user-info">
-            <div className="photos" onClick={ handleLogin }>
-              <img src="http://p4.music.126.net/NWbMq8btqZAlEG9SMT4uGA==/1376588559261305.jpg?param=30y30" alt=""/>
-            </div>
-            <ul className="user-list">
-              <li>
-                <i className="iconfont icon-min7"/>
-                <em>我的主页</em>
-              </li>
-              <li>
-                <i className="iconfont icon-youjian"/>
-                <em>我的消息</em>
-              </li>
-              <li>
-                <i className="iconfont icon-dengji"/>
-                <em>我的等级</em>
-              </li>
-              <li>
-                <i className="iconfont icon-333333-copy"/>
-                <em>VIP会员</em>
-              </li>
-              <li>
-                <i className="iconfont icon-shimingrenzheng"/>
-                <em>实名认证</em>
-              </li>
-              <li>
-                <i className="iconfont icon-tuichu"/>
-                <em>退出</em>
-              </li>
-            </ul>
-          </div>
+          {
+            LoginStatus ? getLoginEle() : <div onClick={ () => setShow(true) }>登录</div>
+          }
         </div>
       </div>
       <div className="wrap sub-wrap">

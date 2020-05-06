@@ -2,10 +2,16 @@ import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 
 import { raingType } from '@/types/home';
+import { playMusic, cookie } from "@/utils/utils";
 import './style.scss';
 
 const Ranking: FC<raingType> = props => {
   const {  coverImgUrl, name, tracks  } = props;
+
+  const handleAddPlayList = (id: number) => {
+    console.log(id);
+    playMusic(id);
+  };
 
   return (
       <div className="ranking-warp">
@@ -30,10 +36,10 @@ const Ranking: FC<raingType> = props => {
                 return <li key={ item.id } className={ index % 2 === 0 ? 'gray' : ''}>
                   <span className={ index < 3? 'red': '' }>{ index + 1 }</span>
                   <div className="name ellipsis">
-                    <Link className="ellipsis" to={ `/${ item.id }` }>{ item.name }</Link>
+                    <Link className="ellipsis" to={ `/song?${ item.id }` }>{ item.name }</Link>
                     <div className="oper">
                       <div>
-                        <span className="play"></span>
+                        <span className="play" onClick={ () => handleAddPlayList(item.id) }></span>
                         <span className="add"></span>
                         <span className="collect"></span>
                       </div>

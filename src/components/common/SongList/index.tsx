@@ -1,11 +1,17 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 
+import { playMusic } from '@/utils/utils';
 type SongListComponentPropType = {};
 import './style.scss';
 
 const SongList: FC<any> = props => {
   const { tracks, playCount, trackCount } = props;
+
+  const play = (id: number) => {
+    console.log(123123);
+    playMusic(id);
+  };
   return (
       <div className="songlist">
         <div className="title">
@@ -28,7 +34,7 @@ const SongList: FC<any> = props => {
               return <li key={ track.id } className={ index % 2 === 0 ? 'gray' : '' }>
                 <div className="play-icon">
                   <span>{ index }</span>
-                  <i className="iconfont icon-bofang"></i>
+                  <i className="iconfont icon-bofang" onClick={ () => play(track.id) }></i>
                 </div>
                 <div className="song-title">
                   <Link to={ `/song?id=${ track.id }` }>{ track.name }</Link>

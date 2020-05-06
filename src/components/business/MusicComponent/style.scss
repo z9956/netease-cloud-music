@@ -10,8 +10,8 @@
   transform: translate(-50%);
   background-color: gray;
   z-index: 10;
+  @include flex(center);
   >audio {
     width: 60%;
-
   }
 }

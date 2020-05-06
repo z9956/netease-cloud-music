@@ -48,3 +48,18 @@ export const cookie = {
     }
   }
 };
+
+//解决监听localStorage问题
+const orignalSetItem = localStorage.setItem;
+localStorage.setItem = function(key,newValue){
+  const setItemEvent: any = new Event("setItemEvent");
+  setItemEvent.newValue = newValue;
+  setItemEvent.key = key;
+  window.dispatchEvent(setItemEvent);
+  // @ts-ignore
+  orignalSetItem.apply(this,arguments);
+};
+
+export const playMusic = (id: number) => {
+  localStorage.setItem("music",JSON.stringify(id));
+};

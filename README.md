@@ -31,29 +31,49 @@ netease-cloud-music
 │   └── webpack.prod.js
 ├── public
 │   └── index.html
+├── README.md
 ├── src
 │   ├── apis
 │   │   ├── album.ts
+│   │   ├── artist.ts
 │   │   ├── axios.ts
 │   │   ├── djradio.ts
 │   │   ├── home.ts
-│   │   ├── user.ts
 │   │   ├── model.ts
 │   │   ├── playlist.ts
 │   │   ├── song.ts
-│   │   └── toplist.ts
+│   │   ├── toplist.ts
+│   │   └── user.ts
 │   ├── components
 │   │   ├── business
+│   │   │   ├── ArtistComponent
+│   │   │   │   ├── index.tsx
+│   │   │   │   └── style.scss
+│   │   │   ├── CategoryComponent
+│   │   │   │   ├── index.tsx
+│   │   │   │   └── style.scss
 │   │   │   ├── DiscoverAlbumComponent
 │   │   │   │   ├── index.tsx
 │   │   │   │   └── style.scss
 │   │   │   ├── DiscoverDjRadioComponent
 │   │   │   │   ├── index.tsx
 │   │   │   │   └── style.scss
-│   │   │   └── DiscoverPlaylistComponent
+│   │   │   ├── DiscoverPlaylistComponent
+│   │   │   │   ├── index.tsx
+│   │   │   │   └── style.scss
+│   │   │   ├── MusicComponent
+│   │   │   │   ├── index.tsx
+│   │   │   │   └── style.scss
+│   │   │   ├── RankComponent
+│   │   │   │   ├── index.tsx
+│   │   │   │   └── style.scss
+│   │   │   └── RecommendComponent
 │   │   │       ├── index.tsx
 │   │   │       └── style.scss
 │   │   └── common
+│   │       ├── ArtistList
+│   │       │   ├── index.tsx
+│   │       │   └── style.scss
 │   │       ├── BackTop
 │   │       │   ├── index.tsx
 │   │       │   └── style.scss
@@ -100,6 +120,9 @@ netease-cloud-music
 │   │       │   ├── index.tsx
 │   │       │   └── style.scss
 │   │       ├── Program
+│   │       │   ├── index.tsx
+│   │       │   └── style.scss
+│   │       ├── ProgramList
 │   │       │   ├── index.tsx
 │   │       │   └── style.scss
 │   │       ├── Ranking
@@ -176,6 +199,7 @@ netease-cloud-music
 │   │       ├── index.png
 │   │       └── topbar.png
 │   ├── types
+│   │   ├── artist.d.ts
 │   │   ├── home.d.ts
 │   │   └── images.d.ts
 │   └── utils
@@ -183,9 +207,9 @@ netease-cloud-music
 │       └── utils.tsx
 ├── package-lock.json
 ├── package.json
-├── README.md
 ├── tree.md
 └── tsconfig.json
+
 ```
 
  
