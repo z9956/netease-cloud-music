@@ -16,3 +16,11 @@ export const phoneLogin = (params: {
  * */
 
 export const getUserSubCount = () => http.get(`/user/subcount`);
+
+/**
+ * 登录状态
+ **/
+
+export const getLoginStatus = () => {
+  return http.get(`/login/status`);
+};

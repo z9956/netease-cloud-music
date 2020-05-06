@@ -89,3 +89,14 @@ export const getSingers = (params: {
  * */
 export const getDjPopular = (limit: number) => http.get(`/dj/toplist/popular?limit=${ limit }`);
 
+/**
+ * 音乐是否可用
+ * @param { number } id 音乐id
+ * */
+export const getCheckMusic = (id: number) => http.get(`/check/music?id=${ id }`);
+
+/**
+ * 获取音乐url
+ *@param { number } id 音乐id
+ * */
+export const getSongUrl = (id: number) => http.get(`/song/url?id=${ id }`);

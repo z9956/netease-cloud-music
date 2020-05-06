@@ -18,6 +18,7 @@ const DiscoverTopListPage = lazy(() => import('@/pages/DiscoverPage/DiscoverTopL
 const RecommendComponent = lazy(() => import('@/components/business/RecommendComponent'));
 const RankComponent = lazy(() => import('@/components/business/RankComponent'));
 const CategoryComponent = lazy(() => import('@/components/business/CategoryComponent'));
+const MusicComponent = lazy(() => import('@/components/business/MusicComponent'));
 
 
 class RouterPage extends Component<RouteComponentProps, navListType>{
@@ -122,6 +123,7 @@ class RouterPage extends Component<RouteComponentProps, navListType>{
             />
           </Switch>
           <BackTop/>
+          <MusicComponent/>
         </>
     )
   }

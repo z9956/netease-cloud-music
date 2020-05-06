@@ -3,7 +3,7 @@ import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
 
 import { getKeywordsService } from '@/service/homeService';
 import { resultsType, navListType } from '@/types/home';
-import { phoneLogin, getUserSubCount } from '@/apis/user';
+import { phoneLogin, getUserSubCount, getLoginStatus } from '@/apis/user';
 import { cookie } from "@/utils/utils";
 
 import './style.scss';
@@ -18,6 +18,10 @@ const Header: FC<HeaderComponentType> = props => {
   const [ phone, setPhone ] = useState<string>('');
   const [ show, setShow ] = useState<boolean>(false);
   const [ password, setPassword ] = useState<string>('');
+  const [ info, setInfo ] = useState<{
+    userId: string,
+    avatarUrl: string
+  }>({ avatarUrl: '', userId: '' });
   const [ results, setResults ] = useState<resultsType>({
     albums: [], artists: [], mvs: [], songs: [], order: []
   });
@@ -94,7 +98,14 @@ const Header: FC<HeaderComponentType> = props => {
   };
 
   useEffect(() => {
+    let flag = false;
+    (async function () {
+      const res = await getLoginStatus();
+      if (!flag && res.data.code === 200) {
 
+      }
+    })();
+    return () => { flag = true };
   },[]);
 
   return (
@@ -126,7 +137,7 @@ const Header: FC<HeaderComponentType> = props => {
                       <ul className="item-right">
                         {
                           // @ts-ignore
-                          results[key].map((item: { [key: string]: any }) => {
+                          results[key].map((item: any) => {
                             return liElent(item, key);
                           })
                         }
@@ -138,6 +149,7 @@ const Header: FC<HeaderComponentType> = props => {
             </div>
           </div>
           <p className="creator">创作者中心</p>
+          <div>登录</div>
           <div className="user-info">
             <div className="photos" onClick={ handleLogin }>
               <img src="http://p4.music.126.net/NWbMq8btqZAlEG9SMT4uGA==/1376588559261305.jpg?param=30y30" alt=""/>
@@ -171,7 +183,7 @@ const Header: FC<HeaderComponentType> = props => {
           </div>
         </div>
       </div>
-      <div className="wrap">
+      <div className="wrap sub-wrap">
         <div className="sub-nav margin">
           <div className="nav">
             <ul className="nav-list margin">

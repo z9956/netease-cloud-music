@@ -17,3 +17,4 @@ export const getMusicComment = (id: number) => http.get(`/comment/music?id=${ id
  * @param { number } id  音乐id
  * */
 export const getAlbumComment = (id: number) => http.get(`/comment/album?id=${ id }`);
+
