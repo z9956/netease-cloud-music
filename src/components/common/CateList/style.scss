@@ -15,6 +15,8 @@
         display: inline-block;
         text-align: center;
         color: #999;
+        border: 2px solid whitesmoke;
+        border-radius: 4px;
       }
       >a:hover {
         background-color: lightgrey;
@@ -25,13 +27,17 @@
         margin: 0 auto;
         background-position: 0 0;
       }
-      div.check {
-        background-position: -48 0;
-      }
+
     }
     >li.check {
-      color: #d35757;
-      background-color: #d35757;
+      a {
+        color: #d35757;
+        border: 2px solid #d35757;
+        border-radius: 4px;
+      }
+      div {
+        background-position: -48px 0;
+      }
     }
   }
 }

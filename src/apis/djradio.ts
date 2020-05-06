@@ -22,7 +22,11 @@ export const getProgramTopList = (params: {
 /**
  * 电台-节目榜
  * */
-export const getHotRadio = (cateId: number) => http.get(`/dj/radio/hot?cateId=${ cateId }`);
+export const getHotRadio = (params: {
+    cateId: number,
+    limit?: number,
+    offset?: number
+}) => http.get(`/dj/radio/hot`, params);
 
 /**
  * 电台-分类推荐

@@ -20,8 +20,8 @@ const CateList: FC = () => {
         <ul className="categories-wrap">
           {
             data.map((item: any, index: number) => {
-              return <li key={ item.id }  className={ checkIndex === index ? 'check' : '' }>
-                <Link to={ `discover/djradio/category?id=${ item.id }` }>
+              return <li key={ item.id }  className={ checkIndex === index ? 'check' : '' } onClick={ () => setIndex(index) }>
+                <Link to={ `/discover/djradio/category?id=${ item.id }` }>
                   <div className={ checkIndex === index ? 'check' : '' } style={ { backgroundImage: `url(${ item.picWebUrl })` } }></div>
                   <em>{ item.name }</em>
                 </Link>
