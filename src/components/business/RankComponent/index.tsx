@@ -1,15 +1,15 @@
 import React, { FC, useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
 
-import { getDjRecommend, getProgramTopList } from '@/apis/djradio';
 import ProgramList from "@/components/common/ProgramList";
+import { getProgramTopList } from '@/apis/djradio';
+import { rankType } from "@/types/djradio";
 
 import './style.scss';
 
 type RankComponentPropType = {};
 
-const RankComponent: FC<any> = props => {
-  const [ programs, setPrograms ] = useState<any>([]);
+const RankComponent: FC<RankComponentPropType> = props => {
+  const [ programs, setPrograms ] = useState<Array<rankType>>([]);
   const [ updateTime, setUpdateTime ] = useState<number>(0);
 
   useEffect(() => {

@@ -1,3 +1,5 @@
+import { subType } from "@/types/djradio";
+
 const artists = [
   {
     img1v1Id: 0,
@@ -179,4 +181,66 @@ export const rainginit = {
   coverImgId_str: '',
   ToplistType: '',
   commentCount: 0
+};
+
+export const categoriesInit = {
+  "pic96x96Url": '',
+  "pic84x84IdUrl": '',
+  "pic56x56Url": '',
+  "pic96x96IdStr": '',
+  "picPCWhiteStr": '',
+  "picPCWhiteUrl": '',
+  "picPCBlackStr": '',
+  "picPCBlackUrl": '',
+  "picWebStr": '',
+  "picWebUrl": '',
+  "picMacId": '',
+  "picMacUrl": '',
+  "picUWPId": '',
+  "picUWPUrl": '',
+  "picIPadStr": '',
+  "picIPadUrl": '',
+  "pic56x56IdStr": '',
+  "pic56x56Id": 0,
+  "pic96x96Id": 0,
+  "picPCWhite": 0,
+  "picPCBlack": 0,
+  "picWeb": 0,
+  "picIPad": 0,
+  "pic84x84Id": 0,
+  "name": '',
+  "id": 0
+};
+
+//playlist
+export const catListInit = {
+  "all": {
+    "name": '',
+    "resourceCount": 0,
+    "imgId": 0,
+    "imgUrl": '',
+    "type": 0,
+    "category": 0,
+    "resourceType": 0,
+    "hot": '',
+    "activity": ''
+  },
+  "sub": [{
+    "name": '',
+    "resourceCount": 0,
+    "imgId": 0,
+    "imgUrl": '',
+    "type": 0,
+    "category": 0,
+    "resourceType": 0,
+    "hot": false,
+    "activity": false
+  }],
+  "categories": {
+    "0": '',
+    "1": '',
+    "2": '',
+    "3": '',
+    "4": ''
+  }
 };

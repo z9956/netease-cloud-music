@@ -3,14 +3,25 @@ import React, { FC, useEffect, useState } from 'react';
 import Hot from '@/components/common/Hot';
 import Paging from '@/components/common/Paging';
 import { getAlbumNews, getTopAlbum } from '@/apis/album';
+import { albumsType, tempAlbumsType } from "@/types/discover";
 
 type DiscoverAlbumComponentPropType = {};
 import './style.scss';
 
 const DiscoverAlbumComponent: FC<DiscoverAlbumComponentPropType> = props => {
-  const [ albums, setAlbums ] = useState<any>([]);
-  const [ newAlbums, setNewAlbums ] = useState<any>([]);
-  const [ total, setTotal ] = useState<any>(0);
+  const [ albums, setAlbums ] = useState<Array<albumsType>>([ {
+    name: '',
+    picUrl: '',
+    id: 0,
+    nickname: ''
+  } ]);
+  const [ newAlbums, setNewAlbums ] = useState<Array<albumsType>>([ {
+    name: '',
+    picUrl: '',
+    id: 0,
+    nickname: ''
+  } ]);
+  const [ total, setTotal ] = useState<number>(0);
   const [ checkIndex, setIndex ] = useState<number>(1);
 
   const handleChangeIndex = (num: number) => setIndex(num);
@@ -23,7 +34,7 @@ const DiscoverAlbumComponent: FC<DiscoverAlbumComponentPropType> = props => {
       if (!flag && res.data.code === 200) {
         let result = res.data.albums.splice(0, 10);
 
-        result = result.map((item: any) => {
+        result = result.map((item: tempAlbumsType) => {
           return { name: item.name, picUrl: item.picUrl, id: item.id, nickname: item.artist.name };
         });
 
@@ -43,7 +54,7 @@ const DiscoverAlbumComponent: FC<DiscoverAlbumComponentPropType> = props => {
       if (!flag && res.data.code === 200) {
         let { total, albums, picUrl, id } = res.data;
 
-        albums = albums.map((item: any) => {
+        albums = albums.map((item: tempAlbumsType) => {
           return { name: item.name, picUrl: item.picUrl, id: item.id, nickname: item.artist.name };
         });
 

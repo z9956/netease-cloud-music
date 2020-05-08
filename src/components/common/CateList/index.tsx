@@ -1,23 +1,31 @@
 import React, { FC, useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { getDjCateList } from '@/apis/djradio';
+import { categoriesType } from '@/types/djradio';
+import { categoriesInit } from '@/utils/initialState';
 
 import './style.scss';
 
 type CateListComponentPropType = {};
 
 const CateList: FC<CateListComponentPropType> = () => {
-  const [ categories, setCategories ] = useState<any>({});
+  const [ categories, setCategories ] = useState<{
+    first: Array<categoriesType>,
+    last: Array<categoriesType>
+  }>({
+    first: [ categoriesInit ],
+    last: [ categoriesInit ]
+  });
   const [ checkIndex, setIndex ] = useState<number>(-1);
   const [ radiusIndex, setRadiusIndex ] = useState<number>(0);
 
-  const mapData = (data: any) => {
+  const mapData = (data: Array<categoriesType>) => {
     if (!data) return;
     return (
       <ul className="categories-wrap">
         {
-          data.map((item: any, index: number) => {
+          data.map((item: categoriesType, index: number) => {
             return <li key={ item.id } className={ checkIndex === index ? 'check' : '' }
                        onClick={ () => setIndex(index) }>
               <Link to={ `/discover/djradio/category?id=${ item.id }` }>

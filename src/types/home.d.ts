@@ -139,16 +139,16 @@ export type hotResultType = {
 };
 export type resultType = {
   id: number,
-  type: number,
+  type?: number,
   name: string,
-  copywriter: string,
+  copywriter?: string,
   picUrl: string,
-  canDislike: boolean,
-  trackNumberUpdateTime: number,
-  playCount: number,
-  trackCount: number,
-  highQuality: boolean,
-  alg: string,
+  canDislike?: boolean,
+  trackNumberUpdateTime?: number,
+  playCount?: number,
+  trackCount?: number,
+  highQuality?: boolean,
+  alg?: string,
   nickname?: string
 };
 

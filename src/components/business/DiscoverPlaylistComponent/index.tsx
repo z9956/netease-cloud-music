@@ -5,6 +5,8 @@ import Hot from '@/components/common/Hot';
 import Paging from '@/components/common/Paging';
 import { getTopPlaylist, getPlaylistCatlist } from '@/apis/playlist';
 import { parseQuery } from '@/utils/utils';
+import { catListType, subType, playlistsType, TempPlaylistsType } from '@/types/djradio';
+import { catListInit } from '@/utils/initialState';
 
 import './style.scss';
 
@@ -13,8 +15,13 @@ type PlaylistComponentPropType = {};
 const DiscoverPlaylistComponent: FC<PlaylistComponentPropType> = props => {
   const [ total, setTotal ] = useState<number>(1);
   const [ checkIndex, setIndex ] = useState<number>(1);
-  const [ catList, setCatList ] = useState<any>({});
-  const [ playlists, setPlaylists ] = useState<any>([]);
+  const [ catList, setCatList ] = useState<catListType>(catListInit);
+  const [ playlists, setPlaylists ] = useState<Array<playlistsType>>([{
+    id: 0,
+    name: '',
+    picUrl: '',
+    nickname: ''
+  }]);
   const [ show, setShow ] = useState<boolean>(false);
 
   const handleChangeIndex = (num: number) => {
@@ -47,7 +54,7 @@ const DiscoverPlaylistComponent: FC<PlaylistComponentPropType> = props => {
       if (!flag && res.data.code === 200) {
         const { total, playlists } = res.data;
 
-        const changePlaylists = playlists.map((item: any) => {
+        const changePlaylists = playlists.map((item: TempPlaylistsType) => {
           const { id, name, coverImgUrl, creator: { nickname } } = item;
           return { id, nickname, picUrl: coverImgUrl, name };
         });
@@ -55,7 +62,6 @@ const DiscoverPlaylistComponent: FC<PlaylistComponentPropType> = props => {
         setTotal(total);
         setPlaylists(changePlaylists)
       }
-      ;
     })();
     return () => {
       flag = true
@@ -81,7 +87,7 @@ const DiscoverPlaylistComponent: FC<PlaylistComponentPropType> = props => {
       <ul className={ show ? 'show all-catlist' : 'all-catlist' }>
         <li><Link to={ `/discover/playlist` }>{ all?.name }</Link></li>
         {
-          sub && sub.map((item: any, index: number) => {
+          sub && sub.map((item: subType, index: number) => {
             return <li key={ index }><Link to={ `/discover/playlist?cat=${ item?.name }` }
                                            onClick={ handleToggleShow }>{ item?.name }</Link></li>;
           })
