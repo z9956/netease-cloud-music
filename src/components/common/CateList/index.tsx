@@ -15,20 +15,22 @@ const CateList: FC = () => {
   const [ radiusIndex, setRadiusIndex ] = useState<number>(0);
 
   const mapData = (data: any) => {
-    if(!data) return;
+    if (!data) return;
     return (
-        <ul className="categories-wrap">
-          {
-            data.map((item: any, index: number) => {
-              return <li key={ item.id }  className={ checkIndex === index ? 'check' : '' } onClick={ () => setIndex(index) }>
-                <Link to={ `/discover/djradio/category?id=${ item.id }` }>
-                  <div className={ checkIndex === index ? 'check' : '' } style={ { backgroundImage: `url(${ item.picWebUrl })` } }></div>
-                  <em>{ item.name }</em>
-                </Link>
-              </li>;
-            })
-          }
-        </ul>
+      <ul className="categories-wrap">
+        {
+          data.map((item: any, index: number) => {
+            return <li key={ item.id } className={ checkIndex === index ? 'check' : '' }
+                       onClick={ () => setIndex(index) }>
+              <Link to={ `/discover/djradio/category?id=${ item.id }` }>
+                <div className={ checkIndex === index ? 'check' : '' }
+                     style={ { backgroundImage: `url(${ item.picWebUrl })` } }></div>
+                <em>{ item.name }</em>
+              </Link>
+            </li>;
+          })
+        }
+      </ul>
     );
   };
 
@@ -41,7 +43,7 @@ const CateList: FC = () => {
 
     (async function () {
       const res = await getDjCateList();
-      if(!flag && res.data.code === 200) {
+      if (!flag && res.data.code === 200) {
         const { categories } = res.data;
 
         const first = categories.splice(0, 18);
@@ -58,18 +60,19 @@ const CateList: FC = () => {
   const { first, last } = categories;
 
   return (
-      categories && <div>
-        <div className="categories">
-          { radiusIndex === 0 ? mapData(first) : mapData(last) }
-        </div>
-        <div className="radius">
-          {
-            [0, 1].map(index => {
-              return <span key={ index } className={ radiusIndex === index ? 'active' : '' } onClick={ () => handleChangeIndex(index) }></span>
-            })
-          }
-        </div>
+    categories && <div>
+      <div className="categories">
+        { radiusIndex === 0 ? mapData(first) : mapData(last) }
       </div>
+      <div className="radius">
+        {
+          [ 0, 1 ].map(index => {
+            return <span key={ index } className={ radiusIndex === index ? 'active' : '' }
+                         onClick={ () => handleChangeIndex(index) }></span>
+          })
+        }
+      </div>
+    </div>
   );
 };
 

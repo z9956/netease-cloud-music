@@ -2,7 +2,7 @@
 
 .new-album {
   .album-banner {
-    margin:20px 0 35px 0;
+    margin: 20px 0 35px 0;
     width: 689px;
     height: 184px;
     border: 1px solid #d3d3d3;
@@ -10,43 +10,67 @@
     @include flex();
     @include position();
     overflow: hidden;
+
     .album {
       transition: all 3s linear;
       @include position(absolute, none);
-      >ul {
-        padding:0 25px;
+
+      > ul {
+        padding: 0 25px;
         @include flex();
-        >li {
+
+        > li {
           width: 118px;
           margin-right: 20px;
+
           .albums-item {
             width: 100px;
             height: 100px;
             @include position();
-            >div {
-              width: 118px;
-              height: 100px;
-              background-image: url("https://raw.githubusercontent.com/z9956/netease-cloud-music/dev/src/static/images/coverall.png");
-              background-position: 0 -570px;
-              @include position(absolute);
-              z-index: 1;
+
+            > a {
+              > div {
+                width: 118px;
+                height: 100px;
+                background-image: url("https://raw.githubusercontent.com/z9956/netease-cloud-music/dev/src/static/images/coverall.png");
+                background-position: 0 -570px;
+                @include position(absolute);
+                z-index: 1;
+              }
+
+              > img {
+                width: 100%;
+                height: 100%;
+                @include position(absolute);
+              }
             }
-            >img {
-              width: 100%;
-              height: 100%;
-              @include position(absolute);
+
+            i {
+              @include position(absolute, none, none, -6px, 10px);
+              font-size: 25px;
+              color: white;
+              z-index: -1;
+              cursor:pointer;
             }
           }
+
+          .albums-item:hover i {
+            z-index: 5;
+          }
+
           p:nth-of-type(1) {
             width: 106px;
-            >a {
+
+            > a {
               display: block;
               font-size: 12px;
               color: #666;
             }
           }
+
           p:nth-of-type(2) {
             width: 106px;
+
             a {
               font-size: 12px;
               color: #666;
@@ -55,14 +79,17 @@
         }
       }
     }
+
     .iconfont {
       transform: translateY(-50%);
       font-weight: 700;
       z-index: 2;
     }
+
     .icon-zuo {
       @include position(absolute, 92px, 0);
     }
+
     .icon-you {
       @include position(absolute, 92px, none, none, 0);
 

@@ -5,7 +5,7 @@ export type listType = {
   "img1v1Url": string,
   "picUrl": string,
   "musicSize": number,
-  "followed": false,
+  "followed": boolean,
   "briefDesc": string,
   "alias": string[] | [],
   "picId": number,

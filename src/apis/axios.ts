@@ -32,7 +32,6 @@ request.defaults.withCredentials = true;
 // });
 
 
-
 export const http = {
   get: (url: string, data?: any) => {
     return request.get(url, {

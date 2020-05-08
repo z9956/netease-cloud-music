@@ -3,13 +3,15 @@
 .playlist-title {
   margin-bottom: 12px;
   @include flex();
-  >i {
+
+  > i {
     width: 54px;
     height: 24px;
     background-image: url("https://raw.githubusercontent.com/z9956/netease-cloud-music/dev/src/static/images/icon2.png");
     background-position: 0 -243px;
   }
-  >h2 {
+
+  > h2 {
     width: 346px;
     font-size: 20px;
   }

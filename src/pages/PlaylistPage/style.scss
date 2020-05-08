@@ -6,11 +6,13 @@
   margin: 0 auto;
   background-color: white;
   @include flex(space-between, end);
+
   .playlist-left {
     width: 708px;
     padding: 40px 30px;
     border-right: 1px solid #d3d3d3;
   }
+
   .playlist-right {
     width: 270px;
     padding: 20px 40px 40px 30px;

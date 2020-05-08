@@ -21,9 +21,9 @@ const CategoryComponent: FC<any> = props => {
       const res = await getHotRadio({ cateId: +id });
       if (!flag && res.data.code === 200) setDjRadios(res.data.djRadios);
     })();
-  },[local]);
+  }, [ local ]);
 
-  return(
+  return (
     <div className="category-wrap">
       <CateList/>
       <div className="category">

@@ -6,44 +6,55 @@
   border: 1px solid lightgrey;
   border-top: none;
   margin: 0 auto;
+
   .category {
     width: 900px;
-    >h3 {
+
+    > h3 {
       height: 40px;
       line-height: 40px;
       font-size: 24px;
       border-bottom: 2px solid #c20c0c;
     }
+
     .dj-list {
       @include flex();
       flex-wrap: wrap;
-      >li {
+
+      > li {
         width: 435px;
         @include flex();
         padding: 20px 0;
         border-bottom: 1px solid #e7e7e7;
-        >a {
+
+        > a {
           img {
             width: 120px;
             height: 120px;
           }
         }
+
         .dj-info {
           width: 295px;
+
           a {
             color: #333;
           }
-          >h3 {
+
+          > h3 {
             line-height: 64px;
+
             a {
               font-size: 18px;
               font-weight: 700;
             }
           }
-          p:nth-child(1){
+
+          p:nth-child(1) {
             width: 100%;
           }
-          p:nth-child(2){
+
+          p:nth-child(2) {
             width: 100%;
             color: #333;
           }

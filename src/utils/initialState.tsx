@@ -2,7 +2,7 @@ const artists = [
   {
     img1v1Id: 0,
     topicPerson: 0,
-    alias: [''],
+    alias: [ '' ],
     picId: 0,
     musicSize: 0,
     albumSize: 0,
@@ -135,8 +135,8 @@ const tracks = {
 export const rainginit = {
   subscribers: [],
   subscribed: false,
-  creator: [creator],
-  tracks: [tracks],
+  creator: [ creator ],
+  tracks: [ tracks ],
   trackIds: [
     {
       id: 0,

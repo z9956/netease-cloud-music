@@ -4,17 +4,21 @@
 .rank-wrap {
   width: 60%;
   @include flex();
-  >p:nth-child(1) {
+
+  > p:nth-child(1) {
     width: 304px;
   }
-  >p:nth-child(2) {
+
+  > p:nth-child(2) {
     width: 166px;
   }
-  >p:nth-child(3) {
+
+  > p:nth-child(3) {
     width: 90px;
     color: #999;
   }
-  >p:nth-child(4) {
+
+  > p:nth-child(4) {
     width: 126px;
     color: #999;
   }

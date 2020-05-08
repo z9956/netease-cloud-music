@@ -21,7 +21,7 @@ const CategoryComponent = lazy(() => import('@/components/business/CategoryCompo
 const MusicComponent = lazy(() => import('@/components/business/MusicComponent'));
 
 
-class RouterPage extends Component<RouteComponentProps, navListType>{
+class RouterPage extends Component<RouteComponentProps, navListType> {
   constructor(props: any) {
     super(props);
     this.state = {
@@ -36,97 +36,97 @@ class RouterPage extends Component<RouteComponentProps, navListType>{
 
   render() {
     const { navList, subNav } = this.state;
-    return(
-        <>
-          <Header navList={ navList } subNav={ subNav }/>
-          <Switch>
-            <Route
-                path={ routePath.discover.index }
-                exact={ true }
-                component={ DiscoverIndexPage }
-            />
-            <Route
-                path={ routePath.song }
-                exact={ true }
-                component={ SongPage }
-            />
-            <Route
-                path={ routePath.playlist }
-                exact={ true }
-                component={ PlaylistPage }
-            />
-            <Route
-                path={ routePath.discover.index }
-                render={() => (
+    return (
+      <>
+        <Header navList={ navList } subNav={ subNav }/>
+        <Switch>
+          <Route
+            path={ routePath.discover.index }
+            exact={ true }
+            component={ DiscoverIndexPage }
+          />
+          <Route
+            path={ routePath.song }
+            exact={ true }
+            component={ SongPage }
+          />
+          <Route
+            path={ routePath.playlist }
+            exact={ true }
+            component={ PlaylistPage }
+          />
+          <Route
+            path={ routePath.discover.index }
+            render={ () => (
+              <Switch>
+                <Route
+                  exact={ true }
+                  path={ routePath.discover.album }
+                  component={ DiscoverAlbumPage }
+                />
+                <Route
+                  exact={ true }
+                  path={ routePath.discover.artist }
+                  component={ DiscoverArtistPage }
+                />
+                <Route
+                  exact={ true }
+                  path={ routePath.discover.playlist }
+                  component={ DiscoverPlaylistPage }
+                />
+                <Route
+                  exact={ true }
+                  path={ routePath.discover.toplist }
+                  component={ DiscoverTopListPage }
+                />
+                <Route
+                  path={ routePath.discover.djradio.index }
+                  render={ () => (
                     <Switch>
                       <Route
-                          exact={ true }
-                          path={ routePath.discover.album }
-                          component={ DiscoverAlbumPage }
+                        exact={ true }
+                        path={ routePath.discover.djradio.index }
+                        component={ DiscoverDjRadioPage }
                       />
                       <Route
-                          exact={ true }
-                          path={ routePath.discover.artist }
-                          component={ DiscoverArtistPage }
+                        exact={ true }
+                        path={ routePath.discover.djradio.rank }
+                        component={ RankComponent }
                       />
                       <Route
-                          exact={ true }
-                          path={ routePath.discover.playlist }
-                          component={ DiscoverPlaylistPage }
+                        exact={ true }
+                        path={ routePath.discover.djradio.recommend }
+                        component={ RecommendComponent }
                       />
                       <Route
-                          exact={ true }
-                          path={ routePath.discover.toplist }
-                          component={ DiscoverTopListPage }
+                        exact={ true }
+                        path={ routePath.discover.djradio.category }
+                        component={ CategoryComponent }
                       />
                       <Route
-                          path={ routePath.discover.djradio.index }
-                          render={ () => (
-                              <Switch>
-                                  <Route
-                                      exact={ true }
-                                      path={ routePath.discover.djradio.index }
-                                      component={ DiscoverDjRadioPage }
-                                  />
-                                  <Route
-                                    exact={ true }
-                                    path={ routePath.discover.djradio.rank }
-                                    component={ RankComponent }
-                                  />
-                                  <Route
-                                      exact={ true }
-                                      path={ routePath.discover.djradio.recommend }
-                                      component={ RecommendComponent }
-                                  />
-                                  <Route
-                                      exact={ true }
-                                      path={ routePath.discover.djradio.category }
-                                      component={ CategoryComponent }
-                                  />
-                                  <Route
-                                      path="*"
-                                      render={() => {
-                                          return <Redirect to={ routePath.discover.djradio.index } />;
-                                      }}
-                                  />
-                              </Switch>
-                          ) }
+                        path="*"
+                        render={ () => {
+                          return <Redirect to={ routePath.discover.djradio.index }/>;
+                        } }
                       />
                     </Switch>
-                )}
-            />
-            <Route
-                path="/"
-                render={() => {
-                  return <Redirect to={ routePath.discover.index }/>
-                }}
-            />
-          </Switch>
-          <BackTop/>
-          <MusicComponent/>
-        </>
+                  ) }
+                />
+              </Switch>
+            ) }
+          />
+          <Route
+            path="/"
+            render={ () => {
+              return <Redirect to={ routePath.discover.index }/>
+            } }
+          />
+        </Switch>
+        <BackTop/>
+        <MusicComponent/>
+      </>
     )
   }
 }
 
-export default  withRouter(RouterPage);
+export default withRouter(RouterPage);

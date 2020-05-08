@@ -22,12 +22,13 @@ const RankComponent: FC<any> = props => {
         setUpdateTime(updateTime);
       }
     })();
-  },[]);
+  }, []);
 
 
-  return(
+  return (
     <div className="recommend">
-      <ProgramList title={ '节目排行榜' } path={ `/discover/djradio/rank` } updateTime={ updateTime } data={ programs } type={ 1 }/>
+      <ProgramList title={ '节目排行榜' } path={ `/discover/djradio/rank` } updateTime={ updateTime } data={ programs }
+                   type={ 1 }/>
     </div>
   );
 };

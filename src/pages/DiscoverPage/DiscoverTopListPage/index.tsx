@@ -1,4 +1,4 @@
-import React, {  useState } from 'react';
+import React, { useState } from 'react';
 
 import TopList from '@/components/common/TopList';
 import TopListInfo from '@/components/common/TopListInfo';
@@ -11,10 +11,10 @@ const DiscoverTopListPage = () => {
   const handleChangeInfo = (item: any) => setInfo(item);
 
   return (
-        <div className="toplist-page">
-          <TopList handleChangeInfo={ handleChangeInfo }/>
-          <TopListInfo { ...info }/>
-        </div>
+    <div className="toplist-page">
+      <TopList handleChangeInfo={ handleChangeInfo }/>
+      <TopListInfo { ...info }/>
+    </div>
   );
 };
 

@@ -7,7 +7,7 @@ import './static/font/iconfont.css';
 import App from '@/pages/App';
 
 ReactDOM.render(
-   <App/>,
+  <App/>,
   document.getElementById('root'),
 );
 serviceWorker.unregister();

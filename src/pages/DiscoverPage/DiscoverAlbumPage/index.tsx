@@ -6,9 +6,9 @@ import './style.scss';
 
 const DiscoverAlbumPage = () => {
   return (
-      <>
-        <DiscoverAlbumComponent/>
-      </>
+    <>
+      <DiscoverAlbumComponent/>
+    </>
   );
 };
 

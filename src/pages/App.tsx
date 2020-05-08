@@ -4,13 +4,13 @@ import { HashRouter, Route, Switch } from 'react-router-dom';
 const RouterPage = lazy(() => import('@/pages/RouterPage'));
 
 const App = () => (
-    <Suspense fallback={ 'loading...' }>
-      <HashRouter>
-        <Switch>
-          <Route component={ RouterPage }/>
-        </Switch>
-      </HashRouter>
-    </Suspense>
+  <Suspense fallback={ 'loading...' }>
+    <HashRouter>
+      <Switch>
+        <Route component={ RouterPage }/>
+      </Switch>
+    </HashRouter>
+  </Suspense>
 
 );
 

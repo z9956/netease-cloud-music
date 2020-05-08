@@ -1,15 +1,19 @@
 @import '../../../static/css/mixins';
+
 .categories {
   @include flex();
-  >.categories-wrap {
+
+  > .categories-wrap {
     width: 100%;
     height: 198px;
     @include flex(flex-start, self-end);
     flex-wrap: wrap;
+
     > li {
       width: 99px;
       height: 99px;
-      >a {
+
+      > a {
         width: 70px;
         height: 70px;
         display: inline-block;
@@ -18,9 +22,11 @@
         border: 2px solid whitesmoke;
         border-radius: 4px;
       }
-      >a:hover {
+
+      > a:hover {
         background-color: lightgrey;
       }
+
       div {
         width: 48px;
         height: 48px;
@@ -29,30 +35,35 @@
       }
 
     }
-    >li.check {
+
+    > li.check {
       a {
         color: #d35757;
         border: 2px solid #d35757;
         border-radius: 4px;
       }
+
       div {
         background-position: -48px 0;
       }
     }
   }
 }
+
 .radius {
   width: 100px;
   margin: 0 auto;
   @include flex(space-around);
-  >span {
+
+  > span {
     width: 10px;
     height: 10px;
     border-radius: 50%;
     display: inline-block;
     background-color: gray;
   }
-  >span.active {
+
+  > span.active {
     background-color: #d35757;
   }
 }

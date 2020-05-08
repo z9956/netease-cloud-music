@@ -3,36 +3,45 @@
 .program-wrap {
 
   @include flex();
+
   a {
     color: #333;
   }
+
   .program {
     width: 426px;
     margin-top: 20px;
+
     .title {
       height: 40px;
       line-height: 40px;
       border-bottom: 2px solid #c20c0c;
       @include flex();
-      >h3 {
-        >a {
+
+      > h3 {
+        > a {
           font-size: 24px;
         }
-        >span {
+
+        > span {
           margin-left: 10px;
           color: #999;
         }
       }
-      >a {
+
+      > a {
         color: #999;
       }
     }
+
     .playlist {
       border: 1px solid lightgrey;
       border-top: none;
+
       li {
         padding: 10px 0;
         @include flex(space-around);
+
         .rank {
           em {
             width: 46px;
@@ -41,58 +50,71 @@
             color: #da4545;
             font-size: 14px;
           }
+
           span {
             width: 100%;
             text-align: center;
             display: inline-block;
             color: #999;
-            >i {
+
+            > i {
               font-size: 10px;
               font-weight: 700;
             }
-            >i.icon-iconsfsx {
+
+            > i.icon-iconsfsx {
               color: #ba2226;
             }
-            >i.icon-plus-shiftdown {
+
+            > i.icon-plus-shiftdown {
               color: #4abbeb;
             }
           }
         }
+
         .prc-url {
           width: 40px;
           height: 40px;
-          >img {
+
+          > img {
             width: 100%;
             height: 100%;
           }
         }
+
         .programs-info {
           width: 254px;
+
           p:last-child {
             a {
               color: #999;
             }
           }
+
           a:hover {
             border-bottom: 1px solid lightgrey;
           }
         }
+
         .info-width {
           width: 208px;
         }
+
         .bar {
           width: 100px;
           height: 8px;
           border-radius: 10px;
           background-color: lightgrey;
           @include position();
-          >i {
+
+          > i {
             height: 8px;
             border-radius: 10px;
             background-color: gray;
             @include position(absolute);
           }
         }
+
         .tag {
           height: 16px;
           padding: 0 2px;
@@ -100,10 +122,12 @@
           border: 1px solid #999;
           color: #999;
         }
+
         .tag:hover {
           color: #333;
         }
       }
+
       li.active {
         background-color: #f7f7f7;
       }

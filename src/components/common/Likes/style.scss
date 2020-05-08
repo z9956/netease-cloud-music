@@ -14,9 +14,11 @@
     padding-left: -12px;
     @include flex();
     flex-wrap: wrap;
+
     > li {
       padding: 0 0 12px 12px;
       font-size: 0;
+
       > a {
         > img {
           width: 40px;
@@ -24,6 +26,7 @@
         }
       }
     }
+
     .none {
       padding-left: 0;
     }

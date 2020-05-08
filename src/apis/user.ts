@@ -5,10 +5,10 @@ import { http } from "@/apis/axios";
  * */
 
 export const phoneLogin = (params: {
-    phone: string,
-    password: string
+  phone: string,
+  password: string
 }) => {
-    return http.get(`/login/cellphone`, params);
+  return http.get(`/login/cellphone`, params);
 };
 
 /**

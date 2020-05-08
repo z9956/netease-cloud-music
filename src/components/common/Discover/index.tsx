@@ -32,24 +32,24 @@ const Discover: FC<DiscoverComponentPropType> = props => {
   const getData = async () => {
     const result = await getRecommendPlaylists();
     const album = await getNewest();
-    if(result.data?.result && album.data?.albums) {
+    if (result.data?.result && album.data?.albums) {
       setResult(result.data.result);
       setAlbums(album.data.albums)
     }
   };
 
-  useEffect( () => {
+  useEffect(() => {
     getData();
     return () => {
       cancel('取消请求');
     };
   }, []);
   return (
-      <div className="discover-wrap">
-        <Hot result={ ...result }/>
-        <NewAlbum albums={ albums }/>
-        <List/>
-      </div>
+    <div className="discover-wrap">
+      <Hot result={ ...result }/>
+      <NewAlbum albums={ albums }/>
+      <List/>
+    </div>
   );
 };
 

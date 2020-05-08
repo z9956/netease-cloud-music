@@ -22,17 +22,17 @@ const List: FC<ListComponentPropType> = props => {
       setOriginalSong(data[2]);
       setShow(true);
     });
-  },[]);
+  }, []);
 
   return (
-      show ? <div className="List-warp">
-        <Title info={ { title: '榜单', path: '/toplist'}} />
-        <div className="ranking-item">
-          <Ranking { ...soarSong } />
-          <Ranking { ...newSong } />
-          <Ranking { ...originalSong } />
-        </div>
-      </div> : null
+    show ? <div className="List-warp">
+      <Title info={ { title: '榜单', path: '/toplist' } }/>
+      <div className="ranking-item">
+        <Ranking { ...soarSong } />
+        <Ranking { ...newSong } />
+        <Ranking { ...originalSong } />
+      </div>
+    </div> : null
   );
 };
 

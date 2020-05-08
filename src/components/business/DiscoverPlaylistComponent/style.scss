@@ -6,22 +6,28 @@
   margin: 0 auto;
   background-color: white;
   @include position();
+
   .hot-wrap > ul {
     width: 980px;
-    >li {
+
+    > li {
       width: 190px;
     }
   }
+
   .playlist-title {
     height: 40px;
     @include flex();
     border-bottom: 2px solid #c20c0c;
+
     .catlist {
       @include flex();
-      >h3 {
+
+      > h3 {
         font-size: 24px;
       }
-      >button {
+
+      > button {
         width: 90px;
         height: 30px;
         margin-left: 10px;
@@ -29,6 +35,7 @@
         border: 1px solid lightgrey;
       }
     }
+
     .hot {
       width: 40px;
       height: 30px;
@@ -36,11 +43,13 @@
       text-align: center;
       line-height: 30px;
       background-color: #c20c0c;
+
       a {
         color: white;
       }
     }
   }
+
   .all-catlist {
     width: 720px;
     height: 200px;
@@ -51,16 +60,20 @@
     border: 1px solid lightgrey;
     box-shadow: lightgrey -3px 3px;
     z-index: -5;
-    >li {
+
+    > li {
       padding: 10px;
     }
+
     a {
       color: #333;
     }
+
     a:hover {
       border-bottom: 1px solid #333;
     }
   }
+
   .show {
     z-index: 1;
   }

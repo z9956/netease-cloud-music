@@ -12,7 +12,6 @@ type DiscoverDjRadioComponentPropType = {};
 
 const DiscoverDjRadioComponent: FC<DiscoverDjRadioComponentPropType> = props => {
 
-
   return (
     <div className="discover-dj">
       <CateList/>

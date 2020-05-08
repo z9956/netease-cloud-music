@@ -7,7 +7,7 @@ import './style.scss';
 
 type RecommendComponentPropType = {};
 
-const RecommendComponent: FC<any> = props => {
+const RecommendComponent: FC<RecommendComponentPropType> = props => {
   const [ programs, setPrograms ] = useState<any>([]);
 
   useEffect(() => {
@@ -16,12 +16,13 @@ const RecommendComponent: FC<any> = props => {
       const res = await getDjRecommend(50);
       if (!flag && res.data.code === 200) setPrograms(res.data.programs);
     })();
-  },[]);
+  }, []);
 
 
-  return(
+  return (
     <div className="recommend">
-      <ProgramList title={ '推荐节目' } time={ '每日更新' } path={ `/discover/djradio/recommend` } data={ programs } type={ 0 }/>
+      <ProgramList title={ '推荐节目' } time={ '每日更新' } path={ `/discover/djradio/recommend` } data={ programs }
+                   type={ 0 }/>
     </div>
   );
 };

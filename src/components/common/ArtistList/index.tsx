@@ -19,9 +19,9 @@ const ArtistList: FC<ArtistListComponentPropType> = props => {
   let path = local.pathname;
   const query = parseQuery(local.search);
 
-  const stringQuery = (query: any ) => {
+  const stringQuery = (query: any) => {
     let strQuery = path + '?';
-    for(let key in query) {
+    for (let key in query) {
       strQuery += key + '=' + query[key] + '&';
     }
     return strQuery.substr(0, strQuery.length - 1);
@@ -31,24 +31,26 @@ const ArtistList: FC<ArtistListComponentPropType> = props => {
     <div className="artist-list">
       <h3>{ title ? title : '华语男歌手' }</h3>
       <ul className="initial">
-        <li  className={ checkIndex === 0 ? 'active' : '' } onClick={ () => setIndex(0) }>
+        <li className={ checkIndex === 0 ? 'active' : '' } onClick={ () => setIndex(0) }>
           <Link to={ `${ stringQuery({ ...query, initial: -1 }) }` }>热门</Link>
         </li>
         {
           initial.map((val, index: number) => {
-             const state = stringQuery({ ...query,  initial: val });
-            return <li key={ val } className={ index + 1 === checkIndex ? 'active' : '' } onClick={ () => setIndex(index + 1) }>
+            const state = stringQuery({ ...query, initial: val });
+            return <li key={ val } className={ index + 1 === checkIndex ? 'active' : '' }
+                       onClick={ () => setIndex(index + 1) }>
               <Link to={ state }>{ val }</Link>
             </li>
           })
         }
-        <li  className={ checkIndex === initial.length + 1 ? 'active' : '' } onClick={ () => setIndex(initial.length + 1) }>
+        <li className={ checkIndex === initial.length + 1 ? 'active' : '' }
+            onClick={ () => setIndex(initial.length + 1) }>
           <Link to={ `${ stringQuery({ ...query, initial: 0 }) }` }>其他</Link>
         </li>
       </ul>
       <ul className="artist-item">
         {
-          list && list.map((artist, index )=> {
+          list && list.map((artist, index) => {
             if (index < 10) {
               return <li key={ artist.id } className="line">
                 <div className="cover">
@@ -60,7 +62,7 @@ const ArtistList: FC<ArtistListComponentPropType> = props => {
                   <Link to={ `/artist?id=${ artist.id }` }> { artist.name }</Link>
                 </p>
               </li>
-            }else {
+            } else {
               return <li key={ artist.id }>
                 <p>
                   <Link to={ `/artist?id=${ artist.id }` }> { artist.name }</Link>

@@ -12,3 +12,8 @@ export const getTopAlbum = (params: {
   offset: number,
   limit?: number
 }) => http.get(`/top/album`, params);
+
+/**
+ * 新碟上架
+ * */
+export const getAlbum = (id: number) => http.get(`/album?id=${ id }`);

@@ -61,14 +61,14 @@ const Header: FC<HeaderComponentType> = props => {
   };
 
   const handleLogin = async () => {
-    try{
+    try {
       const res = await phoneLogin({ phone: phone, password });
       if (res.data.code === 200) {
         const { token } = res.data;
         cookie.setCookie('MUSIC_U', token);
         setShow(false);
       }
-    }catch (e) {
+    } catch (e) {
       console.log(e);
     }
   };
@@ -99,7 +99,7 @@ const Header: FC<HeaderComponentType> = props => {
     }
   };
 
-  const handleUserInfo = async() => {
+  const handleUserInfo = async () => {
     const res = await getUserSubCount();
   };
 
@@ -109,7 +109,7 @@ const Header: FC<HeaderComponentType> = props => {
   };
 
   const getLoginEle = () => {
-    return(<div className="user-info">
+    return (<div className="user-info">
       <div className="photos" onClick={ handleLogin }>
         <img src="http://p4.music.126.net/NWbMq8btqZAlEG9SMT4uGA==/1376588559261305.jpg?param=30y30" alt=""/>
       </div>
@@ -150,8 +150,10 @@ const Header: FC<HeaderComponentType> = props => {
         setLoginStatus(true);
       }
     })();
-    return () => { flag = true };
-  },[]);
+    return () => {
+      flag = true
+    };
+  }, []);
 
   return (
     <div className="topbar">

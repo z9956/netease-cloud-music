@@ -20,4 +20,4 @@ export const routePath = {
   friend: '/friend',
   program: '/program',
   playlist: '/playlist',
-} ;
+};

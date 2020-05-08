@@ -9,7 +9,6 @@ import { cancel } from '@/apis/axios';
 import './style.scss';
 
 
-
 class DiscoverPage extends Component<{}, HomeComponentStateType> {
   constructor(props: any) {
     super(props);
@@ -17,6 +16,7 @@ class DiscoverPage extends Component<{}, HomeComponentStateType> {
       banners: []
     };
   }
+
   componentDidMount(): void {
     getBannerService().then(banners => this.setState({ banners }));
   }

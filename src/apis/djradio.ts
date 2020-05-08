@@ -14,18 +14,18 @@ export const getDjRecommend = (limit: number = 10) => http.get(`/program/recomme
  * 电台-节目榜
  * */
 export const getProgramTopList = (params: {
-    idx: number,
-    limit?: number,
-    offset?: number
+  idx: number,
+  limit?: number,
+  offset?: number
 }) => http.get(`/dj/program/toplist`, params);
 
 /**
  * 电台-节目榜
  * */
 export const getHotRadio = (params: {
-    cateId: number,
-    limit?: number,
-    offset?: number
+  cateId: number,
+  limit?: number,
+  offset?: number
 }) => http.get(`/dj/radio/hot`, params);
 
 /**

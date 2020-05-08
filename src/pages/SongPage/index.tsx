@@ -11,8 +11,8 @@ import './style.scss';
 
 const SongPage = () => {
   return (
-      <>
-      </>
+    <>
+    </>
   );
 };
 

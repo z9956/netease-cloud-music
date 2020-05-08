@@ -12,14 +12,14 @@ const BackTop: FC<TitleComponentPropType> = props => {
   useEffect(() => {
     const listener = () => {
       const shouldShow = window.scrollY > 300;
-      if(shouldShow !== show) setShow(shouldShow);
+      if (shouldShow !== show) setShow(shouldShow);
     };
 
     document.addEventListener('scroll', listener);
     return () => document.removeEventListener('scroll', listener);
-  }, [show]);
-  return(
-      show? <div className="back-top" onClick={ () => window.scrollTo(0, 0) }></div> : null
+  }, [ show ]);
+  return (
+    show ? <div className="back-top" onClick={ () => window.scrollTo(0, 0) }></div> : null
   );
 };
 

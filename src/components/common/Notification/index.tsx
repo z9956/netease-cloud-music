@@ -13,7 +13,7 @@ import './style.scss';
 
 const Notification: FC<NotificationComponentPropType> = props => {
   return (
-      <div className="wrap"></div>
+    <div className="wrap"></div>
   );
 };
 

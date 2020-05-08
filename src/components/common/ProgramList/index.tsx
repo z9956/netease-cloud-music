@@ -49,7 +49,7 @@ const ProgramList: FC<any> = props => {
   };
 
   const getRankIng = (index: number, num: number) => {
-    if (num === -1 ) {
+    if (num === -1) {
       return (
         <>
           <em>{ index }</em>
@@ -57,7 +57,7 @@ const ProgramList: FC<any> = props => {
             { num === -1 ? 'new' : num }
         </span>
         </>);
-    }else if(num - index > 0 ) {
+    } else if (num - index > 0) {
       return (
         <>
           <em>{ index }</em>
@@ -66,7 +66,7 @@ const ProgramList: FC<any> = props => {
             { num - index }
         </span>
         </>);
-    }else if(index > num) {
+    } else if (index > num) {
       return (
         <>
           <em>{ index }</em>
@@ -75,7 +75,7 @@ const ProgramList: FC<any> = props => {
             { index - num }
         </span>
         </>);
-    }else if(num - index === 0) {
+    } else if (num - index === 0) {
       return (
         <>
           <em>{ index }</em>

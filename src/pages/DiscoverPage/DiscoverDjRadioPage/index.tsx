@@ -6,9 +6,9 @@ import './style.scss';
 
 const DiscoverDjRadioPage = () => {
   return (
-      <>
-        <DiscoverDjRadioComponent/>
-      </>
+    <>
+      <DiscoverDjRadioComponent/>
+    </>
   );
 };
 

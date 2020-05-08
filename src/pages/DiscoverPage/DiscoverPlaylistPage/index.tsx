@@ -6,11 +6,11 @@ import './style.scss';
 
 
 const DiscoverPlaylistPage = () => {
-  return(
-      <>
-        <DiscoverPlaylistComponent/>
-      </>
-      )
+  return (
+    <>
+      <DiscoverPlaylistComponent/>
+    </>
+  )
 };
 
 export default DiscoverPlaylistPage;

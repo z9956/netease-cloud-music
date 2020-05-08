@@ -17,17 +17,17 @@ const ArtistComponent: FC<ArtistComponentPropType> = props => {
   const local = useLocation().search;
 
   useEffect(() => {
-    const params = local ? parseQuery(local) :  { limit: 100 };
+    const params = local ? parseQuery(local) : { limit: 100 };
     let flag = false;
     (async function () {
-      const res = await getArtistList({ ...params, limit: 100});
+      const res = await getArtistList({ ...params, limit: 100 });
       if (!flag && res.data.code === 200) setArtists(res.data.artists);
     })();
-  },[local]);
+  }, [ local ]);
 
   const handleChangeTitle = (title: string, index: number) => setTitle(title);
 
-  return(
+  return (
     <div className="artist-wrap">
       <div className="artist-nav">
         {
@@ -38,7 +38,8 @@ const ArtistComponent: FC<ArtistComponentPropType> = props => {
                 <ul>
                   {
                     item.list.map((nav, index) => {
-                      return <li key={ nav.path } onClick={ () =>  handleChangeTitle(nav.name, index) } className={ nav.name === title ? 'active' : '' }>
+                      return <li key={ nav.path } onClick={ () => handleChangeTitle(nav.name, index) }
+                                 className={ nav.name === title ? 'active' : '' }>
                         <Link to={ `/discover/artist?${ nav.path }` }>{ nav.name }</Link>
                       </li>
                     })

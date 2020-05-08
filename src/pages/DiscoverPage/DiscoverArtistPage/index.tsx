@@ -5,9 +5,9 @@ import './style.scss';
 
 const DiscoverArtistPage = () => {
   return (
-      <>
-        <ArtistComponent/>
-      </>
+    <>
+      <ArtistComponent/>
+    </>
   );
 };
 

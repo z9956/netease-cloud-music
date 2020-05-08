@@ -35,11 +35,11 @@ export const getRecommendPlaylists = (limit: number = 8) => http.get(`/personali
  * @param { number } limit 数量
  * */
 export const getPlaylist = (
-    params: {
-      cat?: string,
-      limit: number,
-      orader?: string
-    }) => {
+  params: {
+    cat?: string,
+    limit: number,
+    orader?: string
+  }) => {
   return http.get(`/top/playlist`, { params });
 };
 
@@ -54,7 +54,7 @@ export const getHotPlaylist = () => http.get(`/playlist/hot`);
  * @param { number } limit 取出数量，默认为50
  * @param params
  * */
-export const getNewAlbum = ( params: {
+export const getNewAlbum = (params: {
   limit: number,
   offset?: number
 }) => http.get(`/top/album`, { params });
