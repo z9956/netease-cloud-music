@@ -5,11 +5,9 @@ import { getDjCateList } from '@/apis/djradio';
 
 import './style.scss';
 
-type TitleComponentPropType = {
-  top?: number
-};
+type CateListComponentPropType = {};
 
-const CateList: FC = () => {
+const CateList: FC<CateListComponentPropType> = () => {
   const [ categories, setCategories ] = useState<any>({});
   const [ checkIndex, setIndex ] = useState<number>(-1);
   const [ radiusIndex, setRadiusIndex ] = useState<number>(0);

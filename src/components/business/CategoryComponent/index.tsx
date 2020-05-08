@@ -1,16 +1,25 @@
 import React, { FC, useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, RouteComponentProps } from 'react-router-dom';
 
 import CateList from "@/components/common/CateList";
 import { getHotRadio } from '@/apis/djradio';
 import { parseQuery } from "@/utils/utils";
+import { djRadiosType, radiosType } from '@/types/djradio';
 
 import './style.scss';
 
-type CategoryComponentPropType = {};
+type CategoryComponentPropType = RouteComponentProps & {};
 
-const CategoryComponent: FC<any> = props => {
-  const [ djRadios, setDjRadios ] = useState<any>([]);
+const CategoryComponent: FC<CategoryComponentPropType> = props => {
+  const [ djRadios, setDjRadios ] = useState<Array<djRadiosType>>([{
+    id: 0,
+    picUrl: '',
+    name: '',
+    programCount: 0,
+    subCount: 0,
+    userId:0,
+    nickname: ''
+  }]);
 
   const local = useLocation();
 
@@ -19,7 +28,13 @@ const CategoryComponent: FC<any> = props => {
     const { id } = parseQuery(local.search);
     (async function () {
       const res = await getHotRadio({ cateId: +id });
-      if (!flag && res.data.code === 200) setDjRadios(res.data.djRadios);
+      if (!flag && res.data.code === 200) {
+          const data = res.data.djRadios.map((item: radiosType) => {
+            const { dj, id, picUrl, name, programCount, subCount } = item;
+            return { id, picUrl, name, programCount, subCount, userId: dj.userId, nickname: dj.nickname };
+          });
+        setDjRadios(data);
+      }
     })();
   }, [ local ]);
 
@@ -40,7 +55,7 @@ const CategoryComponent: FC<any> = props => {
                     <Link to={ `/djradio?id=${ item.id }` }>{ item.name }</Link>
                   </h3>
                   <p>
-                    <Link to={ `/user/home?id=${ item.dj.userId }` }>{ item.dj.nickname }</Link>
+                    <Link to={ `/user/home?id=${ item.userId }` }>{ item.nickname }</Link>
                   </p>
                   <p>
                     <span>共{ item.programCount }期</span>
