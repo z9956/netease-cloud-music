@@ -5,7 +5,10 @@ https://binaryify.github.io/NeteaseCloudMusicApi/#/
 
 > 目标
 >
-先把pc端完成
+>
+1、pd端(pc端大致完成，接下来优化)<br>
+2、移动端<br>
+3、客户端<br>
 
 > 技术选择
 >
@@ -18,7 +21,8 @@ React + Hooks + TypeScript + Sass
 
 >总结
 >
-基本的前后端部署都掌握了<br>
+掌握Hooks TypeScript基本使用<br>
+对前后端部署有基本认识<br>
 
 >项目结构
 >
