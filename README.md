@@ -3,13 +3,6 @@
 网易云音乐NodeJS版API <br/>
 https://binaryify.github.io/NeteaseCloudMusicApi/#/
 
-> 目标
->
->
-1、pd端(pc端大致完成，接下来优化)<br>
-2、移动端<br>
-3、客户端<br>
-
 > 技术选择
 >
 React + Hooks + TypeScript + Sass
@@ -21,6 +14,7 @@ React + Hooks + TypeScript + Sass
 
 >总结
 >
+webpack基本搭建项目<br>
 掌握Hooks TypeScript基本使用<br>
 对前后端部署有基本认识<br>
 
